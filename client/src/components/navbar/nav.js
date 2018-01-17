@@ -30,13 +30,10 @@ export default class NavBar extends React.Component {
     return (
       <div>
         <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand href="/">Amelie's French Bakery</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/blog">BLOG</NavLink>
-              </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   ABOUT US
@@ -46,11 +43,61 @@ export default class NavBar extends React.Component {
                   <NavLink href="/core-values">Core Values</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    Option 2
+                    <NavLink href="/privacy">Privacy Policy</NavLink>
                   </DropdownItem>
-                  <DropdownItem divider />
                   <DropdownItem>
-                    Reset
+                    <NavLink href="/termsofservice">Terms of Service</NavLink>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+                 <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  MENUS
+                </DropdownToggle>
+                <DropdownMenu >
+                  <DropdownItem>
+                  <NavLink href="/cafemenu">Café</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink href="/cakemenu">Cakes</NavLink>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              <NavItem>
+                <NavLink href="/blog">BLOG</NavLink>
+              </NavItem>
+                  <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  CONTACT
+                </DropdownToggle>
+                <DropdownMenu >
+                  <DropdownItem>
+                  <NavLink href="/contact">Contact Us</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink href="/locations">Locations</NavLink>
+                  </DropdownItem>
+                    <DropdownItem>
+                    <NavLink href="/eventscontacts">Event Contacts</NavLink>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+                     <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  CATERING & EVENTS
+                </DropdownToggle>
+                <DropdownMenu >
+                  <DropdownItem>
+                  <NavLink href="/eventscontacts">Event Contacts</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink href="/cateringmenu">Catering Menu</NavLink>
+                  </DropdownItem>
+                    <DropdownItem>
+                    <NavLink href="/eventrooms">Event Rooms</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink href="/specialevents">Special Events</NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

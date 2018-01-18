@@ -4,7 +4,7 @@ import Container from "../../components/container";
 import MainPanel from "../../components/mainpanel";
 import pTitle from "../../components/paragraphdiv/ptitle";
 
-class CoreValues extends Component {
+class ContactUs extends Component {
 
     render() {
         return (
@@ -12,7 +12,7 @@ class CoreValues extends Component {
             <NavBar/>
             <MainPanel>
             <pTitle>
-            Core Values
+            Contact Us
             </pTitle>
             </MainPanel>
             </Container>
@@ -20,4 +20,4 @@ class CoreValues extends Component {
     }
 }
 
-export default CoreValues;
+export default ContactUs;

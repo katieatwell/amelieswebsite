@@ -16,4 +16,4 @@ export default class Wrapper extends React.Component {
 Container.propTypes = {
   fluid:  PropTypes.bool
   // applies .container-fluid class
-}
+};

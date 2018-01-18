@@ -1,4 +1,6 @@
 import React from 'react';
+import "./style.css";
+
 import {
   Collapse,
   Navbar,
@@ -29,9 +31,10 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" light expand="md">
+        <Navbar color="faded" light expand="md" id="NavBar">
           <NavbarBrand href="/">Amelie's French Bakery</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
+          
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <UncontrolledDropdown nav inNavbar>

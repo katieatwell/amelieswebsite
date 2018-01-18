@@ -12,7 +12,9 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+}
+from 'reactstrap';
 
 export default class NavBar extends React.Component {
   constructor(props) {
@@ -49,7 +51,7 @@ export default class NavBar extends React.Component {
                     <NavLink href="/privacy">Privacy Policy</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink href="/termsofservice">Terms of Service</NavLink>
+                    <NavLink href="/terms">Terms of Service</NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

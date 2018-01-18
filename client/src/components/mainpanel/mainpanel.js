@@ -9,7 +9,6 @@ class MainPanel extends Component {
         <div>
           <Card id="MainPanel">
             <CardBody>
-              <CardTitle id="CardTitle">Card title</CardTitle>
               <CardText>{this.props.children}</CardText>
             </CardBody>
           </Card>

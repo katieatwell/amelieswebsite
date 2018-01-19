@@ -97,13 +97,13 @@ export default class NavBar extends React.Component {
                   <NavLink href="/contact-events">Event Contacts</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink href="/cateringmenu">Catering Menu</NavLink>
+                    <NavLink href="/catering-menu">Catering Menu</NavLink>
                   </DropdownItem>
                     <DropdownItem>
-                    <NavLink href="/eventrooms">Event Rooms</NavLink>
+                    <NavLink href="/event-rooms">Event Rooms</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink href="/specialevents">Special Events</NavLink>
+                    <NavLink href="/special-events">Special Events</NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

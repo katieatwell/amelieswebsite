@@ -1,7 +1,9 @@
 import React from 'react';
 import "./style.css";
 
-export const pTextBox = props =>
-  <p className="ptextbox">
+const PanelTextBox = props =>
+  <div className="ptextbox">
     {props.children}
-  </p>;
+  </div>;
+  
+export default PanelTextBox;

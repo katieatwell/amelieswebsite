@@ -1,7 +1,10 @@
 import React from 'react';
 import "./style.css";
 
-export const pTitle = props =>
-  <p className="ptitle">
+const PanelTitle = props =>
+  <div className="ptitle">
     {props.children}
-  </p>;
+  </div>;
+
+export default PanelTitle;
+

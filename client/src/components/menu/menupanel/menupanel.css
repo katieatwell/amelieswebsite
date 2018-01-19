@@ -1,3 +1,9 @@
 table {
     float: left;
+    max-width: 20%;
+    padding: 4px;
+}
+
+.menupanel {
+    max-width: 15%;
 }

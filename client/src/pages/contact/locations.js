@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import NavBar from "../../components/navbar";
 import Container from "../../components/container";
 import MainPanel from "../../components/mainpanel";
-import pTitle from "../../components/paragraphdiv/ptitle";
+import PanelTitle from "../../components/paragraphdiv/ptitle";
+import Footer from "../../components/footer";
+
 
 class Locations extends Component {
 
@@ -15,6 +17,7 @@ class Locations extends Component {
             Locations
             </pTitle>
             </MainPanel>
+            <Footer/>
             </Container>
         );
     }

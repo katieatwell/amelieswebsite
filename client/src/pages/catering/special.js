@@ -18,7 +18,7 @@ render () {
             <NavBar />
                 <MainPanel>
                     <PanelTitle>
-                        Special Events
+                        Wedding Events
                     </PanelTitle>
                     <PanelBody>
                         <Row>
@@ -49,7 +49,6 @@ render () {
 
                     </PanelBody>
                 </MainPanel>
-                
             <Footer />
         </Container>
 )}

@@ -1,0 +1,10 @@
+.aboutLeft {
+    text-align: center;
+}
+
+.privacyHeader,
+.termsHeader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}

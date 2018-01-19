@@ -8,7 +8,7 @@ import Locations from "./pages/contact/locations";
 import Events from "./pages/contact/events";
 import SpecialEvents from "./pages/catering/special";
 import EventRooms from "./pages/catering/rooms";
-import CafeMenu from "./pages/menus/cafemenu"
+import CafeMenu from "./pages/menus/cafemenu";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () =>

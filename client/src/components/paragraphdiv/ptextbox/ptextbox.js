@@ -1,7 +1,15 @@
 import React from 'react';
-import "./style.css";
+import { Card, CardBody,
+  CardText } from 'reactstrap';
 
-export const pTextBox = props =>
-  <p className="ptextbox">
-    {props.children}
-  </p>;
+const PanelTextBox = (props) => {
+  return (
+      <Card>
+        <CardBody>
+          <CardText>{props.children}</CardText>
+        </CardBody>
+      </Card>
+  );
+};
+
+export default PanelTextBox;

@@ -1,16 +1,10 @@
-import React, { Component } from 'react';
-import { Card, CardBody, CardTitle } from 'reactstrap';
+import React from 'react';
+import "./style.css";
 
-const PanelTitle = (props) => {
-  return (
-      <Card>
-        <CardBody>
-          <CardTitle>{props.children}</CardTitle>
-        </CardBody>
-      </Card>
-  );
-};
+const PanelTitle = props =>
+  <div className="ptitle">
+    {props.children}
+  </div>;
 
 export default PanelTitle;
-
 

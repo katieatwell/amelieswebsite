@@ -3,6 +3,7 @@ import NavBar from "../../components/navbar";
 import Container from "../../components/container";
 import MainPanel from "../../components/mainpanel"
 import PanelTitle from "../../components/paragraphdiv/ptitle";
+import PanelBody from "../../components/paragraphdiv/ptextbox";
 import Footer from "../../components/footer";
 
 
@@ -14,8 +15,12 @@ render () {
             <NavBar />
                 <MainPanel>
                     <PanelTitle>
-                        Welcome!
+                        Special Events
                     </PanelTitle>
+                    
+                    <PanelBody>
+
+                    </PanelBody>
                 </MainPanel>
                 
             <Footer />

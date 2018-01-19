@@ -31,7 +31,7 @@ class CafeMenu extends Component {
             <NavBar/>
             <MainPanel>
         <Nav className="menuNav" justified>
-          <NavItem>
+          <NavItem className="navMenuTitle">
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}
@@ -39,7 +39,7 @@ class CafeMenu extends Component {
             Breakfast
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className="navMenuTitle">
             <NavLink
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('2'); }}
@@ -47,7 +47,7 @@ class CafeMenu extends Component {
             Lunch/Dinner
             </NavLink>
           </NavItem>
-           <NavItem>
+           <NavItem className="navMenuTitle">
             <NavLink
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('3'); }}
@@ -55,7 +55,7 @@ class CafeMenu extends Component {
             Coffee/Tea
             </NavLink>
           </NavItem>
-           <NavItem>
+           <NavItem className="navMenuTitle">
             <NavLink
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('4'); }}
@@ -69,7 +69,40 @@ class CafeMenu extends Component {
             <Row>
               <Col sm="12">
               <br></br>
-                <h4>Breakfast Menu</h4>
+                <h3 className="menuTitle">Breakfast Menu</h3>
+                <MenuContent/>
+              </Col>
+            </Row>
+          </TabPane>
+          </TabContent>
+           <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="2">
+            <Row>
+              <Col sm="12">
+              <br></br>
+                <h3 className="menuTitle">Lunch/Dinner Menu</h3>
+                <MenuContent/>
+              </Col>
+            </Row>
+          </TabPane>
+          </TabContent>
+           <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="3">
+            <Row>
+              <Col sm="12">
+              <br></br>
+                <h3 className="menuTitle">Coffee/Tea Menu</h3>
+                <MenuContent/>
+              </Col>
+            </Row>
+          </TabPane>
+          </TabContent>
+           <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="4">
+            <Row>
+              <Col sm="12">
+              <br></br>
+                <h3 className="menuTitle">Pastries/Desserts Menu</h3>
                 <MenuContent/>
               </Col>
             </Row>

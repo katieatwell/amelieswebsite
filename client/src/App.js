@@ -2,7 +2,7 @@ import React from "react";
 import LandingPage from "./pages/landingpage";
 import CoreValues from "./pages/aboutus/corevalues";
 import Privacy from "./pages/aboutus/privacy";
-import Terms from "./pages/aboutus/corevalues";
+import Terms from "./pages/aboutus/terms";
 import ContactUs from "./pages/contact/contactus";
 import Locations from "./pages/contact/locations";
 import Events from "./pages/contact/events";

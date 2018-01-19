@@ -3,7 +3,7 @@ import NavBar from "../../components/navbar";
 import Container from "../../components/container";
 import MainPanel from "../../components/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
-import PanelTextBox from "../../components/paragraphdiv/ptextbox";
+import PanelBody from "../../components/paragraphdiv/ptextbox";
 import { Row, Col } from 'reactstrap';
 import "./style.css";
 
@@ -19,7 +19,7 @@ class CoreValues extends Component {
                             About Us
                         </PanelTitle>
                         
-                        <PanelTextBox>
+                        <PanelBody>
                             <Row>
                             <Col xs="12" sm="12" md="6" className="aboutLeft">
                                 Mission Statement
@@ -27,23 +27,23 @@ class CoreValues extends Component {
                                 To foster a feast for the senses and unique experience for each and every person that walks through our doors. We aim to inspire, challenge, comfort and nourish while creating community and fellowship. 
                                 <br /><br /><br />
                                 
-                                Core Values:
+                                Core Values
                                 <br />
-                                we are genuine this starts with who we are as individuals and continues through the products we serve and how we communicate.
+                                We are genuine this starts with who we are as individuals and continues through the products we serve and how we communicate.
                                 <br /><br />
-                                we celebrate diversity no matter what race, creed, gender identity or sexual orientation.
+                                We celebrate diversity no matter what race, creed, gender identity or sexual orientation.
                                 <br /><br />
-                                we celebrate food and drink we are in love with the food and drinks we make and the people that make them.
+                                We celebrate food and drink we are in love with the food and drinks we make and the people that make them.
                                 <br /><br />
-                                we value personal growth growth requires hard work and dedication.
+                                We value personal growth growth requires hard work and dedication.
                                 <br /><br />
-                                we are mindful of our impact to others we work to have a positive impact on guests and employees.
+                                We are mindful of our impact to others we work to have a positive impact on guests and employees.
                                 <br /><br />
-                                we honor the dignity of everyone we embrace differences and enjoy learning about each other.
+                                We honor the dignity of everyone we embrace differences and enjoy learning about each other.
                                 <br /><br />
-                                our job is our passion the food and drinks we make and the experience that we create is our passion.
+                                Our job is our passion the food and drinks we make and the experience that we create is our passion.
                                 <br /><br />
-                                the goal for our guests we want to create a lifetime relationship with our guests. from your daily visits, to the place that you choose to celebrate with the people you love. 
+                                The goal for our guests we want to create a lifetime relationship with our guests. From your daily visits, to the place that you choose to celebrate with the people you love. 
 
 
                             </Col>
@@ -53,7 +53,7 @@ class CoreValues extends Component {
                             </Col>
                             
                             </Row>
-                        </PanelTextBox>
+                        </PanelBody>
 
                     </MainPanel>
             </Container>

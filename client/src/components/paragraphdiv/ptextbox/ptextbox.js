@@ -1,15 +1,9 @@
 import React from 'react';
-import { Card, CardBody,
-  CardText } from 'reactstrap';
+import "./style.css";
 
-const PanelTextBox = (props) => {
-  return (
-      <Card>
-        <CardBody>
-          <CardText>{props.children}</CardText>
-        </CardBody>
-      </Card>
-  );
-};
-
+const PanelTextBox = props =>
+  <div className="ptextbox">
+    {props.children}
+  </div>;
+  
 export default PanelTextBox;

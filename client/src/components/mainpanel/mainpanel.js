@@ -1,19 +1,20 @@
-import React from "react";
-import "./style.css"
+import React, { Component } from 'react';
+import { Card, CardText, CardBody,
+  CardTitle } from 'reactstrap';
+import "./style.css";
 
-class MainPanel extends React.Component {
+class MainPanel extends Component {
     render() {
-        return (
-                <div className=".col .col-sm-12 .col-md-10 .col-md-offset-1" id="MainPanel">
-                    <div className="panel panel-default">
-                        <div className="panel-body">
-                            {this.props.children}
-                        </div>
-                    </div>
-                </div>
+  return (
+        <div>
+          <Card id="MainPanel">
+            <CardBody>
+              <CardText>{this.props.children}</CardText>
+            </CardBody>
+          </Card>
+        </div>
         );
     }
 }
-
 
 export default MainPanel;

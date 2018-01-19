@@ -14,7 +14,7 @@ export default class Footer extends Component {
                           <a href="/locations">Locations</a>
                     </div>
                     <div className="textContent">
-                          <a href="/contactus">Contact Us</a>
+                          <a href="/contact-us">Contact Us</a>
                     </div>
                     </div>
                 </Row>

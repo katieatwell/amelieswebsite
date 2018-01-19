@@ -6,16 +6,16 @@ export const MenuPanel = props =>
     <Table hover>
         <tbody>
             <tr>
-                <a href="/cafe-breakfast">Breakfast</a>
+                <a href="/cafemenu/breakfast">Breakfast</a>
             </tr>
             <tr>
-               <a href="/cafe-lunchdinner">Lunch/Dinner</a>
+               <a href="/cafemenu/lunchdinner">Lunch/Dinner</a>
             </tr>
             <tr>
-                <a href="/cafe-coffeetea">Coffee/Tea</a>
+                <a href="/cafemenu/coffeetea">Coffee/Tea</a>
             </tr>
             <tr>
-                <a href="/cafe-dessertspastries">Desserts/Pastries</a>
+                <a href="/cafemenu/dessertspastries">Desserts/Pastries</a>
             </tr>
         </tbody>
     </Table> 

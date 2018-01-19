@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col } from "reactstrap";
-import MenuPanel from "../menupanel";
-import MenuContents from "../menucontents";
+import { MenuPanel } from "../menupanel";
+import { MenuContent } from "../menucontents";
 
-export default class FullMenu extends Component {
+class FullMenu extends Component {
     render() {
         return (
             <div>
@@ -12,10 +12,12 @@ export default class FullMenu extends Component {
                         <MenuPanel />
                     </Col>
                     <Col m="9" l="8">
-                        <MenuContents />
+                        <MenuContent />
                     </Col>
                 </Row>
             </div>
         );
     }
 }
+
+export default FullMenu;

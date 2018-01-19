@@ -3,12 +3,8 @@ import React, {Component} from "react";
 import NavBar from "../../components/navbar"; 
 import Container from "../../components/container";
 import MainPanel from "../../components/mainpanel"
-// import pTextBox from "../../components/paragraphdiv/ptextbox";
-// import pTitle from "../../components/paragraphdiv/ptitle";
-// import ContactForm from "../../components/forms/contactform";
-import CakeForm from "../../components/forms/cakeform";
-// import Footer from "../../components/footer";
-// import { Link } from "react-router-dom";
+import PanelTitle from "../../components/paragraphdiv/ptitle";
+import Footer from "../../components/footer";
 
 
 class LandingPage extends Component {
@@ -18,8 +14,12 @@ render () {
         <Container>
             <NavBar />
                 <MainPanel>
-                    <CakeForm />
+                    <PanelTitle>
+                        Welcome!
+                    </PanelTitle>
                 </MainPanel>
+                
+            <Footer />
         </Container>
 )}
 

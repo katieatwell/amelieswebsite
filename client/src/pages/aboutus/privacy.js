@@ -4,6 +4,7 @@ import Container from "../../components/container";
 import MainPanel from "../../components/mainpanel"
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
+import Footer from "../../components/footer";
 import { Row, Col } from 'reactstrap';
 import "./style.css";
 
@@ -137,6 +138,7 @@ class Privacy extends Component {
 
                         </PanelBody>
                     </MainPanel>
+                    <Footer/>
             </Container>
         )
     }

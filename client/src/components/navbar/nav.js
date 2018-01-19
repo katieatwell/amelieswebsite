@@ -33,7 +33,8 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" light expand="md" id="NavBar">
+   {/*<Navbar color="faded" light expand="md" id="NavBar" justified>*/}
+        <Navbar color="faded" light expand="md" id="NavBar" justified>
           <NavbarBrand href="/">Amelie's French Bakery</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           

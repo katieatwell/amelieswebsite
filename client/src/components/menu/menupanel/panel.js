@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-import { Table } from "reactstrap";
+import { Table, Row, Col, Button } from "reactstrap";
+import "./menupanel.css";
 
 export const MenuPanel = props =>
-    <div>
+    <div className="menupanel">
+    <Row>
+    <Col m="2">
     <Table hover>
         <tbody>
             <tr>
-                <a href="/cafemenu/breakfast">Breakfast</a>
+                <Button>Breakfast</Button>
             </tr>
             <tr>
-               <a href="/cafemenu/lunchdinner">Lunch/Dinner</a>
+               <Button>Lunch/Dinner</Button>
             </tr>
             <tr>
-                <a href="/cafemenu/coffeetea">Coffee/Tea</a>
+                <Button>Coffee/Tea</Button>
             </tr>
             <tr>
-                <a href="/cafemenu/dessertspastries">Desserts/Pastries</a>
+                <Button>Desserts/Pastries</Button>
             </tr>
         </tbody>
     </Table> 
+    </Col>
+    </Row>
     </div>;

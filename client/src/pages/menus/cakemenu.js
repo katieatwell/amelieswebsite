@@ -9,26 +9,26 @@ import CakeForm from "../../components/forms/cakeform";
 import "./style.css";
 
 class CakeMenu extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            activeTab: '1'
-        };
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      activeTab: '1'
+    };
+  }
+
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
     }
+  }
 
-    toggle(tab) {
-        if (this.state.activeTab !== tab) {
-            this.setState({
-                activeTab: tab
-            });
-        }
-    }
-
-    render() {
-        return (
-            <Container>
+  render() {
+    return (
+      <Container>
             <NavBar/>
             <MainPanel>
         <Nav className="menuNav" justified>
@@ -73,8 +73,8 @@ class CakeMenu extends Component {
           </TabContent>
             </MainPanel>
             </Container>
-        )
-    }
+    )
+  }
 }
 
 export default CakeMenu;

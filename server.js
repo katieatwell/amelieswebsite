@@ -39,7 +39,33 @@ const users = [
   }
 ];
 
+//set up jwt
+let jwtOptions ={};
+jwtOptions.jwtFromRequrest=ExtractJwt.fromAuthHeaderAsBearerToken();
+jwtOptions.secretOrKey="PatsSecret";
 
+//set up passport strategy
+const strategy = new JwtStrategy(jwtOptions, function(jwt_payload, next){
+  console.log("payload arrived", jwt_payload);
+  // Will change to DB call after local array storage is seen working
+  let user=users[_.findIndex(users, {id:jwt_payload.id})];
+  if(user){
+    next(null,user);
+  }else {
+    next(null, false);
+  }
+});
+
+passport.use(strategy);
+//init passport
+app.use(passport.initialize());
+
+//set up bodyparser
+
+app.use(bodyParser.urlencoded({
+  extended:true
+}));
+app.use(bodyParser.json());
 
 // Router
 // const controller = require('./controller/index.js'); //need an index file for the controller
@@ -47,6 +73,27 @@ const users = [
 
 app.get("/", function(req,res){
   res.json({message:"Express is up!"});
+})
+
+app.post("/login",function(req,res){
+  //temp store name and pw for logic
+  if(req.body.name && req.body.password){ //both exist then
+    var name=req.body.name;
+    const password=req.body.password
+  };
+  let user=users[_.findIndex(users, {name:name})];
+  console.log(user)
+  if (!user){
+    res.status(401).json({message: "no such user found"})
+  }
+  if (user.password===req.body.password){
+    //save only user id as personally identity for payload on token
+    const payload={id:user.id};
+    const token = jwt.sign(payload, jwtOptions.secretOrKey);
+    res.json({message:"ok", token:token});
+  } else{
+    res.status(401).json({message:"password did not match"});
+  }
 })
 
 // Server Listen

@@ -14,8 +14,12 @@ mongoose.connect(mongoDB_uri, {useMongoClient: true})
   );
 
 // Router
-const controller = require('./controller/index.js');
-app.use('/menu', controller.menu );
+// const controller = require('./controller/index.js'); //need an index file for the controller
+// app.use('/menu', controller.menu ); // wont work without index file.
+
+app.get("/", function(req,res){
+  res.json({message:"Express is up!"});
+})
 
 // Server Listen
 app.listen(PORT, function() {

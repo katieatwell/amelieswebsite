@@ -41,18 +41,18 @@ const users = [
 
 //set up jwt
 let jwtOptions ={};
-jwtOptions.jwtFromRequrest=ExtractJwt.fromAuthHeaderAsBearerToken();
+jwtOptions.jwtFromRequest=ExtractJwt.fromAuthHeaderAsBearerToken();
 jwtOptions.secretOrKey="PatsSecret";
 
 //set up passport strategy
-const strategy = new JwtStrategy(jwtOptions, function(jwt_payload, next){
+const strategy = new JwtStrategy(jwtOptions, function(jwt_payload, done){
   console.log("payload arrived", jwt_payload);
   // Will change to DB call after local array storage is seen working
   let user=users[_.findIndex(users, {id:jwt_payload.id})];
   if(user){
-    next(null,user);
+    return done(null,user);
   }else {
-    next(null, false);
+    return done(null, false);
   }
 });
 

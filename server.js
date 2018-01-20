@@ -41,7 +41,7 @@ const users = [
 
 //set up jwt
 let jwtOptions ={};
-jwtOptions.jwtFromRequest=ExtractJwt.fromAuthHeaderAsBearerToken();
+jwtOptions.jwtFromRequest=ExtractJwt.fromAuthHeaderWithScheme('jwt');
 jwtOptions.secretOrKey="PatsSecret";
 
 //set up passport strategy
@@ -55,6 +55,10 @@ const strategy = new JwtStrategy(jwtOptions, function(jwt_payload, done){
     return done(null, false);
   }
 });
+
+//notes this strategy requires name and password to be first level under req when sent to login
+//this strategy requires headers to have the key value pair of {Authorization: jwt XXXXXXXXX} where XXXXX is the token string.
+//token timer isn't set in this case.
 
 passport.use(strategy);
 //init passport
@@ -94,6 +98,12 @@ app.post("/login",function(req,res){
   } else{
     res.status(401).json({message:"password did not match"});
   }
+})
+
+app.get("/authed", passport.authenticate('jwt', {
+  session:false
+}), function(req,res){
+  res.json("Success! You can only see this with a token!")
 })
 
 // Server Listen

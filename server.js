@@ -13,6 +13,34 @@ mongoose.connect(mongoDB_uri, {useMongoClient: true})
     err => {console.log(`Error connecting to MongoDB \n${err}`)}
   );
 
+// set up jwt dependencies
+const _ = require("lodash");
+const bodyParser =require("body-parser");
+const jwt =require("jsonwebtoken");
+
+const passport =require("passport");
+const passportJWT=require("passport-jwt");
+
+const ExtractJwt =passportJWT.ExtractJwt;
+const JwtStrategy=passportJWT.Strategy;
+
+//temporary authuser array to work with before hooking up to DB
+//remember, passwords should never be stored plain text like here but use bcrypt 12 or greater before storing to db
+const users = [
+  {
+    id:1,
+    name: "john",
+    password:"doe"
+  },
+  {
+    id:2,
+    name:"test",
+    password:"test"
+  }
+];
+
+
+
 // Router
 // const controller = require('./controller/index.js'); //need an index file for the controller
 // app.use('/menu', controller.menu ); // wont work without index file.

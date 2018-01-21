@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Build your own cake options
 const CakeTypeSchema = new Schema({
   option: {
     type: String,
@@ -13,6 +14,20 @@ const CakeButtercream = mongoose.model('CakeButtercream', CakeTypeSchema);
 const CakeFilling = mongoose.model('CakeFilling', CakeTypeSchema);
 const CakeMD = mongoose.model('CakeMD', CakeTypeSchema); // MD = Masking and Decoration
 
+// Pre-designed Cakes
+const CakeComposedSchema = new Schema({
+  option: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: [String],
+  }
+});
+
+const CakeComposed = mongoose.model('CakeComposed', CakeComposedSchema);
+
+// Cake Prices based on size/options
 const CakePriceSchema = new Schema({
   option: {
     type: String,
@@ -30,6 +45,7 @@ module.exports = {
   Flavor: CakeFlavor,
   Buttercream: CakeButtercream,
   Filling: CakeFilling,
-  MD: CakeMD, 
+  MD: CakeMD,
+  Composed: CakeComposed,
   Price: CakePrice
 };

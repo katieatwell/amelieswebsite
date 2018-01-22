@@ -38,6 +38,25 @@ const users = [
     password:"test"
   }
 ];
+var db = require("./models");
+
+//set up original user and password. 
+// db.AuthUser
+//   .create({ name: "test", password:"tested" })
+//   .then(function(dbAuthUser) {
+//     // If saved successfully, print 
+//     console.log(dbAuthUser);
+//   })
+//   .catch(function(err) {
+//     // If an error occurs, print it to the console
+//     console.log(err.message);
+//   });
+
+//show database
+db.AuthUser.find(function(err,user){
+  if (err) return console.error(err);
+  console.log(user);
+})
 
 //set up jwt
 let jwtOptions ={};
@@ -48,7 +67,8 @@ jwtOptions.secretOrKey="PatsSecret";
 const strategy = new JwtStrategy(jwtOptions, function(jwt_payload, done){
   console.log("payload arrived", jwt_payload);
   // Will change to DB call after local array storage is seen working
-  let user=users[_.findIndex(users, {id:jwt_payload.id})];
+  //let user=users[_.findIndex(users, {id:jwt_payload.id})];
+  let user=db.AuthUser.findOne({_id:jwt_payload.id})
   if(user){
     return done(null,user);
   }else {
@@ -82,13 +102,23 @@ app.get("/", function(req,res){
 
 app.post("/login",function(req,res){
   //temp store name and pw for logic
+  console.log("login hit")
   if(req.body.name && req.body.password){ //both exist then
     var name=req.body.name;
-    const password=req.body.password
+    const password=req.body.password;
+    console.log(name +" "+ password)
   };
-  let user=users[_.findIndex(users, {name:name})];
-  console.log(user)
-  if (!user){
+  
+  //let user=users[_.findIndex(users, {name:name})];
+  db.AuthUser.findOne({name:name}, function(err, user){
+    if (err) console.error(err);
+    console.log("in the findOne");
+    //console.log(user);
+    console.log(user.password);
+
+  
+  //console.log(user)
+  if (user===null){
     res.status(401).json({message: "no such user found"})
   }
   if (user.password===req.body.password){
@@ -99,6 +129,7 @@ app.post("/login",function(req,res){
   } else{
     res.status(401).json({message:"password did not match"});
   }
+  });
 })
 
 app.get("/authed", passport.authenticate('jwt', {

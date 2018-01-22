@@ -24,23 +24,9 @@ const passportJWT=require("passport-jwt");
 const ExtractJwt =passportJWT.ExtractJwt;
 const JwtStrategy=passportJWT.Strategy;
 
-//temporary authuser array to work with before hooking up to DB
 //remember, passwords should never be stored plain text like here but use bcrypt 12 or greater before storing to db
-const users = [
-  {
-    id:1,
-    name: "john",
-    password:"doe"
-  },
-  {
-    id:2,
-    name:"test",
-    password:"test"
-  }
-];
-var db = require("./models");
 
-//set up original user and password. 
+//set up original user and password. should be moved to seeds at some point.. how to store using bc
 // db.AuthUser
 //   .create({ name: "test", password:"tested" })
 //   .then(function(dbAuthUser) {
@@ -51,12 +37,12 @@ var db = require("./models");
 //     // If an error occurs, print it to the console
 //     console.log(err.message);
 //   });
-
+var db = require("./models");
 //show database
-db.AuthUser.find(function(err,user){
-  if (err) return console.error(err);
-  console.log(user);
-})
+// db.AuthUser.find(function(err,user){
+//   if (err) return console.error(err);
+//   console.log(user);
+// })
 
 //set up jwt
 let jwtOptions ={};
@@ -102,33 +88,24 @@ app.get("/", function(req,res){
 
 app.post("/login",function(req,res){
   //temp store name and pw for logic
-  console.log("login hit")
   if(req.body.name && req.body.password){ //both exist then
     var name=req.body.name;
     const password=req.body.password;
-    console.log(name +" "+ password)
   };
   
-  //let user=users[_.findIndex(users, {name:name})];
   db.AuthUser.findOne({name:name}, function(err, user){
     if (err) console.error(err);
-    console.log("in the findOne");
-    //console.log(user);
-    console.log(user.password);
-
-  
-  //console.log(user)
-  if (user===null){
-    res.status(401).json({message: "no such user found"})
-  }
-  if (user.password===req.body.password){
-    //save only user id as personally identity for payload on token
-    const payload={id:user.id};
-    const token = jwt.sign(payload, jwtOptions.secretOrKey);
-    res.json({message:"ok", token:token});
-  } else{
-    res.status(401).json({message:"password did not match"});
-  }
+    if (user===null){
+      res.status(401).json({message: "no such user found"})
+    }
+    if (user.password===req.body.password){
+      //save only user id as personally identity for payload on token
+      const payload={id:user._id};
+      const token = jwt.sign(payload, jwtOptions.secretOrKey);
+      res.json({message:"ok", token:token});
+    } else{
+      res.status(401).json({message:"password did not match"});
+    }
   });
 })
 

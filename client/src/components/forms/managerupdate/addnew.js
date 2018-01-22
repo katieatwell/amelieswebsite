@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import "./style.css";
 
-export default class UpdateForm extends Component {
-  render() {
-    return (
-      <Form>
+export default class AddNewForm extends Component {
+    render() {
+        return (
+            <Form>
       
         <FormGroup>
           <Label for="name">Item Title</Label>
@@ -43,9 +43,9 @@ export default class UpdateForm extends Component {
         </FormGroup>
         
         <Button outline color="secondary">Delete</Button>
-        <Button outline color="secondary">Submit</Button>
+        <Button outline color="secondary">Add New</Button>
         
       </Form>
-    );
-  }
+        );
+    }
 }

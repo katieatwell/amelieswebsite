@@ -63,7 +63,7 @@ const strategy = new JwtStrategy(jwtOptions, function(jwt_payload, done){
 passport.use(strategy);
 //init passport
 app.use(passport.initialize());
-
+app.use(express.static('client/public'));
 //set up bodyparser
 
 app.use(bodyParser.urlencoded({
@@ -76,7 +76,8 @@ app.use(bodyParser.json());
 // app.use('/menu', controller.menu ); // wont work without index file.
 
 app.get("/", function(req,res){
-  res.json({message:"Express is up!"});
+  res.sendFile(process.cwd()+'client/public/index.html');
+  //res.json({message:"Express is up!"});
 })
 
 app.post("/login",function(req,res){

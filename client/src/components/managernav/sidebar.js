@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { ListGroup, ListGroupItem, Button, Dropdown, DropdownMenu, DropdownToggle, Collapse, Card } from "reactstrap";
+import { ListGroup, ListGroupItem, Collapse, Card } from "reactstrap";
 
 export default class ManagerSidebar extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = { collapse: false };
-        this.id = this.id;
+        this.id = "";
     }
 
     toggle() {
@@ -16,13 +16,13 @@ export default class ManagerSidebar extends Component {
     render() {
         return (
             <div>
-    <ListGroup hover>
-        <ListGroupItem id="1" tag="cafe" href="#" action onClick={this.toggle}>
+    <ListGroup>
+        <ListGroupItem id="1" tag="i" action onClick={this.toggle}>
             Cafe Menu
-            <Collapse isOpen={this.state.collapse} onClick={this.toggle}>
+            <Collapse isOpen={this.state.collapse}>
             <Card>
             <ListGroup>
-                <ListGroupItem tag="b" href="#" action>Breakfast</ListGroupItem>
+                <ListGroupItem tag="l" href="#" action>Breakfast</ListGroupItem>
                 <ListGroupItem tag="c" href="#" action>Lunch/Dinner</ListGroupItem>
                 <ListGroupItem tag="d" href="#" action>Coffee/Tea</ListGroupItem>
                 <ListGroupItem tag="e" href="#" action>Desserts/Pastries</ListGroupItem>
@@ -31,7 +31,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="2" tag="cake" href="#" action onClick={this.toggle}>
+        <ListGroupItem id="2" tag="i" href="#" action onClick={this.toggle}>
             Cake Menu
             <Collapse isOpen={this.state.collapse}>
             <Card>
@@ -42,17 +42,17 @@ export default class ManagerSidebar extends Component {
             </Card>
             </Collapse>
         </ListGroupItem>
-        
-        <ListGroupItem id="3" tag="catering" href="#" action onClick={this.toggle}>
+
+        <ListGroupItem id="3" tag="i" href="#" action onClick={this.toggle}>
             Catering Menu
             <Collapse isOpen={this.state.collapse}>
             <Card>
             <ListGroup>
                 <ListGroupItem tag="h" href="#" action>Beverages</ListGroupItem>
-                <ListGroupItem tag="i" href="#" action>Breakfast & Brunch</ListGroupItem>
+                <ListGroupItem tag="r" href="#" action>Breakfast & Brunch</ListGroupItem>
                 <ListGroupItem tag="j" href="#" action>Desserts</ListGroupItem>
                 <ListGroupItem tag="k" href="#" action>Favors and Gift Baskets</ListGroupItem>
-                <ListGroupItem tag="l" href="#" action>In House Event Packages</ListGroupItem>
+                <ListGroupItem tag="t" href="#" action>In House Event Packages</ListGroupItem>
                 <ListGroupItem tag="m" href="#" action>Lunch</ListGroupItem>
                 <ListGroupItem tag="n" href="#" action>Platters</ListGroupItem>
                 <ListGroupItem tag="o" href="#" action>Wedding and Specialty Cakes</ListGroupItem>
@@ -60,6 +60,11 @@ export default class ManagerSidebar extends Component {
             </Card>
             </Collapse>
         </ListGroupItem>
+        
+        <ListGroupItem id="addNew" tag="i" href="#" action {...this.props}>
+        Add New Menu Item
+        </ListGroupItem>
+        
     </ListGroup>
 </div>
 

@@ -4,7 +4,7 @@ import MainPanel from "../../components/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
 import NavBar from "../../components/navbar";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from "classnames";
 import { MenuContent } from "../../components/menu/menucontents";
 import "./style.css";

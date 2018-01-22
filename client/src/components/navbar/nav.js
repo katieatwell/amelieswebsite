@@ -37,9 +37,8 @@ export default class NavBar extends React.Component {
         <Navbar color="faded" light expand="md" id="NavBar" justified>
           <NavbarBrand href="/">Amelie's French Bakery</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+          <Collapse isOpen={this.state.isOpen} navbar className="navDiv">
+            <Nav navbar className="ml-auto">
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   ABOUT US

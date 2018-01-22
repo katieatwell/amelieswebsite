@@ -10,6 +10,7 @@ import SpecialEvents from "./pages/catering/special";
 import EventRooms from "./pages/catering/rooms";
 import CafeMenu from "./pages/menus/cafemenu";
 import CakeMenu from "./pages/menus/cakemenu";
+import ManagerLogin from "./pages/managerDash/managerLogin";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () =>
@@ -27,6 +28,7 @@ const App = () =>
     <Route exact path="/event-rooms" component={EventRooms}/>
     <Route exact path="/cafemenu" component={CafeMenu}/>
     <Route exact path="/cakemenu" component={CakeMenu}/>
+    <Route exact path="/managerlogin" component={ManagerLogin}/>
     </Switch>
     </div>
     </Router>;

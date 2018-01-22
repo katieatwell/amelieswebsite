@@ -1,1 +1,2 @@
-export {default} from './quilleditor.js';
+export * from './quilleditor.js';
+export * from "./updateform.js";

@@ -15,9 +15,9 @@ Quill.register(AlignStyle, true);
 class QuillEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { html: ''}; //Future: html will be pre-filled based on user selection
+    this.state = { html: '' }; //Future: html will be pre-filled based on user selection
     this.modules = {
-      toolbar: [  // Formats included in the Quill editor toolbar
+      toolbar: [ // Formats included in the Quill editor toolbar
         ['bold', 'italic', 'underline'],
         [{ 'align': '' }, { 'align': 'center' }, { 'align': 'right' }],
         [{ 'header': [2, 3, 4, false] }],
@@ -25,7 +25,7 @@ class QuillEditor extends React.Component {
         [{ 'list': 'ordered' }, { 'list': 'bullet' }]
       ]
     };
-    this.formats = [  // Formats that the  Quill editor will allow
+    this.formats = [ // Formats that the  Quill editor will allow
       'bold',
       'italic',
       'underline',

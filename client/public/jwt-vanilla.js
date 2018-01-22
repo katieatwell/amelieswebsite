@@ -14,7 +14,7 @@ function getToken() {
     var responseObject = JSON.parse(this.response);
     console.log(responseObject);
     if (responseObject.token) {
-      //tokenElement.innerHTML = responseObject.token;
+      tokenElement.innerHTML = "token received";
       sessionStorage.setItem('token', responseObject.token);
     } else {
       tokenElement.innerHTML = "No token received";

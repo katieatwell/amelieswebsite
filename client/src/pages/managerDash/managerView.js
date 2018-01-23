@@ -4,7 +4,7 @@ import Container from "../../components/container";
 import MainPanel from "../../components/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import UpdateForm from "../../components/forms/managerupdate/updateform";
-import AddNewForm from "../../components/forms/managerupdate/addnew";
+// import AddNewForm from "../../components/forms/managerupdate/addnew";
 import ManagerSidebar from "../../components/managernav/sidebar";
 import Footer from "../../components/footer";
 import { Row, Col } from "reactstrap";

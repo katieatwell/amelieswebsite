@@ -12,19 +12,21 @@ class ManagerLogin extends Component {
 
     render() {
         return (
-            <Container>
+            <div>
                 <NavBar/>
-                <MainPanel>
-                    <PanelTitle>
-                        Log In:
-                    </PanelTitle>
-                    
-                    <PanelBody>
-                        <ManagerLoginForm />
-                    </PanelBody>
-                </MainPanel>
+                    <Container>
+                        <MainPanel>
+                            <PanelTitle>
+                                Log In:
+                            </PanelTitle>
+                            
+                            <PanelBody>
+                                <ManagerLoginForm />
+                            </PanelBody>
+                        </MainPanel>
+                    </Container>
                 <Footer/>
-            </Container>
+            </div>
         );
     }
 }

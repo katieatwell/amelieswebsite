@@ -125,12 +125,12 @@ app.post("/login",function(req,res){
     }
   });
 })
-
-app.get("/authed", passport.authenticate('jwt', {
+//old auth check route. authenticate now applies to all routes with '/api/manager'
+/*app.get("/authed", passport.authenticate('jwt', {
   session:false
 }), function(req,res){
   res.json("Success! You can only see this with a token!")
-})
+})*/
 
 // Server Listen
 app.listen(PORT, function() {

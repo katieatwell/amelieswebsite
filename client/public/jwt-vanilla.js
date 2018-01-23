@@ -31,10 +31,10 @@ function getToken() {
 // make the request to the secret API endpoint
 function getSecret() {
 
-  var url = "/authed"
+  var url = "/api/manager"
   var xhr = new XMLHttpRequest();
   const token = sessionStorage.getItem('token');
-  var tokenElement = document.getElementById('token');
+  //var tokenElement = document.getElementById('token');
   var resultElement = document.getElementById('result');
   xhr.open('GET', url, true);
   xhr.setRequestHeader("Authorization", "jwt " + token);

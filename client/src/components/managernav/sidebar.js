@@ -6,24 +6,15 @@ export default class ManagerSidebar extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            collapse: [false, false, false, false, false, false, false],
-            cafeBreakfastMenu: [],
-            cafeLunchMenu: [],
-            cafeCoffeeMenu: [],
-            cafeDessertMenu: []
+            collapse: [false, false, false, false, false, false, false]
         };
         this.id = "";
     }
 
     componentDidMount() {
-        this.loadBreakfastItems();
+        this.props.loadCafeMenuItems();
     }
 
-    loadBreakfastItems = () => {
-        API.getCafeMenuItems()
-            .then(res => this.setState({ cafeBreakfastMenu: res.data.breakfast }), (res) => console.log(res.data.breakfast))
-            .catch(err => console.log(err));
-    }
     toggle(num) {
         let tempArr = [...this.state.collapse];
         tempArr[num] = !tempArr[num];
@@ -34,28 +25,47 @@ export default class ManagerSidebar extends Component {
         return (
             <div>
     <ListGroup>
-        <ListGroupItem id="1" tag="a" action onClick={() => this.toggle(0)}>
+        <ListGroupItem id="1" tag="a" action onClick={() => {this.toggle(0), this.props.loadCafeMenuItems()}}>
             Cafe Menu
             <Collapse isOpen={this.state.collapse[0]}>
             <Card>
             <ListGroup>
-                <ListGroupItem tag="a" href="#" action onClick={() => {this.toggle(3), this.loadBreakfastItems}}>Breakfast
-                    {this.state.cafeBreakfastMenu.length ? (
+                <ListGroupItem tag="a" href="#" action onClick={() => this.toggle(3)}>Breakfast
+                    {this.props.cafeBreakfastMenu.length ? (
                     <Collapse isOpen={this.state.collapse[3]}>
+                    <Card>
                     <ListGroup>
                     {this.state.cafeBreakfastMenu.map(item => (
-                        <ListGroupItem key={item.title}> 
+                        <ListGroupItem key={item.title} onClick={()=> this.props.toggleForms}> 
                         <h4>
                         {item.title}
                         </h4>
                         </ListGroupItem>
                         ))}
                     </ListGroup>
+                    </Card>
                     </Collapse>
                     ): (<h5></h5>
                     )}
                     </ListGroupItem>
-                <ListGroupItem tag="a" href="#" action>Lunch/Dinner</ListGroupItem>
+                <ListGroupItem tag="a" href="#" action onClick={() => this.toggle(4)}>Lunch/Dinner
+                  {this.props.cafeLunchMenu.length ? (
+                    <Collapse isOpen={this.state.collapse[4]}>
+                    <Card>
+                    <ListGroup>
+                    {this.state.cafeLunchMenu.map(item => (
+                        <ListGroupItem key={item.title} onClick={()=> this.props.toggleForms}> 
+                        <h4>
+                        {item.title}
+                        </h4>
+                        </ListGroupItem>
+                        ))}
+                    </ListGroup>
+                    </Card>
+                    </Collapse>
+                    ): (<h5></h5>
+                    )}
+                </ListGroupItem>
                 <ListGroupItem tag="a" href="#" action>Coffee/Tea</ListGroupItem>
                 <ListGroupItem tag="a" href="#" action>Desserts/Pastries</ListGroupItem>
             </ListGroup>
@@ -93,7 +103,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="addNew" tag="i" href="#" action {...this.props}>
+        <ListGroupItem action onClick={()=>this.props.toggleForms()}>
         Add New Menu Item
         </ListGroupItem>
         

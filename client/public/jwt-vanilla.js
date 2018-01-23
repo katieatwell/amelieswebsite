@@ -1,6 +1,6 @@
 // make the request to the login endpoint
 function getToken() {
-  var loginUrl = "https://project-3-playground2-pathayes.c9users.io/login"
+  var loginUrl = "/login"
   var xhr = new XMLHttpRequest();
   var userElement = document.getElementById('username');
   var passwordElement = document.getElementById('password');
@@ -31,7 +31,7 @@ function getToken() {
 // make the request to the secret API endpoint
 function getSecret() {
 
-  var url = "https://project-3-playground2-pathayes.c9users.io/authed"
+  var url = "/authed"
   var xhr = new XMLHttpRequest();
   const token = sessionStorage.getItem('token');
   var tokenElement = document.getElementById('token');

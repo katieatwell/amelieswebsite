@@ -24,6 +24,7 @@ const passportJWT=require("passport-jwt");
 const ExtractJwt =passportJWT.ExtractJwt;
 const JwtStrategy=passportJWT.Strategy;
 
+const bcrypt=require("bcrypt");
 //remember, passwords should never be stored plain text like here but use bcrypt 12 or greater before storing to db
 
 //set up original user and password. should be moved to seeds at some point.. how to store using bc
@@ -37,6 +38,21 @@ const JwtStrategy=passportJWT.Strategy;
 //     // If an error occurs, print it to the console
 //     console.log(err.message);
 //   });
+
+//store with bcrypt
+// bcrypt.hash('tested',12,function(err, hash){
+//   if (err)console.error(err);
+//   db.AuthUser
+//     .create({ name: "test2", password:hash })
+//     .then(function(dbAuthUser) {
+//       // If saved successfully, print 
+//       console.log(dbAuthUser);
+//     })
+//     .catch(function(err) {
+//       // If an error occurs, print it to the console
+//       console.log(err.message);
+//     });
+// })
 var db = require("./models");
 //show database
 // db.AuthUser.find(function(err,user){
@@ -94,17 +110,24 @@ app.post("/login",function(req,res){
   };
   
   db.AuthUser.findOne({name:name}, function(err, user){
+    console.log(user);
     if (err) console.error(err);
     if (user===null){
       res.status(401).json({message: "no such user found"})
     }
-    if (user.password===req.body.password){
-      //save only user id as personally identity for payload on token
-      const payload={id:user._id};
-      const token = jwt.sign(payload, jwtOptions.secretOrKey);
-      res.json({message:"ok", token:token});
-    } else{
-      res.status(401).json({message:"password did not match"});
+    if (user.password!==null){
+      bcrypt.compare(req.body.password ,user.password, function(err, result){
+        if (err) console.error(err);
+        console.log(result);
+        if (result===true){
+          console.log('correct password');
+          const payload={id:user._id};
+          const token = jwt.sign(payload, jwtOptions.secretOrKey);
+          res.json({message:"ok", token:token});
+        }else {
+          res.status(401).json({message:"password did not match"});
+        }
+      })
     }
   });
 })

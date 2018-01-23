@@ -36,7 +36,7 @@ class ManagerView extends Component {
                 <NavBar/>
                 <MainPanel>
                 <Row>
-                    <Col lg="4">
+                    <Col lg="5">
                     <PanelTitle>
                        Add/Update Menus:
                     </PanelTitle>

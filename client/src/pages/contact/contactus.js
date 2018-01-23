@@ -12,19 +12,21 @@ class ContactUs extends Component {
 
     render() {
         return (
-            <Container>
+            <div>
                 <NavBar/>
-                <MainPanel>
-                    <PanelTitle>
-                        Contact Us
-                    </PanelTitle>
-                    
-                    <PanelBody>
-                        <ContactForm />
-                    </PanelBody>
-                </MainPanel>
+                    <Container>
+                        <MainPanel>
+                            <PanelTitle>
+                                Contact Us
+                            </PanelTitle>
+                            
+                            <PanelBody>
+                                <ContactForm />
+                            </PanelBody>
+                        </MainPanel>
+                    </Container>
                 <Footer/>
-            </Container>
+            </div>
         );
     }
 }

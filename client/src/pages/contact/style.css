@@ -6,9 +6,15 @@
     font-weight: bold;
     font-size: medium;
     font-size-adjust: inherit;
-    text-decoration: underline;
+    color: #52575a;
+
 }
 
+.navTitle:hover {
+    text-decoration: underline;
+    color: #52575a;
+
+}
 
 .roomHeader {
     font-size: 18px;

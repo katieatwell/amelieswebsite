@@ -15,10 +15,10 @@ export default class Footer extends Component {
                         </p>
                         
                         <p className="socialMediaContainer">
-                            <a href=""><img src="social_images/facebook.png" className="socialImg" /></a>
-                            <a href=""><img src="social_images/twitter.png" className="socialImg" /></a>
-                            <a href=""><img src="social_images/instagram.png" className="socialImg" /></a>
-                            <a href=""><img src="social_images/yelp.png" className="socialImg" /></a>
+                            <a href=""><img src="social_images/facebook.png" alt="facebookIcon" className="socialImg" /></a>
+                            <a href=""><img src="social_images/twitter.png" alt="twitterIcon" className="socialImg" /></a>
+                            <a href=""><img src="social_images/instagram.png" alt="instagramIcon" className="socialImg" /></a>
+                            <a href=""><img src="social_images/yelp.png" alt="yelpIcon" className="socialImg" /></a>
                         </p>
                     </Col>
 

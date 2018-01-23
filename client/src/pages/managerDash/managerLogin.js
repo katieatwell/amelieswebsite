@@ -4,11 +4,11 @@ import Container from "../../components/container";
 import MainPanel from "../../components/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
-import ContactForm from "../../components/forms/contactform";
+import ManagerLoginForm from "../../components/forms/managerlogin";
 import Footer from "../../components/footer";
 
 
-class ContactUs extends Component {
+class ManagerLogin extends Component {
 
     render() {
         return (
@@ -17,11 +17,11 @@ class ContactUs extends Component {
                     <Container>
                         <MainPanel>
                             <PanelTitle>
-                                Contact Us
+                                Log In:
                             </PanelTitle>
                             
                             <PanelBody>
-                                <ContactForm />
+                                <ManagerLoginForm />
                             </PanelBody>
                         </MainPanel>
                     </Container>
@@ -31,4 +31,4 @@ class ContactUs extends Component {
     }
 }
 
-export default ContactUs;
+export default ManagerLogin;

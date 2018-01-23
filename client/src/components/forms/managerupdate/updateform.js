@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import QuillEditor from "./quilleditor";
 import "./style.css";
 
 export default class UpdateForm extends Component {
@@ -14,7 +15,8 @@ export default class UpdateForm extends Component {
         
         <FormGroup>
           <Label for="name">Item Description</Label>
-          <Input type="text" name="description" id="itemDescription" />
+          {/*<Input type="text" name="description" id="itemDescription" />*/}
+          <QuillEditor/>
         </FormGroup>
         
         <FormGroup>

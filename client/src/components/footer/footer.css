@@ -10,18 +10,26 @@ footer {
 }
 
 .textContent {
+    font-family: 'Merriweather', serif;
     text-align: center;
     font-size: 20px;
     font-weight: lighter;
     float: left;
     padding: 10px;
-    color: #641F1F;
+    color: #52575a;
 }
 
-a:link {
-    color: #72A3CE;
+a {
+    color: #52575a
 }
+
+a:hover {
+    color: black;
+}
+
 
 .footerContainer {
-   margin: 0 auto;
+    margin: 0 auto;
+    color: #52575a;
+
 }

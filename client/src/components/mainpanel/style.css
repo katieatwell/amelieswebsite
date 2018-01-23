@@ -1,7 +1,8 @@
 #MainPanel {
-    border: 1px solid black;
-    margin: 50px 20px 50px 20px;
+    border: 2px solid #f5ef90;
+    margin: 25px 20px 50px 20px;
     padding: 40px;
+    background-color: #ecebe9;
 }
 
 #CardTitle {

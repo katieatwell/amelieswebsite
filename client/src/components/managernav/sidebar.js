@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Collapse, Card } from "reactstrap";
-
+import API from "../../utils/API";
 export default class ManagerSidebar extends Component {
     constructor(props) {
         super(props);
@@ -20,9 +20,9 @@ export default class ManagerSidebar extends Component {
     }
 
     loadBreakfastItems = () => {
-        //API.whateverICallToGetBreakfastMenuItems()
-        //.then(res => this.setState(cafeBreakfastMenu: res.data.breakfast)
-        //.catch(err => console.log(err);
+        API.getCafeMenuItems()
+            .then(res => this.setState({ cafeBreakfastMenu: res.data.breakfast }), (res) => console.log(res.data.breakfast))
+            .catch(err => console.log(err));
     }
     toggle(num) {
         let tempArr = [...this.state.collapse];
@@ -44,7 +44,7 @@ export default class ManagerSidebar extends Component {
                     <Collapse isOpen={this.state.collapse[3]}>
                     <ListGroup>
                     {this.state.cafeBreakfastMenu.map(item => (
-                        <ListGroupItem key={item.title} tag="a" href={"/breakfastitem" + item._id}> 
+                        <ListGroupItem key={item.title}> 
                         <h4>
                         {item.title}
                         </h4>
@@ -52,8 +52,7 @@ export default class ManagerSidebar extends Component {
                         ))}
                     </ListGroup>
                     </Collapse>
-                    ): (
-                    <h3>No Results to Display</h3>
+                    ): (<h5></h5>
                     )}
                     </ListGroupItem>
                 <ListGroupItem tag="a" href="#" action>Lunch/Dinner</ListGroupItem>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Row, Col } from "reactstrap";
 import { ItemSummary } from "./menuitem/itemsummary";
 import { ItemTitle } from "./menuitem/itemtitle";

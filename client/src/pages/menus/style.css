@@ -1,12 +1,20 @@
 .nav {
     list-style-position: inside;
 }
+
 .navMenuTitle {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 5px;
-    text-decoration: underline;
+    color: #52575a;
 }
+
+.navMenuTitle:hover {
+    text-decoration: underline;
+    color: #52575a;
+
+}
+
 .menuTitle {
     text-align: center;
     font-weight: lighter;

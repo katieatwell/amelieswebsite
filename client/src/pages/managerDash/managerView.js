@@ -11,11 +11,11 @@ import { Row, Col } from "reactstrap";
 
 
 class ManagerView extends Component {
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = { addNew: false, hidden: true };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.toggle = this.toggle.bind(this);
+    //     this.state = { addNew: false, hidden: true };
+    // }
 
     // toggle(event) {
     //     let id = event.target.id;
@@ -26,7 +26,7 @@ class ManagerView extends Component {
     //         hidden: true;
     //     }
     // }
-    
+
     //Add code to hide addNew form and only make visible when add new is clicked
     //Toggle to click between the two forms...
 
@@ -51,7 +51,7 @@ class ManagerView extends Component {
                    
                     <Col lg="8">
                         <UpdateForm />
-                        <AddNewForm hidden={this.state.hidden} isOpen={this.state.addnew}/>
+                        {/*<AddNewForm hidden={this.state.hidden} isOpen={this.state.addnew}/>*/}
                     </Col>
                   
                 </Row>

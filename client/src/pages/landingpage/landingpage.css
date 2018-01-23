@@ -1,10 +1,74 @@
 .bannerImg {
     width: 80%;
-    height: 250px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
 }
 
-.imgContainer {
+.firstRow {
+    font-size: 48px;
     text-align: center;
 }
+
+.secondRow {
+    text-align: center;
+    margin-top: -50px;
+}
+
+
+
+/*.thirdRow {*/
+
+/*    text-align: center;*/
+
+/*    margin-bottom: 30px*/
+
+/*}*/
+
+/*.fourthRow {*/
+
+/*    text-align: center;*/
+
+/*    font-family: 'Playfair Display', serif;*/
+
+/*}*/
+
+/*<img src="/images/MonaCat.jpg" alt="art" className="monacat" />*/
+
+/*<img src="/images/FramedChildVector.jpg" alt="art" className="vector" />*/
+
+/*<img src="/images/ShatteredIphone.jpg" alt="art" className="iphone" />*/
+
+/*.monacat {*/
+
+/*    width: 20%;*/
+
+/*    height: 50%;*/
+
+/*    opacity: 0.8;*/
+
+/*    margin-right: 15%;*/
+
+/*    margin-bottom: 30%;*/
+
+/*}*/
+
+/*.vector {*/
+
+/*    width: 20%;*/
+
+/*    height: 35%;*/
+
+/*    opacity: 0.8;*/
+
+/*    margin-right: 20%;*/
+
+/*}*/
+
+/*.iphone {*/
+
+/*    width: 20%;*/
+
+/*    height: 70%;*/
+
+/*    opacity: 0.8;*/
+
+/*}*/

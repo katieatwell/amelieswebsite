@@ -8,3 +8,14 @@
 #CardTitle {
     margin-bottom: 50px;
 }
+
+#MenuPanel {
+    padding: 13% 9% 30% 19%;
+    background-image: url("./menu-frame.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 60vw;
+    background-size: 100%;
+    position: relative;
+
+}

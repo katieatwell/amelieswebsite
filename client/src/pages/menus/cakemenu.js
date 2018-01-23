@@ -77,13 +77,9 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
                     </TabContent>
                   <TabContent activeTab={this.state.activeTab}>
                     <TabPane tabId="2">
-                      <Row>
-                        <Col sm="12">
-                        <br></br>
-                          <h3 className="menuCategory">Build Your Own Cake</h3>
+                      <div className="scrollit">
                           <CakeForm/>
-                        </Col>
-                      </Row>
+                      </div>
                     </TabPane>
                     </TabContent>
               </PanelBody>

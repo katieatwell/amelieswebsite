@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardBody } from 'reactstrap';
 import { Row, Col } from 'reactstrap'
 import "./style.css";
 

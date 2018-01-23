@@ -4,7 +4,8 @@ import MainPanel from "../../components/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
 import NavBar from "../../components/navbar";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import Footer from "../../components/footer";
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from "classnames";
 import { MenuContent } from "../../components/menu/menucontents";
 import CakeForm from "../../components/forms/cakeform";
@@ -30,58 +31,61 @@ class CakeMenu extends Component {
 
   render() {
     return (
-      <Container>
-            <NavBar/>
-            <MainPanel>
-              <PanelTitle>
-                Cake Menu
-              </PanelTitle>
-              
-              <PanelBody>
-                  <Nav className="menuNav" justified>
-                    <NavItem className="navMenuTitle">
-                      <NavLink
-                        className={classnames({ active: this.state.activeTab === '2' })}
-                        onClick={() => { this.toggle('1'); }}
-                      >
-                      Composed Cakes
-                      </NavLink>
-                    </NavItem>
-                     <NavItem className="navMenuTitle">
-                      <NavLink
-                        className={classnames({ active: this.state.activeTab === '1' })}
-                        onClick={() => { this.toggle('2'); }}
-                      >
-                      Build Your Own Cake
-                      </NavLink>
-                    </NavItem>
-                  </Nav>
-                   <TabContent activeTab={this.state.activeTab}>
-                    <TabPane tabId="1">
-                      <Row>
-                        <Col sm="12">
-                        <br></br>
-                          <h3 className="menuTitle">Composed Cake Menu</h3>
-                          <MenuContent/>
-                        </Col>
-                      </Row>
-                    </TabPane>
-                    </TabContent>
-                  <TabContent activeTab={this.state.activeTab}>
-                    <TabPane tabId="2">
-                      <Row>
-                        <Col sm="12">
-                        <br></br>
-                          <h3 className="menuTitle">Build Your Own Cake</h3>
-                          <CakeForm/>
-                        </Col>
-                      </Row>
-                    </TabPane>
-                    </TabContent>
-              </PanelBody>
-          </MainPanel>
-       </Container>
-    )
+      <div>
+          <NavBar/>
+            <Container>
+                  <MainPanel>
+                    <PanelTitle>
+                      Cake Menu
+                    </PanelTitle>
+                    
+                    <PanelBody>
+                        <Nav className="menuNav" justified>
+                          <NavItem className="navMenuTitle">
+                            <NavLink
+                              className={classnames({ active: this.state.activeTab === '2' })}
+                              onClick={() => { this.toggle('1'); }}
+                            >
+                            Composed Cakes
+                            </NavLink>
+                          </NavItem>
+                           <NavItem className="navMenuTitle">
+                            <NavLink
+                              className={classnames({ active: this.state.activeTab === '1' })}
+                              onClick={() => { this.toggle('2'); }}
+                            >
+                            Build Your Own Cake
+                            </NavLink>
+                          </NavItem>
+                        </Nav>
+                         <TabContent activeTab={this.state.activeTab}>
+                          <TabPane tabId="1">
+                            <Row>
+                              <Col sm="12">
+                              <br></br>
+                                <h3 className="menuTitle">Composed Cake Menu</h3>
+                                <MenuContent/>
+                              </Col>
+                            </Row>
+                          </TabPane>
+                          </TabContent>
+                        <TabContent activeTab={this.state.activeTab}>
+                          <TabPane tabId="2">
+                            <Row>
+                              <Col sm="12">
+                              <br></br>
+                                <h3 className="menuTitle">Build Your Own Cake</h3>
+                                <CakeForm/>
+                              </Col>
+                            </Row>
+                          </TabPane>
+                          </TabContent>
+                    </PanelBody>
+                </MainPanel>
+             </Container>
+          <Footer />
+        </div>
+    );
   }
 }
 

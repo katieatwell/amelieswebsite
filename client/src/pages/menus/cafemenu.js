@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import Container from "../../components/container";
-import MainPanel from "../../components/mainpanel";
+import Wrapper from "../../components/wrapper";
+import MenuPanel from "../../components/mainpanel/menupanel"
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
-import NavBar from "../../components/navbar";
-import Footer from "../../components/footer";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from "classnames";
 import { MenuContent } from "../../components/menu/menucontents";
@@ -30,13 +28,12 @@ class CafeMenu extends Component {
 
   render() {
     return (
-      <div>
-          <NavBar/>
-            <Container>
-              <MainPanel>
-              
+      <Wrapper>
+          <MenuPanel>
               <PanelTitle>
-                Café Menu
+                  <div className="menuTitle">
+                      Café Menu
+                  </div>
               </PanelTitle>
               
               <PanelBody>
@@ -79,7 +76,7 @@ class CafeMenu extends Component {
                       <Row>
                         <Col sm="12">
                         <br></br>
-                          <h3 className="menuTitle">Breakfast Menu</h3>
+                          <h3 className="menuCategory">Breakfast Menu</h3>
                           <MenuContent/>
                         </Col>
                       </Row>
@@ -90,7 +87,7 @@ class CafeMenu extends Component {
                       <Row>
                         <Col sm="12">
                         <br></br>
-                          <h3 className="menuTitle">Lunch/Dinner Menu</h3>
+                          <h3 className="menuCategory">Lunch/Dinner Menu</h3>
                           <MenuContent/>
                         </Col>
                       </Row>
@@ -101,7 +98,7 @@ class CafeMenu extends Component {
                       <Row>
                         <Col sm="12">
                         <br></br>
-                          <h3 className="menuTitle">Coffee/Tea Menu</h3>
+                          <h3 className="menuCategory">Coffee/Tea Menu</h3>
                           <MenuContent/>
                         </Col>
                       </Row>
@@ -112,17 +109,15 @@ class CafeMenu extends Component {
                       <Row>
                         <Col sm="12">
                         <br></br>
-                          <h3 className="menuTitle">Pastries/Desserts Menu</h3>
+                          <h3 className="menuCategory">Pastries/Desserts Menu</h3>
                           <MenuContent/>
                         </Col>
                       </Row>
                     </TabPane>
                     </TabContent>
                 </PanelBody>
-            </MainPanel>
-          </Container>
-        <Footer />
-      </div>
+            </MenuPanel>
+        </Wrapper>
     );
   }
 }

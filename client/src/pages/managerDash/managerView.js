@@ -32,26 +32,26 @@ class ManagerView extends Component {
         return (
             <Wrapper>
                 <MainPanel>
-                    <Row>
-                        <Col lg="4">
-                        <PanelTitle>
-                           Add/Update Menus:
-                        </PanelTitle>
-                        </Col>
-                     </Row>
-                     <Row>
-                      
-                        <Col lg="4">
-                            <ManagerSidebar />
-                        </Col>
-                       
-                       
-                        <Col lg="8">
-                            <UpdateForm />
-                            {/*<AddNewForm hidden={this.state.hidden} isOpen={this.state.addnew}/>*/}
-                        </Col>
-                      
-                    </Row>
+                <Row>
+                    <Col lg="5">
+                    <PanelTitle>
+                       Add/Update Menus:
+                    </PanelTitle>
+                    </Col>
+                 </Row>
+                 <Row>
+                  
+                    <Col lg="4">
+                        <ManagerSidebar />
+                    </Col>
+                   
+                   
+                    <Col lg="8">
+                        <UpdateForm />
+                        {/*<AddNewForm hidden={this.state.hidden} isOpen={this.state.addnew}/>*/}
+                    </Col>
+                  
+                </Row>
                 </MainPanel>
             </Wrapper>
         );

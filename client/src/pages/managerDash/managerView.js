@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import NavBar from "../../components/navbar";
-import Container from "../../components/container";
-import MainPanel from "../../components/mainpanel";
+import Wrapper from "../../components/wrapper";
+import MainPanel from "../../components/mainpanel/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import UpdateForm from "../../components/forms/managerupdate/updateform";
 // import AddNewForm from "../../components/forms/managerupdate/addnew";
 import ManagerSidebar from "../../components/managernav/sidebar";
-import Footer from "../../components/footer";
 import { Row, Col } from "reactstrap";
 
 
@@ -32,32 +30,30 @@ class ManagerView extends Component {
 
     render() {
         return (
-            <Container>
-                <NavBar/>
+            <Wrapper>
                 <MainPanel>
-                <Row>
-                    <Col lg="4">
-                    <PanelTitle>
-                       Add/Update Menus:
-                    </PanelTitle>
-                    </Col>
-                 </Row>
-                 <Row>
-                  
-                    <Col lg="4">
-                        <ManagerSidebar />
-                    </Col>
-                   
-                   
-                    <Col lg="8">
-                        <UpdateForm />
-                        {/*<AddNewForm hidden={this.state.hidden} isOpen={this.state.addnew}/>*/}
-                    </Col>
-                  
-                </Row>
+                    <Row>
+                        <Col lg="4">
+                        <PanelTitle>
+                           Add/Update Menus:
+                        </PanelTitle>
+                        </Col>
+                     </Row>
+                     <Row>
+                      
+                        <Col lg="4">
+                            <ManagerSidebar />
+                        </Col>
+                       
+                       
+                        <Col lg="8">
+                            <UpdateForm />
+                            {/*<AddNewForm hidden={this.state.hidden} isOpen={this.state.addnew}/>*/}
+                        </Col>
+                      
+                    </Row>
                 </MainPanel>
-                <Footer/>
-            </Container>
+            </Wrapper>
         );
     }
 }

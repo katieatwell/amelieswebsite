@@ -17,7 +17,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () =>
     <Router>
-    <div>
     <Switch>
     <Route exact path="/" component={LandingPage}/>
     <Route exact path="/core-values" component={CoreValues}/>
@@ -34,7 +33,6 @@ const App = () =>
     <Route exact path="/managerlogin" component={ManagerLogin}/>
     <Route exact path="/managerdashboard" component={ManagerView}/>
     </Switch>
-    </div>
     </Router>;
 
 export default App;

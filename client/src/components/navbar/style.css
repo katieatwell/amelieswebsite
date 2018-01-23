@@ -1,5 +1,35 @@
+.navbar-light .navbar-nav .nav-link {
+    /*color: #52575a;*/
+    font-size: 28px;
+    margin-right: 10px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    color: black;
+}
+
+
 #NavBar {
+    color: black;
     margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navWrapper {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    color: black;
+    padding: 10px;
+    margin-left: -100px;
+}
+
+.logo {
+    width: 60%;
+    height: 60%;
+    /*margin-right: 30px;*/
+    margin-left: -70px;
+}
+
+.wrap {
     text-align: center;
-    
 }

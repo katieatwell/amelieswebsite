@@ -1,10 +1,16 @@
-// Utility Modules
-const path = require('path');
-
 // Set up express server
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+// Express middleware - Body Parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Routes
+const routes = require('./routes');
+app.use(routes);
 
 // Set up mongoose and connect to mongoDB
 const mongoose = require('mongoose');
@@ -15,12 +21,6 @@ mongoose.connect(mongoDB_uri, {useMongoClient: true})
     () => {console.log('MongoDB connected')},
     err => {console.log(`Error connecting to MongoDB \n${err}`)}
   );
-
-// Router
-const controller = require('./controller/index.js');
-app.use(express.static(path.join(__dirname + '/client/build')));
-app.use('/api', controller );
-app.get('*', path.join(__dirname + '/client/build/index.html'));
 
 // Server Listen
 app.listen(PORT, function() {

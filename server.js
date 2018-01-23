@@ -98,6 +98,7 @@ app.get("/", function(req,res){
 
 app.post("/login",function(req,res){
   //temp store name and pw for logic
+  console.log(req.body);
   if(req.body.name && req.body.password){ //both exist then
     var name=req.body.name;
     const password=req.body.password;

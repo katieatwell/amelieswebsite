@@ -1,5 +1,5 @@
 .footerContainer {
-    margin-top: 70px;
+    margin-top: 50px;
     padding-top: 15px;
     border-top: 2px solid black;
     background-color: #aac8d9;
@@ -13,8 +13,8 @@
     color: #52575a;
     font-family: 'Merriweather', serif;
     font-size: 16px;
-    text-align: left;
-    margin-left: 30px;
+    text-align: right;
+    margin-right: 30px;
 }
 
 .socialMediaContainer {
@@ -27,9 +27,9 @@
 }
 
 .copyright {
-    text-align: right;
+    text-align: left;
     font-family: 'Merriweather', serif;
-    margin-right: 30px;
+    margin-left: 30px;
     padding-top: 15px;
     color: #52575a;
 }

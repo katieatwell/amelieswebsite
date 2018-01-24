@@ -1,6 +1,10 @@
 import axios from "axios";
 
 export default {
+    //Get blog from webscraper
+    getBlog: function() {
+        return axios.get("/blog");
+    },
     // Gets all cafe menu items
     getCafeMenuItems: function() {
         return axios.get("/api/menu/cafe-menu");

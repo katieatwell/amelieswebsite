@@ -42,7 +42,7 @@
     color: black;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
 
     .socialImg {
         width: 40px;
@@ -52,6 +52,10 @@
     .linksContainer,
     .copyright {
         font-size: 12px;
+    }
+
+    .footerContainer {
+        margin-top: 80px;
     }
 
 }

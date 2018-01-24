@@ -21,29 +21,8 @@ const ExtractJwt =passportJWT.ExtractJwt;
 const JwtStrategy=passportJWT.Strategy;
 
 const bcrypt=require("bcrypt");
-//remember, passwords should never be stored plain text like here but use bcrypt 12 or greater before storing to db
 
-//set up original user and password. should be moved to seeds at some point
-//store with bcrypt
-// bcrypt.hash('tested',12,function(err, hash){
-//   if (err)console.error(err);
-//   db.AuthUser
-//     .create({ name: "test2", password:hash })
-//     .then(function(dbAuthUser) {
-//       // If saved successfully, print 
-//       console.log(dbAuthUser);
-//     })
-//     .catch(function(err) {
-//       // If an error occurs, print it to the console
-//       console.log(err.message);
-//     });
-// })
 var db = require("./../models");
-//show database
-// db.AuthUser.find(function(err,user){
-//   if (err) return console.error(err);
-//   console.log(user);
-// })
 
 //set up jwt
 let jwtOptions ={};
@@ -53,8 +32,7 @@ jwtOptions.secretOrKey="PatsSecret";
 //set up passport strategy
 const strategy = new JwtStrategy(jwtOptions, function(jwt_payload, done){
   console.log("payload arrived", jwt_payload);
-  // Will change to DB call after local array storage is seen working
-  //let user=users[_.findIndex(users, {id:jwt_payload.id})];
+
   let user=db.AuthUser.findOne({_id:jwt_payload.id})
   if(user){
     return done(null,user);
@@ -114,6 +92,7 @@ router.post("/login",function(req,res){
     }
   });
 })
+
 
 
 module.exports = router;

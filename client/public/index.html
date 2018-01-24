@@ -9,12 +9,26 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Courgette|Playfair+Display" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reactstrap/5.0.0-alpha.3/reactstrap.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <title>Amelie's French Bakery</title>
 </head>
 
 <body>
+  <body>
+  <div class="input">
+    <label for="username">user name:</label>
+    <input id="username">
+    <label for="password">password:</label>
+    <input id="password">
+    <button onclick="getToken()">login</button>
+  </div>
+  <div id="token"></div>
+    <button onclick="getSecret()">get secret message</button>
+  <div id="result"></div>
+  <script src="jwt-vanilla.js"></script>
+</body>
   <noscript>
       You need to enable JavaScript to run this app.
     </noscript>

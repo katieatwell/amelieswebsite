@@ -5,7 +5,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -34,11 +33,10 @@ export default class NavBar extends React.Component {
     return (
       <div>
         <div className="wrap">
-         {/*<Navbar color="faded" light expand="md" id="NavBar" justified>*/}
               <Navbar color="black" light expand="md" id="NavBar" justified>
                 <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar className="navDiv">
-                        <NavbarBrand href="/"><img src="/display_images/logo-new.png" alt="logo" className="logo" /></NavbarBrand>
+                        <a href="/"><img src="/display_images/logo-new.png" alt="logo" className="logo" /></a>
                             <div className="navWrapper">
                               <Nav navbar className="mx-auto">
                                 <UncontrolledDropdown nav inNavbar>

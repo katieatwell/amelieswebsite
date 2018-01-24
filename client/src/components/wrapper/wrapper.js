@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import EntirePage from "../../components/entirepage";
 import NavBar from "../../components/navbar";
 import Container from "../../components/container";
 import Footer from "../../components/footer";
@@ -12,6 +13,7 @@ class Wrapper extends Component {
                     <Container>
                         {this.props.children}
                     </Container>
+                <Footer/>
             </div>
         );
     }

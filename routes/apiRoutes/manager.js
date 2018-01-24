@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const manager = require('../../controller/manager');
+const manager = require('../../controllers/manager');
 
 router.post('/cc-menu', manager.CCMenu.newEntry);
 

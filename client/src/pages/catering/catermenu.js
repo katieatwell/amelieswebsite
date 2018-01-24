@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Wrapper from "../../components/wrapper";
+import MainPanel from "../../components/mainpanel/mainpanel"
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
@@ -28,7 +29,7 @@ export default class CateringMenu extends Component {
   render() {
     return (
       <Wrapper>
-            
+          <MainPanel>
               <PanelTitle>
                 Catering Menu
               </PanelTitle>
@@ -189,6 +190,7 @@ export default class CateringMenu extends Component {
                     </TabPane>
                     </TabContent>
                 </PanelBody>
+              </MainPanel>
           </Wrapper>
     );
   }

@@ -24,6 +24,7 @@ export default class ContactForm extends React.Component {
         <FormGroup>
           <Label for="directory">Directory</Label>
           <Input type="select" name="select" id="formDirectory">
+            <option>Become a VIP member!</option>
             <option>Management</option>
             <option>Catering & Events</option>
             <option>General Information</option>

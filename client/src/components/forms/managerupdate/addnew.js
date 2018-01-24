@@ -6,7 +6,7 @@ export default class AddNewForm extends Component {
   render() {
     return (
       <Form>
-      
+ 
         <FormGroup>
           <Label for="name">Item Title</Label>
           <Input type="text" name= "title" id="itemTitle" />

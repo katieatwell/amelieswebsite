@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 8080;
 
 // Express middleware - Body Parser
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Routes
@@ -21,6 +21,8 @@ mongoose.connect(mongoDB_uri, {useMongoClient: true})
     () => {console.log('MongoDB connected')},
     err => {console.log(`Error connecting to MongoDB \n${err}`)}
   );
+
+
 
 // Server Listen
 app.listen(PORT, function() {

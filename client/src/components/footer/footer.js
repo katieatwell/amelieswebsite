@@ -5,6 +5,7 @@ import "./footer.css";
 export default class Footer extends Component {
     render() {
         return (
+
             <Row className="footerContainer">
                 <Col xs="4" sm="4" md="4" >
                     <p className="copyright">

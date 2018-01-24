@@ -3,9 +3,9 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import "./style.css";
 
 export default class AddNewForm extends Component {
-    render() {
-        return (
-            <Form>
+  render() {
+    return (
+      <Form>
       
         <FormGroup>
           <Label for="name">Item Title</Label>
@@ -43,9 +43,9 @@ export default class AddNewForm extends Component {
         </FormGroup>
         
         <Button outline color="secondary">Delete</Button>
-        <Button outline color="secondary">Add New</Button>
+        <Button outline color="secondary" onClick={()=>this.toggleForms()}>Add New</Button>
         
       </Form>
-        );
-    }
+    );
+  }
 }

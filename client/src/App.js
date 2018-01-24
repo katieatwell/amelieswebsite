@@ -10,6 +10,7 @@ import SpecialEvents from "./pages/catering/special";
 import EventRooms from "./pages/catering/rooms";
 import CafeMenu from "./pages/menus/cafemenu";
 import CakeMenu from "./pages/menus/cakemenu";
+import Blog from "./pages/blog/";
 import ManagerLogin from "./pages/managerDash/managerLogin";
 import ManagerView from "./pages/managerDash/managerView";
 import CateringMenu from "./pages/catering";
@@ -17,7 +18,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () =>
     <Router>
-    <div>
     <Switch>
     <Route exact path="/" component={LandingPage}/>
     <Route exact path="/core-values" component={CoreValues}/>
@@ -31,10 +31,10 @@ const App = () =>
     <Route exact path="/catering-menu" component={CateringMenu}/>
     <Route exact path="/cafemenu" component={CafeMenu}/>
     <Route exact path="/cakemenu" component={CakeMenu}/>
+    <Route exact path="/blog" component={Blog}/>
     <Route exact path="/managerlogin" component={ManagerLogin}/>
     <Route exact path="/managerdashboard" component={ManagerView}/>
     </Switch>
-    </div>
     </Router>;
 
 export default App;

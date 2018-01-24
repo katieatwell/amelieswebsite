@@ -2,10 +2,10 @@ const router = require('express').Router();
 const CCMenu = require('../../controllers/ccmenu');
 const CakeMenu = require('../../controllers/cakemenu');
 
-router.get('/cafe-menu', CCMenu.getCafeALL);
-router.get('/catering-menu', CCMenu.getCateringALL);
-router.get('/cake-menu', CakeMenu.getCustomOptionsALL);
-router.get('/composed-cake-menu', CakeMenu.getComposedCakesALL);
-router.get('/cake-price', CakeMenu.getCakePricesALL);
+router.get('/cc-menu/cafe', CCMenu.getCafeALL);
+router.get('/cc-menu/catering', CCMenu.getCateringALL);
+router.get('/cake-menu/custom', CakeMenu.getCustomOptionsALL);
+router.get('/cake-menu/composed', CakeMenu.getComposedCakesALL);
+router.get('/cake-menu/price', CakeMenu.getCakePricesALL);
 
 module.exports = router;

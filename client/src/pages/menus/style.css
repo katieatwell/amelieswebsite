@@ -6,16 +6,40 @@
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 5px;
-    color: #52575a;
+    color: #f7f2b0;
+    border: 1px solid white;
 }
 
 .navMenuTitle:hover {
     text-decoration: underline;
     color: #52575a;
+}
 
+.menuCategory {
+    text-align: center;
+    font-weight: lighter;
 }
 
 .menuTitle {
-    text-align: center;
-    font-weight: lighter;
+    color: #c4d7e2;
+}
+
+.menuNav {
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
+
+.scrollit {
+    overflow: scroll;
+    /*margin-left: 20%;*/
+    color: #ecebe9;
+    height: 47vh;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    /*width: 60%;*/
+}
+
+.menuWrapper {
+    padding: 30px;
+    height: 100%;
 }

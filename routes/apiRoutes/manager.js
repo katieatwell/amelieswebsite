@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const manager = require('../../controller/manager');
 
-router.post(['/cafe-menu', '/catering-menu'], manager.CCMenu.newEntry);
+router.post('/cc-menu', manager.CCMenu.newEntry);
 
-router.put(['/cafe-menu', '/catering-menu'], manager.CCMenu.updateEntry);
+router.put('/cc-menu', manager.CCMenu.updateEntry);
 
-router.delete(['/cafe-menu', '/catering-menu'], manager.CCMenu.deleteEntry);
+router.delete('/cc-menu', manager.CCMenu.deleteEntry);
 
 router.route('/cake-menu')
   .post(manager.CakeMenu.newEntry)

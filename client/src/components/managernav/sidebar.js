@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Collapse, Card } from "reactstrap";
-import API from "../../utils/API";
 export default class ManagerSidebar extends Component {
     constructor(props) {
         super(props);
@@ -25,7 +24,7 @@ export default class ManagerSidebar extends Component {
         return (
             <div>
     <ListGroup>
-        <ListGroupItem id="1" tag="a" action onClick={() => {this.toggle(0), this.props.loadCafeMenuItems()}}>
+        <ListGroupItem id="1" tag="a" action onClick={() => {this.toggle(0); this.props.loadCafeMenuItems()}}>
             Cafe Menu
             <Collapse isOpen={this.state.collapse[0]}>
             <Card>
@@ -45,7 +44,7 @@ export default class ManagerSidebar extends Component {
                     </ListGroup>
                     </Card>
                     </Collapse>
-                    ): (<h5></h5>
+                    ): (<h5>Content</h5>
                     )}
                     </ListGroupItem>
                 <ListGroupItem tag="a" href="#" action onClick={() => this.toggle(4)}>Lunch/Dinner
@@ -63,7 +62,7 @@ export default class ManagerSidebar extends Component {
                     </ListGroup>
                     </Card>
                     </Collapse>
-                    ): (<h5></h5>
+                    ): (<h5>Content</h5>
                     )}
                 </ListGroupItem>
                 <ListGroupItem tag="a" href="#" action>Coffee/Tea</ListGroupItem>

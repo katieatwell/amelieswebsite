@@ -1,1 +1,2 @@
-export { default } from "./mainpanel.js";
+export * from "./mainpanel.js";
+export * from "./menupanel.js";

@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardBody } from 'reactstrap';
+import { Row, Col } from 'reactstrap'
 import "./style.css";
 
 class MainPanel extends Component {
-    render() {
+  render() {
     return (
-            <Card id="MainPanel">
-              <CardBody>
-                <CardText>{this.props.children}</CardText>
-              </CardBody>
-            </Card>
-        );
-    }
+      <Row>
+          <Col xs="12" sm="12" md="12" >
+            <div id="MainPanel">
+              {this.props.children}
+            </div>
+          </Col>
+      </Row>
+    );
+  }
 }
 
 export default MainPanel;

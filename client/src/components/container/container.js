@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'reactstrap';
-import { Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 export default class Wrapper extends React.Component {

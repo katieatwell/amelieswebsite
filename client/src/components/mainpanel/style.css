@@ -1,12 +1,8 @@
 #MainPanel {
     border: 2px solid #f5ef90;
-    margin: 25px 20px 50px 20px;
+    margin: 25px 20px 30px 20px;
     padding: 40px;
     background-color: #ecebe9;
-}
-
-#CardTitle {
-    margin-bottom: 50px;
 }
 
 #MenuPanel {
@@ -17,5 +13,4 @@
     height: 60vw;
     background-size: 100%;
     position: relative;
-
 }

@@ -7,11 +7,11 @@ export default {
     },
     // Gets all cafe menu items
     getCafeMenuItems: function() {
-        return axios.get("/api/menu/cafe-menu");
+        return axios.get("/api/menu/cc-menu/cafe");
     },
     //Get all of the catering menu items
     getCateringMenuItems: function() {
-        return axios.get("/api/menu/catering-menu");
+        return axios.get("/api/menu/cc-menu/catering");
     },
     //Get all of the cake menu items
     getCakeMenuItems: function() {

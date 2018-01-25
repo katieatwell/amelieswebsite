@@ -24,7 +24,7 @@ export default class ManagerSidebar extends Component {
         return (
             <div>
     <ListGroup>
-        <ListGroupItem id="1" tag="a" action onClick={() => {this.toggle(0); this.props.loadCafeMenuItems()}}>
+        <ListGroupItem id="1" tag="a" action onClick={() => {this.toggle(0); this.props.loadCafeMenuItems();this.props.toggleForms()}}>
             Cafe Menu
             <Collapse isOpen={this.state.collapse[0]}>
             <Card>
@@ -84,7 +84,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
 
-        <ListGroupItem id="3" tag="a" href="#" action onClick={() => this.toggle(2)}>
+        <ListGroupItem id="3" tag="a" href="#" action onClick={() => {this.toggle(2); this.props.toggleForms()}}>
             Catering Menu
             <Collapse isOpen={this.state.collapse[2]}>
             <Card>

@@ -58,5 +58,6 @@ typings/
 .env
 sendgrid.env
 
+
 # .DS_Store
 .DS_Storesendgrid.env

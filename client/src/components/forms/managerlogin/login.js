@@ -2,16 +2,9 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default class ManagerLoginForm extends React.Component {
-    render() {
-        return (
-            <Form>
-        
-        <FormGroup>
-          <Label for="email">Email</Label>
-          <Input type="email" name="email" id="userEmail" />
-        </FormGroup>
-
-      
+  render() {
+    return (
+      <Form>
         <FormGroup>
           <Label for="name">User Name</Label>
           <Input type="text" name= "name" id="userName" />
@@ -23,7 +16,8 @@ export default class ManagerLoginForm extends React.Component {
         </FormGroup>
         
         <Button>Submit</Button>
+        <br></br>
       </Form>
-        );
-    }
+    );
+  }
 }

@@ -57,8 +57,8 @@ router.use(express.static('client/public'));
 // const controller = require('./controller/index.js'); //need an index file for the controller
 // app.use('/menu', controller.menu ); // wont work without index file.
 
-router.get("/", function(req,res){
-  res.sendFile(process.cwd()+'client/public/index.html');
+router.get("/backend", function(req,res){
+  res.sendFile(process.cwd()+'/client/public/index2.html');
   //res.json({message:"Express is up!"});
 })
 

@@ -72,7 +72,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="2" tag="a" href="#" action onClick={() => this.toggle(1)}>
+        <ListGroupItem id="2" tag="a" href="#" action onClick={() => {this.toggle(1); this.props.loadCakeMenuItems()}}>
             Cake Menu
             <Collapse isOpen={this.state.collapse[1]}>
             <Card>
@@ -84,7 +84,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
 
-        <ListGroupItem id="3" tag="a" href="#" action onClick={() => {this.toggle(2); this.props.toggleForms()}}>
+        <ListGroupItem id="3" tag="a" href="#" action onClick={() => {this.toggle(2); this.props.loadCateringMenuItems(); this.props.toggleForms()}}>
             Catering Menu
             <Collapse isOpen={this.state.collapse[2]}>
             <Card>

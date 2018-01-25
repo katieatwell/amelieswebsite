@@ -9,17 +9,22 @@ import API from "../../utils/API";
 class Blog extends Component {
 
     state = {
-        blogs: []
+        blogs: [],
     };
 
+    componentDidMount() {
+        this.loadBlogs();
+    }
 
     loadBlogs = () => {
         API.getBlog()
-            .then(res =>
+            .then(res => {
+                console.log("$$$$$$$$$$$$$$$$$$$$$");
+                console.log(res.data);
                 this.setState({
-                    books: res.data
-                })
-            )
+                    blogs: res.data
+                }, () => console.log(this.state));
+            })
             .catch(err => console.log(err));
     };
 
@@ -33,8 +38,17 @@ class Blog extends Component {
                     
                     <PanelBody>
                         Web scraping content
-                        <br/>
-                        {this.state.blogs}
+                        <br/><br/>
+                        {this.state.blogs.map( (blog) => {
+                            return (
+                                <div key={blog.id}>
+                                    <h1>{ blog.title } </h1> <br/>
+                                    <h3> { blog.date } </h3> <br/>
+                                    <p>{ blog.summary } </p><br/><br/><br/>
+                                </div>
+                            );
+                        }
+                        )}
                     </PanelBody>
                 </MainPanel>
             </Wrapper>

@@ -25,8 +25,8 @@ let CakeMenu = {
     });
   },
   
-  findDescriptors: function(MenuCategory) {
-    return db.CakeData.distinct('descriptor', { 'MenuCategory': MenuCategory });
+  findDescriptors: function(menuCategory) {
+    return db.CakeData.distinct('descriptor', { 'menuCategory': menuCategory });
   },
 
   queryByDescriptors: function(descriptors) {

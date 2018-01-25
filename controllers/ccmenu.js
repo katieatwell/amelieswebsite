@@ -9,7 +9,7 @@ let CCMenu = {
     });
   },
 
-  getCateringAll: function(req, res) {
+  getCateringALL: function(req, res) {
     CCMenu.findCategories('catering').then(function(categories) {
       CCMenu.querySelection('catering', categories).then(function(data) {
         res.json(CCMenu.buildObject(data));

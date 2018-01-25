@@ -31,7 +31,7 @@ module.exports = {
     },
     
     deleteEntry: function(req, res) {
-      db.CCMenu.delete({'_id': req.body.id}, function(err){
+      db.CCMenu.deleteOne({'_id': req.body.id}, function(err){
         if (err) {console.log(err)}
         else res.sendStatus(200);
       });
@@ -41,7 +41,7 @@ module.exports = {
   CakeMenu: {
     newCustomOptionEntry: function(req, res) {
       db.CakeData.create({
-        MenuCategory: 'CustomCakes',
+        menuCategory: 'CustomCakes',
         descriptor: req.body.descriptor,
         detail: req.body.detail
       },
@@ -53,7 +53,7 @@ module.exports = {
     
     newComposedCakeEntry: function (req, res) {
       db.CakeData.create({
-        MenuCategory: 'ComposedCakes',
+        menuCategory: 'ComposedCakes',
         descriptor: req.body.descriptor,
         detail: req.body.detail
       }, 
@@ -65,8 +65,8 @@ module.exports = {
     
     newCakePriceEntry: function (req, res) {
       db.CakeData.create({
-        MenuCategory: 'CakePrices',
-        descriptor: req.body.descriptor,
+        menuCategory: 'CakePrices',
+        descriptor: 'price',
         detail:req.body.detail
       },
       function(err) {
@@ -87,7 +87,7 @@ module.exports = {
     },
     
     deleteEntry: function(req, res) {
-      db.CakeData.delete({'id': req.body.id}, function(err){
+      db.CakeData.deleteOne({'_id': req.body.id}, function(err){
         if (err) {console.log(err)}
         else res.sendStatus(200);
       });

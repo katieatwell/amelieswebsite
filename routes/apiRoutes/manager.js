@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const manager = require('../../controllers/manager');
 
-router.get('/', function(req,res){
+router.get('/', function(req, res) {
   res.json("Success! You can only see this with a token example 2!")
 });
 

@@ -86,7 +86,7 @@ class ManagerView extends Component {
                  <Row>
                   
                     <Col lg="4">
-                        <ManagerSidebar toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} {...this.state}/>
+                        <ManagerSidebar toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} loadCateringMenuItems={this.loadCateringMenuItems} loadCakeMenuItems={this.loadCakeMenuItems} {...this.state}/>
                     </Col>
                    
                    

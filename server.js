@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 //const PORT = process.env.PORT || 8081;
-const PORT =8081;
+const PORT = 8081;
 // Express middleware - Body Parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +26,6 @@ mongoose.connect(mongoDB_uri, {useMongoClient: true})
 
 // Server Listen
 app.listen(PORT, function() {
-    console.log('Back-end connected to Port' + PORT);
+    console.log('Back-end connected to Port ' + PORT);
 });
 

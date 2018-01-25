@@ -1,8 +1,8 @@
 // Set up express server
 const express = require('express');
 const app = express();
-//const PORT = process.env.PORT || 8081;
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
+//const PORT = 8081;
 // Express middleware - Body Parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));

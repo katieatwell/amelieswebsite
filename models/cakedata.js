@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // Build your own cake options
 const CakeDataSchema = new Schema({
-  MenuCategory: {
+  menuCategory: {
     type: String,
     required: true
   },

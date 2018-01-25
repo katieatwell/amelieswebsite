@@ -3,9 +3,25 @@ import Wrapper from "../../components/wrapper";
 import MainPanel from "../../components/mainpanel/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
+import API from "../../utils/API";
 
 
 class Blog extends Component {
+
+    state = {
+        blogs: []
+    };
+
+
+    loadBlogs = () => {
+        API.getBlog()
+            .then(res =>
+                this.setState({
+                    books: res.data
+                })
+            )
+            .catch(err => console.log(err));
+    };
 
     render() {
         return (
@@ -17,6 +33,8 @@ class Blog extends Component {
                     
                     <PanelBody>
                         Web scraping content
+                        <br/>
+                        {this.state.blogs}
                     </PanelBody>
                 </MainPanel>
             </Wrapper>

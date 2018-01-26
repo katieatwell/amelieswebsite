@@ -7,7 +7,7 @@ import AddNewForm from "../../components/forms/managerupdate/addnew";
 import ManagerSidebar from "../../components/managernav/sidebar";
 import API from "../../utils/API";
 import { Row, Col } from "reactstrap";
-
+import { Route, Redirect } from 'react-router'
 
 class ManagerView extends Component {
     //SIMPLIFY THE WAY DATA IS BEING STORED? 
@@ -71,10 +71,22 @@ class ManagerView extends Component {
     toggleForms() {
         this.setState({ addNewItemForm: !this.state.addNewItemForm, updateForm: !this.state.updateForm });
     }
+    
+    isAuthed(){
+        let token = sessionStorage.getItem('token');
+        console.log('token: '+token);
+        if (token){
+            //add validation logic here, see if token has expired?
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     render() {
         return (
-            <Wrapper>
+            this.isAuthed() 
+            ?(<Wrapper>
                 <MainPanel>
                 <Row>
                     <Col lg="5">
@@ -99,7 +111,10 @@ class ManagerView extends Component {
                   
                 </Row>
                 </MainPanel>
-            </Wrapper>
+            </Wrapper>)
+            :(
+                <Redirect to ="/managerlogin"/>
+            )
         );
     }
 }

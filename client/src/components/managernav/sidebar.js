@@ -31,23 +31,17 @@ export default class ManagerSidebar extends Component {
             <ListGroup>
                 <ListGroupItem action onClick={() => this.toggle(3)}>Breakfast
                     {this.props.cafeBreakfastMenu.length ? (
-                    <Collapse isOpen={this.state.collapse[3]}>
-                     {console.log(this.props.cafeBreakfastMenu.length)}
-                    <Card>
                     <ListGroup>
-                    {this.props.cafeBreakfastMenu.map(currentItem => (
-                        <ListGroupItem key={item.title} onClick={()=> this.props.toggleForms(true)}> 
-                        <h4>
-                        {item.title}
-                        </h4>
-                        </ListGroupItem>
-                        ))}
+                    {this.props.cafeBreakfastMenu.map(item => (
+                    <ListGroupItem action onClick={(event)=>this.props.populateQuillCCMenu(event)} id={item._id} data-price={item.price} data-title={item.title} data-desc={item.description}>
+                     {item.title}
+                     </ListGroupItem>
+                     ))}
                     </ListGroup>
-                    </Card>
-                    </Collapse>
-                    ): (<h5>Content</h5>
+                    ): (<h4>Nothing</h4>
                     )}
                     </ListGroupItem>
+                    
                 <ListGroupItem action onClick={() => this.toggle(4)}>Lunch/Dinner
                   {this.props.cafeBreakfastMenu.length ? (
                     <Collapse isOpen={this.state.collapse[4]}>

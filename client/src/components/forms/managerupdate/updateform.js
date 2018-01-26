@@ -11,6 +11,8 @@ export default class UpdateForm extends Component {
         <FormGroup>
           <Label for="name">Item Title</Label>
           <Input type="text" name= "title" id="itemTitle" />
+          {this.props.currentItem}
+          {(console.log(this.props.currentItem))}
         </FormGroup>
         
         <FormGroup>

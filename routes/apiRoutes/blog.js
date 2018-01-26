@@ -13,18 +13,25 @@ router.get("/", (req, res) => {
 
         $("div.single-entry").each((i, element) => {
             const title = $(element).find("h2").text().trim();
-            const date = $(element).find(".blog-entry-date").text().trim();
+            const dateUntrimmed = $(element).find(".blog-entry-date").text().trim();
+            const dateUnparsed = dateUntrimmed.replace("Posted on ", "").replace("| Stefanie Haviv", "");
+            const dateParsed = Date.parse(dateUnparsed);
             const summary = $(element).find(".small-12").find(".blog-entry-content").text().trim();
             const link = $(element).find(".small-12").find(".blog-entry-content").find("a").attr("href").trim();
             const img = $(element).find(".small-12").find("div").find("a").find("img").attr("src");
 
             results = {
                 title: title,
-                date: date,
+                dateUnparsed: dateUnparsed,
+                dateParsed: dateParsed,
                 summary: summary,
                 link: link,
                 img: img
             };
+
+            // console.log(dateParsed)
+            // console.log("************************")
+            // console.log(dateUnparsed)
 
             promisesArray.push(db.BlogModel.findOneAndUpdate({ title: results.title }, results, { upsert: true }))
             //find one and update based on title, if it's there, update it with results, then upsert means insert it if it doesn't exist
@@ -34,9 +41,9 @@ router.get("/", (req, res) => {
         Promise.all(promisesArray)
             .then(() => {
                 db.BlogModel
-                    .find({}).sort({ date: -1 })
+                    .find({}).sort({ dateParsed: -1 })
                     .then((scrapedResults) => {
-                        console.log("date: " + scrapedResults)
+                        // console.log("date: " + scrapedResults)
                         res.json(scrapedResults);
                     })
                     .catch((err) => {

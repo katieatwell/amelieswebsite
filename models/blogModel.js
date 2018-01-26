@@ -11,7 +11,11 @@ const BlogSchema = new Schema({
         type: String,
         required: false
     },
-    date: {
+    dateUnparsed: {
+        type: String,
+        required: false
+    },
+    dateParsed: {
         type: String,
         required: false
     },

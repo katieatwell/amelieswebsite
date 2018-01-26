@@ -12,7 +12,6 @@
 
 .navMenuTitle:hover {
     text-decoration: underline;
-    color: #52575a;
 }
 
 .menuCategory {
@@ -31,15 +30,38 @@
 
 .scrollit {
     overflow: scroll;
-    /*margin-left: 20%;*/
     color: #ecebe9;
     height: 47vh;
     margin-top: 15px;
     margin-bottom: 40px;
-    /*width: 60%;*/
 }
 
 .menuWrapper {
-    padding: 30px;
-    height: 100%;
+    padding-top: 20px;
+    width: 90%;
+}
+
+@media screen and (max-width: 800px) {
+
+    .menuTitle {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .menuWrapper {
+        padding-top: 30px;
+        margin-left: 7px;
+        width: 84%;
+    }
+    .scrollit {
+        overflow: scroll;
+        height: 80vw;
+    }
+
+    .navMenuTitle {
+        border: none;
+        font-size: 13px;
+    }
+
+
 }

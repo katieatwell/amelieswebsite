@@ -7,9 +7,13 @@ import AddNewForm from "../../components/forms/managerupdate/addnew";
 import ManagerSidebar from "../../components/managernav/sidebar";
 import API from "../../utils/API";
 import { Row, Col } from "reactstrap";
-import { Route, Redirect } from 'react-router'
+import { Route, Redirect } from 'react-router';
+import axios from "axios";
+
+axios.defaults.headers.common['Authorization'] = "jwt " +sessionStorage.getItem('token');
 
 class ManagerView extends Component {
+    
     //SIMPLIFY THE WAY DATA IS BEING STORED? 
     constructor(props) {
         super(props);

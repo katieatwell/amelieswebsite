@@ -10,6 +10,7 @@ export default class AddNewForm extends Component {
         <FormGroup>
           <Label for="name">Item Title</Label>
           <Input type="text" name= "title" id="itemTitle" />
+          {/*{this.props.currentitem.title}*/}
         </FormGroup>
         
         <FormGroup>
@@ -43,7 +44,7 @@ export default class AddNewForm extends Component {
         </FormGroup>
         
         <Button outline color="secondary">Delete</Button>
-        <Button outline color="secondary" onClick={()=>this.toggleForms()}>Add New</Button>
+        <Button outline color="secondary" onClick={()=>{this.toggleForms(false)}}>Add New</Button>
         
       </Form>
     );

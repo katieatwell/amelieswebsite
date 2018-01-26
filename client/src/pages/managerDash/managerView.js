@@ -15,6 +15,7 @@ class ManagerView extends Component {
         super(props);
         this.toggleForms = this.toggleForms.bind(this);
         this.state = {
+            currentItem: [],
             cafeBreakfastMenu: [],
             cafeLunchMenu: [],
             cafeCoffeeMenu: [],
@@ -32,6 +33,20 @@ class ManagerView extends Component {
             addNewItemForm: false,
             updateForm: true
         };
+    }
+
+    populateQuillCCMenu = (event) => {
+        event.preventDefault();
+        const { title, desc, price } = event.target.dataset;
+        console.log(event.target.dataset);
+        this.setState({
+            currentItem: [
+                title,
+                desc,
+                price
+            ]
+        }, () => console.log(this.state.currentItem));
+
     }
 
     loadCafeMenuItems = () => {
@@ -83,13 +98,13 @@ class ManagerView extends Component {
                  <Row>
                   
                     <Col lg="4">
-                        <ManagerSidebar toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} loadCateringMenuItems={this.loadCateringMenuItems} loadCakeMenuItems={this.loadCakeMenuItems} cafeBreakfastMenu={this.state.cafeBreakfastMenu}/>
+                        <ManagerSidebar populateQuillCCMenu= {this.populateQuillCCMenu} toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} loadCateringMenuItems={this.loadCateringMenuItems} loadCakeMenuItems={this.loadCakeMenuItems} cafeBreakfastMenu={this.state.cafeBreakfastMenu}/>
                     </Col>
                    
                    
                     <Col lg="8">
                     {this.state.updateForm 
-                       ? <UpdateForm {...this.props} /> 
+                       ? <UpdateForm {...this.props} currentItem = {this.state.currentItem}/> 
                        : <AddNewForm {...this.props} addNewItemForm = {this.state.addNewItemForm} />
                     }
                     </Col>

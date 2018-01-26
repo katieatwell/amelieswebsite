@@ -3,7 +3,7 @@ import Wrapper from "../../components/wrapper";
 import MenuPanel from "../../components/mainpanel/menupanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from "classnames";
 import { MenuContent } from "../../components/menu/menucontents";
 import CakeForm from "../../components/forms/cakeform";

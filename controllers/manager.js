@@ -11,7 +11,7 @@ module.exports = {
           description: req.body.description
         },
         function(err, data) {
-          if (err) {console.log(err)}
+          if (err) {console.log(err); res.sendStatus(500);}
           else res.sendStatus(200);
         });
     },
@@ -25,14 +25,14 @@ module.exports = {
         description: req.body.description
       },
       function(err, data) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     },
     
     deleteEntry: function(req, res) {
       db.CCMenu.deleteOne({'_id': req.body.id}, function(err){
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     }
@@ -46,7 +46,7 @@ module.exports = {
         detail: req.body.detail
       },
       function(err) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     },
@@ -58,7 +58,7 @@ module.exports = {
         detail: req.body.detail
       }, 
       function (err) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     },
@@ -70,7 +70,7 @@ module.exports = {
         detail:req.body.detail
       },
       function(err) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     },
@@ -81,14 +81,14 @@ module.exports = {
         detail: req.body.detail
       },
       function(err) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });  
     },
     
     deleteEntry: function(req, res) {
       db.CakeData.deleteOne({'_id': req.body.id}, function(err){
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     }

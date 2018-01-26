@@ -1,13 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import API from "../../../utils/API";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import axios from "axios";
 
 export default class ManagerLoginForm extends React.Component {

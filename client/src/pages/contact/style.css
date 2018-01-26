@@ -2,12 +2,16 @@
     text-align: center;
 }
 
+.holla {
+    font-family: 'Fjalla One', sans-serif;
+}
+
 .navTitle {
     font-weight: bold;
-    font-size: medium;
+    font-size: larger;
     font-size-adjust: inherit;
     color: #52575a;
-
+    font-family: 'Fjalla One', sans-serif;
 }
 
 .navTitle:hover {
@@ -31,4 +35,16 @@
 
 .roomRules {
     font-size: 12px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .navTitle {
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    .locationInfo {
+        text-align: center;
+    }
 }

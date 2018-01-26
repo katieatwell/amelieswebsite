@@ -36,13 +36,10 @@ class ManagerView extends Component {
 
     loadCafeMenuItems = () => {
         API.getCafeMenuItems()
-            .then(res => this.setState({
-                cafeBreakfastMenu: res.data.breakfast,
-                cafeLunchMenu: res.data.lunchdinner,
-                cafeCoffeeMenu: res.data.coffeetea,
-                cafeDessertMenu: res.data.dessertpastry
-
-            }), (res) => console.log(res.data.breakfast))
+            .then(res =>
+                this.setState({
+                    cafeBreakfastMenu: res.data.breakfast
+                }))
             .catch(err => console.log(err));
     }
 
@@ -68,8 +65,8 @@ class ManagerView extends Component {
             }));
     }
 
-    toggleForms() {
-        this.setState({ addNewItemForm: !this.state.addNewItemForm, updateForm: !this.state.updateForm });
+    toggleForms(hasQuill) {
+        this.setState({ addNewItemForm: !hasQuill, updateForm: hasQuill });
     }
 
     render() {
@@ -86,7 +83,7 @@ class ManagerView extends Component {
                  <Row>
                   
                     <Col lg="4">
-                        <ManagerSidebar toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} loadCateringMenuItems={this.loadCateringMenuItems} loadCakeMenuItems={this.loadCakeMenuItems} {...this.state}/>
+                        <ManagerSidebar toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} loadCateringMenuItems={this.loadCateringMenuItems} loadCakeMenuItems={this.loadCakeMenuItems} cafeBreakfastMenu={this.state.cafeBreakfastMenu}/>
                     </Col>
                    
                    

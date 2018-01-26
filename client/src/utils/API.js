@@ -1,4 +1,6 @@
 import axios from "axios";
+axios.defaults.headers.common['Authorization'] = "jwt " +sessionStorage.getItem('token');
+
 
 export default {
     //Get blog from webscraper
@@ -40,5 +42,11 @@ export default {
     //Update Item in Cake Menu
     updateCakeMenuItem: function(id) {
         return axios.put("/api/manager/cake-menu");
+    },
+    managerLogin:function(name, password){
+        console.log(name+"   "+password);
+        return axios.post("/login", {name:name, password:password})
     }
 };
+
+

@@ -74,7 +74,7 @@ router.post("/login",function(req,res){
     console.log(user);
     if (err) console.error(err);
     if (user===null){
-      res.status(401).json({message: "no such user found"})
+      return res.status(401).json({message: "no such user found"})
     }
     if (user.password!==null){
       bcrypt.compare(req.body.password ,user.password, function(err, result){

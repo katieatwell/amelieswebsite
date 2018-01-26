@@ -57,5 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 sendgrid.env
+
+
 # .DS_Store
 .DS_Storesendgrid.env

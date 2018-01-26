@@ -2,11 +2,12 @@ var db = require("./../models");
 const bcrypt=require("bcrypt");
 
 //remember, passwords should never be stored plain text like here but use bcrypt 12 or greater before storing to db
-
+console.log("running");
 //set up original user and password. 
 //store with bcrypt - seed with encryption
 bcrypt.hash('tested',12,function(err, hash){
   if (err)console.error(err);
+  console.log('bcrypt running, hash: '+ hash);
   db.AuthUser
     .create({ name: "test2", password:hash })
     .then(function(dbAuthUser) {

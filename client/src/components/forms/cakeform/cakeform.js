@@ -105,6 +105,7 @@ export default class CakeForm extends React.Component {
         </FormGroup>
 
         <Button>Submit</Button>
+        <br/>
       </Form>
     );
   }

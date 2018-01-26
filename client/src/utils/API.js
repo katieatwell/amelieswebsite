@@ -5,7 +5,7 @@ axios.defaults.headers.common['Authorization'] = "jwt " +sessionStorage.getItem(
 export default {
     //Get blog from webscraper
     getBlog: function() {
-        return axios.get("/blog");
+        return axios.get("/api/blog");
     },
     // Gets all cafe menu items
     getCafeMenuItems: function() {

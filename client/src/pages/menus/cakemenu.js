@@ -3,7 +3,7 @@ import Wrapper from "../../components/wrapper";
 import MenuPanel from "../../components/mainpanel/menupanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from "classnames";
 import { MenuContent } from "../../components/menu/menucontents";
 import CakeForm from "../../components/forms/cakeform";
@@ -31,8 +31,7 @@ class CakeMenu extends Component {
     return (
       <Wrapper>
         <MenuPanel>
-            <Row>
-            <Col md="11" className="menuWrapper">
+            <div className="menuWrapper">
               <PanelTitle>
                 <div className="menuTitle">
                   Cake Menu
@@ -83,8 +82,7 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
                     </TabPane>
                     </TabContent>
               </PanelBody>
-              </Col>
-              </Row>
+            </div>
           </MenuPanel>
       </Wrapper>
     );

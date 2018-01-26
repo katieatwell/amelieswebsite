@@ -30,9 +30,8 @@ class CafeMenu extends Component {
     return (
       <Wrapper>
           <MenuPanel>
-            <Row>
-              <Col md="11" className="menuWrapper">
-
+            
+            <div className="menuWrapper">
                 <PanelTitle>
                     <div className="menuTitle">
                         Café Menu
@@ -125,8 +124,7 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
                       </TabPane>
                       </TabContent>
                   </PanelBody>
-                </Col>
-              </Row>
+                </div>
             </MenuPanel>
         </Wrapper>
     );

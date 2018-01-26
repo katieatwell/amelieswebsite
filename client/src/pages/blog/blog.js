@@ -3,13 +3,14 @@ import Wrapper from "../../components/wrapper";
 import MainPanel from "../../components/mainpanel/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 
 class Blog extends Component {
 
     state = {
-        blogs: [],
+        blogs: []
     };
 
     componentDidMount() {
@@ -19,13 +20,12 @@ class Blog extends Component {
     loadBlogs = () => {
         API.getBlog()
             .then(res => {
-                console.log("$$$$$$$$$$$$$$$$$$$$$");
-                console.log(res.data);
+                console.log("no data");
                 this.setState({
                     blogs: res.data
-                }, () => console.log(this.state));
+                });
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log("bad data"));
     };
 
     render() {
@@ -37,17 +37,15 @@ class Blog extends Component {
                     </PanelTitle>
                     
                     <PanelBody>
-                        Web scraping content
-                        <br/><br/>
-                        {this.state.blogs.map( (blog) => {
-                            return (
-                                <div key={blog.id}>
-                                    <h1>{ blog.title } </h1> <br/>
-                                    <h3> { blog.date } </h3> <br/>
-                                    <p>{ blog.summary } </p><br/><br/><br/>
-                                </div>
-                            );
-                        }
+                        
+                        {this.state.blogs.map(blog => (
+                            <div key= {blog.id} >
+                                <h1> { blog.title } </h1> <br/>
+                                <h3> { blog.dateUnparsed } </h3> <br/>
+                                <p> { blog.summary } </p><br/>
+                                <Link to={"http://www.ameliesfrenchbakery.com" + blog.link}>Link</Link>
+                            </div>
+                            )
                         )}
                     </PanelBody>
                 </MainPanel>

@@ -19,6 +19,7 @@ class ManagerView extends Component {
         super(props);
         this.toggleForms = this.toggleForms.bind(this);
         this.state = {
+            currentItem: [],
             cafeBreakfastMenu: [],
             cafeLunchMenu: [],
             cafeCoffeeMenu: [],
@@ -38,15 +39,26 @@ class ManagerView extends Component {
         };
     }
 
+    populateQuillCCMenu = (event) => {
+        event.preventDefault();
+        const { title, desc, price } = event.target.dataset;
+        console.log(event.target.dataset);
+        this.setState({
+            currentItem: [
+                title,
+                desc,
+                price
+            ]
+        }, () => console.log(this.state.currentItem));
+
+    }
+
     loadCafeMenuItems = () => {
         API.getCafeMenuItems()
-            .then(res => this.setState({
-                cafeBreakfastMenu: res.data.breakfast,
-                cafeLunchMenu: res.data.lunchdinner,
-                cafeCoffeeMenu: res.data.coffeetea,
-                cafeDessertMenu: res.data.dessertpastry
-
-            }), (res) => console.log(res.data.breakfast))
+            .then(res =>
+                this.setState({
+                    cafeBreakfastMenu: res.data.breakfast
+                }))
             .catch(err => console.log(err));
     }
 
@@ -72,8 +84,8 @@ class ManagerView extends Component {
             }));
     }
 
-    toggleForms() {
-        this.setState({ addNewItemForm: !this.state.addNewItemForm, updateForm: !this.state.updateForm });
+    toggleForms(hasQuill) {
+        this.setState({ addNewItemForm: !hasQuill, updateForm: hasQuill });
     }
     
     isAuthed(){
@@ -102,13 +114,13 @@ class ManagerView extends Component {
                  <Row>
                   
                     <Col lg="4">
-                        <ManagerSidebar toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} loadCateringMenuItems={this.loadCateringMenuItems} loadCakeMenuItems={this.loadCakeMenuItems} {...this.state}/>
+                        <ManagerSidebar populateQuillCCMenu= {this.populateQuillCCMenu} toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} loadCateringMenuItems={this.loadCateringMenuItems} loadCakeMenuItems={this.loadCakeMenuItems} cafeBreakfastMenu={this.state.cafeBreakfastMenu}/>
                     </Col>
                    
                    
                     <Col lg="8">
                     {this.state.updateForm 
-                       ? <UpdateForm {...this.props} /> 
+                       ? <UpdateForm {...this.props} currentItem = {this.state.currentItem}/> 
                        : <AddNewForm {...this.props} addNewItemForm = {this.state.addNewItemForm} />
                     }
                     </Col>

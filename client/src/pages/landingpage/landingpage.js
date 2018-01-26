@@ -23,6 +23,7 @@ class LandingPage extends Component {
                             <Col xs="12" sm="12" md="12">
                                 <img src="/display_images/banner.png" alt="brand" className="bannerImg" />
                             </Col>
+                            
                         </Row>
                     </PanelBody>
                 </MainPanel>

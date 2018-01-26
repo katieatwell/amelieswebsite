@@ -14,3 +14,12 @@
     background-size: 100%;
     position: relative;
 }
+
+@media screen and (max-width: 800px) {
+    #MenuPanel {
+        background-image: url("./mobile-frame.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 170vw;
+    }
+}

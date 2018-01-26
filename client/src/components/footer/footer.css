@@ -1,5 +1,4 @@
 .footerContainer {
-    margin-top: 50px;
     padding-top: 15px;
     border-top: 2px solid black;
     background-color: #aac8d9;
@@ -52,10 +51,6 @@
     .linksContainer,
     .copyright {
         font-size: 12px;
-    }
-
-    .footerContainer {
-        margin-top: 80px;
     }
 
 }

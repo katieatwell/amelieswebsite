@@ -7,7 +7,7 @@ import AddNewForm from "../../components/forms/managerupdate/addnew";
 import ManagerSidebar from "../../components/managernav/sidebar";
 import API from "../../utils/API";
 import { Row, Col } from "reactstrap";
-import { Route, Redirect } from 'react-router';
+import {Redirect } from 'react-router';
 import axios from "axios";
 
 axios.defaults.headers.common['Authorization'] = "jwt " +sessionStorage.getItem('token');
@@ -91,6 +91,7 @@ class ManagerView extends Component {
     isAuthed(){
         let token = sessionStorage.getItem('token');
         console.log('token: '+token);
+        this.loadCafeMenuItems();
         if (token){
             //add validation logic here, see if token has expired?
             return true;

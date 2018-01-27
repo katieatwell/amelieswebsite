@@ -57,11 +57,8 @@ router.use(express.static('client/public'));
 // Router
 // const controller = require('./controller/index.js'); //need an index file for the controller
 // app.use('/menu', controller.menu ); // wont work without index file.
+const seed = require('../controllers/seedDB');
 
-router.get("/backend", function(req, res) {
-  res.sendFile(process.cwd() + '/client/public/index2.html');
-  //res.json({message:"Express is up!"});
-})
 
 router.post("/login", function(req, res) {
   //temp store name and pw for logic

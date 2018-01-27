@@ -11,13 +11,13 @@ module.exports = {
           description: req.body.description
         },
         function(err, data) {
-          if (err) {console.log(err)}
+          if (err) {console.log(err); res.sendStatus(500);}
           else res.sendStatus(200);
         });
     },
     
     updateEntry: function(req, res) {
-      db.CCMenu.findOneAndUpdate({ '_id': req.body.id }, {
+      db.CCMenu.findOneAndUpdate({ '_id': req.body._id }, {
         title: req.body.title,
         cafeOrcatering: req.body.cafeOrcatering,
         category: req.body.category,
@@ -25,14 +25,14 @@ module.exports = {
         description: req.body.description
       },
       function(err, data) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     },
     
     deleteEntry: function(req, res) {
-      db.CCMenu.deleteOne({'_id': req.body.id}, function(err){
-        if (err) {console.log(err)}
+      db.CCMenu.deleteOne({'_id': req.body._id}, function(err){
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     }
@@ -46,7 +46,7 @@ module.exports = {
         detail: req.body.detail
       },
       function(err) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     },
@@ -58,7 +58,7 @@ module.exports = {
         detail: req.body.detail
       }, 
       function (err) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     },
@@ -70,25 +70,25 @@ module.exports = {
         detail:req.body.detail
       },
       function(err) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     },
     
     updateEntry: function(req, res) {
-      db.CakeData.findOneAndUpdate({'_id': req.body.id}, {
+      db.CakeData.findOneAndUpdate({'_id': req.body._id}, {
         descriptor: req.body.descriptor,
         detail: req.body.detail
       },
       function(err) {
-        if (err) {console.log(err)}
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });  
     },
     
     deleteEntry: function(req, res) {
-      db.CakeData.deleteOne({'_id': req.body.id}, function(err){
-        if (err) {console.log(err)}
+      db.CakeData.deleteOne({'_id': req.body._id}, function(err){
+        if (err) {console.log(err); res.sendStatus(500);}
         else res.sendStatus(200);
       });
     }

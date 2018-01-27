@@ -12,7 +12,7 @@ let CakeMenu = {
   getComposedCakesALL: function(req, res) {
     CakeMenu.findDescriptors('ComposedCakes').then(function(descriptors) {
       CakeMenu.queryByDescriptors(descriptors).then(function(data) {
-        res.json(CakeMenu.buildArrayOfObjects(data));    
+        res.json(CakeMenu.buildComposedCakeObject(data));    
       });
     });
   },
@@ -20,7 +20,7 @@ let CakeMenu = {
   getCakePricesALL: function(req, res) {
     CakeMenu.findDescriptors('CakePrices').then(function(descriptors) {
       CakeMenu.queryByDescriptors(descriptors).then(function(data) {
-        res.json(CakeMenu.buildArrayOfObjects(data));    
+        res.json(CakeMenu.buildObject(data));    
       });
     });
   },
@@ -46,16 +46,18 @@ let CakeMenu = {
     });
     return results;
   },
-  buildArrayOfObjects: function(data) {
-    let array = [];
+  
+  buildComposedCakeObject: function(data) {
+    let results =[];
     data.forEach(function(each) {
+      let cake = {};
       if (each.length > 0) {
-        each.forEach(function(each){
-          array.push(each);          
-        });
+        cake.name = each[0].descriptor;
+        cake.data = each;
+        results.push(cake);
       }
     });
-    return array;
+    return results;
   }
 };
 

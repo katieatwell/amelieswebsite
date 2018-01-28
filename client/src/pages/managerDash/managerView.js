@@ -7,19 +7,22 @@ import AddNewForm from "../../components/forms/managerupdate/addnew";
 import ManagerSidebar from "../../components/managernav/sidebar";
 import API from "../../utils/API";
 import { Row, Col } from "reactstrap";
-import {Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 import axios from "axios";
 
-axios.defaults.headers.common['Authorization'] = "jwt " +sessionStorage.getItem('token');
+axios.defaults.headers.common['Authorization'] = "jwt " + sessionStorage.getItem('token');
 
 class ManagerView extends Component {
-    
-    //SIMPLIFY THE WAY DATA IS BEING STORED? 
+
+    //SIMPLIFY THE WAY DATA IS BEING STORED! 
     constructor(props) {
         super(props);
         this.toggleForms = this.toggleForms.bind(this);
         this.state = {
-            currentItem: [],
+            currentItem: [{ title: "", desc: "", price: "" }],
+            title: "",
+            desc: "",
+            price: "",
             cafeBreakfastMenu: [],
             cafeLunchMenu: [],
             cafeCoffeeMenu: [],
@@ -44,13 +47,23 @@ class ManagerView extends Component {
         const { title, desc, price } = event.target.dataset;
         console.log(event.target.dataset);
         this.setState({
-            currentItem: [
+            currentItem: [{
                 title,
                 desc,
                 price
-            ]
+            }]
+        }, () => console.log(this.state.currentItem[0].title));
+
+    }
+
+    handleCurrentItemTitleChange = (i) => (event) => {
+        console.log("SOMETHING is happening!");
+        const newCurrentItem = this.state.currentItem.map((currentItem, sidx) => {
+            if (i !== sidx) return i;
+            return { ...currentItem, title: event.target.value };
         }, () => console.log(this.state.currentItem));
 
+        this.setState({ currentItem: newCurrentItem }, () => console.log(this.state.currentItem));
     }
 
     loadCafeMenuItems = () => {
@@ -87,23 +100,24 @@ class ManagerView extends Component {
     toggleForms(hasQuill) {
         this.setState({ addNewItemForm: !hasQuill, updateForm: hasQuill });
     }
-    
-    isAuthed(){
+
+    isAuthed() {
         let token = sessionStorage.getItem('token');
-        console.log('token: '+token);
+        // console.log('token: ' + token);
         this.loadCafeMenuItems();
-        if (token){
+        if (token) {
             //add validation logic here, see if token has expired?
             return true;
-        }else{
+        }
+        else {
             return false;
         }
     }
 
     render() {
         return (
-            this.isAuthed() 
-            ?(<Wrapper>
+            this.isAuthed() ?
+            (<Wrapper>
                 <MainPanel>
                 <Row>
                     <Col lg="5">
@@ -115,21 +129,30 @@ class ManagerView extends Component {
                  <Row>
                   
                     <Col lg="4">
-                        <ManagerSidebar populateQuillCCMenu= {this.populateQuillCCMenu} toggleForms = {this.toggleForms} loadCafeMenuItems = {this.loadCafeMenuItems} loadCateringMenuItems={this.loadCateringMenuItems} loadCakeMenuItems={this.loadCakeMenuItems} cafeBreakfastMenu={this.state.cafeBreakfastMenu}/>
+                        <ManagerSidebar value={this.state.value}
+                        populateQuillCCMenu= {this.populateQuillCCMenu} 
+                        toggleForms = {this.toggleForms} 
+                        loadCafeMenuItems = {this.loadCafeMenuItems} 
+                        loadCateringMenuItems={this.loadCateringMenuItems} 
+                        loadCakeMenuItems={this.loadCakeMenuItems} 
+                        cafeBreakfastMenu={this.state.cafeBreakfastMenu}/>
                     </Col>
                    
                    
                     <Col lg="8">
                     {this.state.updateForm 
-                       ? <UpdateForm {...this.props} currentItem = {this.state.currentItem}/> 
-                       : <AddNewForm {...this.props} addNewItemForm = {this.state.addNewItemForm} />
+                       ? <UpdateForm {...this.props} 
+                       handleCurrentItemTitleChange={this.handleCurrentItemTitleChange} 
+                       currentItem = {this.state.currentItem}/> 
+                       : <AddNewForm {...this.props} 
+                       addNewItemForm = {this.state.addNewItemForm} />
                     }
                     </Col>
                   
                 </Row>
                 </MainPanel>
-            </Wrapper>)
-            :(
+            </Wrapper>) :
+            (
                 <Redirect to ="/managerlogin"/>
             )
         );

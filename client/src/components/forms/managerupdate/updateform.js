@@ -9,10 +9,15 @@ export default class UpdateForm extends Component {
       <Form>
       
         <FormGroup>
+        {this.props.currentItem.map((item, i) => (
+        <div>
           <Label for="name">Item Title</Label>
-          <Input type="text" name= "title" id="itemTitle" />
-          {this.props.currentItem}
-          {(console.log(this.props.currentItem))}
+          <Input type="text" name= "title" id="itemTitle" 
+          value={item.title} 
+          onChange={this.props.handleCurrentItemTitleChange(i)}/>
+          </div>
+          )
+        )}
         </FormGroup>
         
         <FormGroup>

@@ -11,7 +11,7 @@ export default class ManagerSidebar extends Component {
     }
 
     componentDidMount() {
-        this.props.loadCafeMenuItems;
+        this.props.loadCafeMenuItems();
     }
 
     toggle(num) {
@@ -54,13 +54,13 @@ export default class ManagerSidebar extends Component {
                     <Collapse isOpen={this.state.collapse[4]}>
                     <Card>
                     <ListGroup>
-                    {this.props.cafeBreakfastMenu.map(item => (
-                        <ListGroupItem onClick={()=> this.props.toggleForms(true)}> 
-                        <h4>
-                        {item.title}
-                        </h4>
-                        </ListGroupItem>
-                        ))}
+                    {this.props.cafeBreakfastMenu.map(item => {
+                        return (<ListGroupItem onClick={()=> this.props.toggleForms(true)} key={item._id}> 
+                            <h4>
+                                {item.title}
+                            </h4>
+                        </ListGroupItem>);
+                    })}
                     </ListGroup>
                     </Card>
                     </Collapse>

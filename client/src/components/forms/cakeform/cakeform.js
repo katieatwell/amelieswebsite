@@ -26,7 +26,7 @@ export default class CakeForm extends React.Component {
     
     //hard code to whatever email should recieve cake orders. for testing use mine.
     let tempMail="pathayes2382@gmail.com";
-    API.sendEmail(tempMail, this.state.select,"Hello there, this is "+this.state.name+" and my number is:"+this.state.phone+" ... my message to go with my order: " +this.state.text+"  my order is as follows:"+`date: ${this.state.date} cake flavor: ${this.state.cakeFlavor} buttercream flavor: ${this.state.buttercream} with filling of: ${this.state.filling} and has masking and decorations of ${this.state.maskingDecorations}`)
+    API.sendEmail(tempMail, this.state.select,`Hello there, this is ${this.state.name} and my number is: ${this.state.phone} ... my message to go with my order: ${this.state.text}  my order is as follows: date: ${this.state.date} cake flavor: ${this.state.cakeFlavor} buttercream flavor: ${this.state.buttercream} with filling of: ${this.state.filling} and has masking and decorations of ${this.state.maskingDecorations}`)
   }
   
   

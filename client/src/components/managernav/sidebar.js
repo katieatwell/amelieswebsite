@@ -34,7 +34,8 @@ export default class ManagerSidebar extends Component {
                     <ListGroup>
                     {this.props.cafeBreakfastMenu.map(item => (
                     <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
-                    data-cafeOrcatering={item.cafeOrcatering}
+                    key = {item._id}
+                    data-cafeorcatering={item.cafeOrcatering}
                     data-id={item._id} 
                     data-category={item.category} 
                     data-price={item.price} 
@@ -54,7 +55,7 @@ export default class ManagerSidebar extends Component {
                     <Card>
                     <ListGroup>
                     {this.props.cafeBreakfastMenu.map(item => (
-                        <ListGroupItem key={item.title} onClick={()=> this.props.toggleForms(true)}> 
+                        <ListGroupItem onClick={()=> this.props.toggleForms(true)}> 
                         <h4>
                         {item.title}
                         </h4>

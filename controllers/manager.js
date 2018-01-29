@@ -20,12 +20,13 @@ module.exports = {
     },
 
     updateEntry: function(req, res) {
+      console.log(req.body)
       db.CCMenu.findOneAndUpdate({ '_id': req.body.id }, {
           title: req.body.title,
-            cafeOrcatering: req.body.cafeOrcatering,
-            category: req.body.category,
-            price: req.body.price,
-            description: req.body.description
+          cafeOrcatering: req.body.cafeOrcatering,
+          category: req.body.category,
+          price: req.body.price,
+          description: req.body.description
         },
         function(err, data) {
           if (err) {
@@ -37,7 +38,8 @@ module.exports = {
     },
 
     deleteEntry: function(req, res) {
-      db.CCMenu.deleteOne({ '_id': req.body._id }, function(err) {
+      console.log(req.body);
+      db.CCMenu.deleteOne({ '_id': req.body.id }, function(err) {
         if (err) {
           console.log(err);
           res.sendStatus(500);

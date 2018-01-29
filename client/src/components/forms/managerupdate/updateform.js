@@ -4,72 +4,79 @@ import QuillEditor from "./quilleditor";
 import "./style.css";
 
 export default class UpdateForm extends Component {
+
   render() {
+    const currentItem = this.props.currentItem[0];
+    // console.log(currentItem.desc);
     return (
       <Form>
       
         <FormGroup>
-        {this.props.currentItem.map((item, i) => (
+        
         <div>
           <Label for="name">Item Title</Label>
           <Input type="text" name= "title" id="itemTitle" 
-          value={item.title} 
-          onChange={this.props.handleCurrentItemTitleChange(i)}/>
+          value={currentItem.title} 
+          onChange={this.props.handleCurrentItemTitleChange}/>
           </div>
-          ))}
+         
         </FormGroup>
         
         <FormGroup>
-         {this.props.currentItem.map((item, i) => (
+         
         <div>
           <Label for="name">Item Description</Label>
-          {/*<Input type="text" name="description" id="itemDescription" />*/}
           <QuillEditor
-          value={item.desc} 
-          onChange={this.props.handleCurrentItemTitleChange(i)}/>
+          value={currentItem.desc} 
+          key={currentItem.id}
+          updateState={this.props.handleCurrentItemDescChange}/>
           </div>
-          ))}
+       
         </FormGroup>
         
         <FormGroup>
-         {this.props.currentItem.map((item, i) => (
+       
         <div>
           <Label for="text">Item Price</Label>
           <Input type="text" name="price" id="itemPrice"
-          value={item.price}
-          onChange={this.props.handleCurrentItemPriceChange(i)}/>
+          value={currentItem.price}
+          onChange={this.props.handleCurrentItemPriceChange}/>
           </div>
-          ))}
+       
         </FormGroup>
         
         <FormGroup>
-          {this.props.currentItem.map((item, i) => (
+          
           <div>
           <Label for="text">Item Category</Label>
             <Input type="text" name="category" id="itemCategory"
-            value={item.category}
-            onChange={this.props.handleCurrentItemCategoryChange(i)}/>
+            value={currentItem.category}
+            onChange={this.props.handleCurrentItemCategoryChange}/>
           </div>
-          ))}
+      
         </FormGroup>
         
         <FormGroup>
-          {this.props.currentItem.map((item, i) => (
+    
           <div>
           <Label for="text">Item Menu</Label>
             <Input type="text" name="cafeorcatering" id="itemCategory"
-            value={item.cafeorcatering}
-            onChange={this.props.handleCurrentItemCafeorCateringChange(i)}/>
+            value={currentItem.cafeorcatering}
+            onChange={this.props.handleCurrentItemCafeorCateringChange}/>
           </div>
-          ))}
+      
         </FormGroup>
+         
+         
+          <div>
+            <Button outline color="secondary" value={currentItem.id} onClick={() => this.props.deleteCafeMenuItem(currentItem.id)}>Delete</Button>
+          </div>
         
-        <Button outline color="secondary">Delete</Button>
-        {this.props.currentItem.map((item) => (
-        <div>
-        <Button outline color="secondary" value={item._id} onClick={()=> this.props.updateCafeMenuItem(item._id)}>Update</Button>
-        </div>
-        ))}
+   
+          <div>
+            <Button outline color="secondary" value={currentItem.id} onClick={this.props.updateCafeMenuItem}>Update</Button>
+          </div>
+  
       </Form>
     );
   }

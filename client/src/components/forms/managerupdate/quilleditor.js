@@ -15,7 +15,8 @@ Quill.register(AlignStyle, true);
 class QuillEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { html: '' }; //Future: html will be pre-filled based on user selection
+    console.log("Quill props: " + JSON.stringify(props));
+    this.state = { html: props.value || "" }; //Future: html will be pre-filled based on user selection
     this.modules = {
       toolbar: [ // Formats included in the Quill editor toolbar
         ['bold', 'italic', 'underline'],
@@ -38,6 +39,7 @@ class QuillEditor extends React.Component {
 
   handleChange = (value) => {
     this.setState({ html: value });
+    this.props.updateState(value);
   }
 
   render() {

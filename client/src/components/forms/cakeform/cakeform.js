@@ -10,16 +10,16 @@ export default class CakeForm extends React.Component {
     email:"",
     date:"",
     text:"",
-    cakeFlavor:"",
-    buttercream:"",
-    filling:"",
-    maskingDecorations:"",
+    cakeFlavor:"Chocolate Chiffon",
+    buttercream:"Chocolate",
+    filling:"Chocolate Mousse",
+    maskingDecorations:"Feuilletine",
     subject:"#Placeholder#testing",
     select:"Cake Order"
   };
   
   handleSubmit = (event) => {
-    event.preventDefault;
+    event.preventDefault();
     console.log("submit button hit")
     console.log(this.state);
     API.sendEmail(this.state.email, this.state.select, `Hello there, thanks for your order! your order is name: ${this.state.name} date: ${this.state.date} cake flavor: ${this.state.cakeFlavor} buttercream flavor: ${this.state.buttercream} with filling of: ${this.state.filling} and has masking and decorations of ${this.state.maskingDecorations}. if anything seems wrong with your order, please contact us and let us know!`);

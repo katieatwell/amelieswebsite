@@ -64,7 +64,7 @@ class Blog extends Component {
                                     
                                     <div> 
                                         { this.titleCase ( blog.summary ) }
-                                    <Link to={"http://www.ameliesfrenchbakery.com" + blog.link} className="blogLink">Read More</Link>
+                                    <Link to={"http://www.ameliesfrenchbakery.com" + blog.link} target="_blank" className="blogLink">Read More</Link>
                                     </div>
                                 </div>
                                 

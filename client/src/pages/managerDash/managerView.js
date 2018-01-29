@@ -14,56 +14,73 @@ axios.defaults.headers.common['Authorization'] = "jwt " + sessionStorage.getItem
 
 class ManagerView extends Component {
 
-    //SIMPLIFY THE WAY DATA IS BEING STORED! 
+    //simplify how menu data will be stored (load entire menus into three states and then go from there)
     constructor(props) {
         super(props);
         this.toggleForms = this.toggleForms.bind(this);
         this.state = {
-            currentItem: [{ title: "", desc: "", price: "" }],
-            title: "",
-            desc: "",
-            price: "",
+            currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeorcatering: "" }],
             cafeBreakfastMenu: [],
-            cafeLunchMenu: [],
-            cafeCoffeeMenu: [],
-            cafeDessertMenu: [],
-            cateringBreakfastMenu: [],
-            cateringBeverageMenu: [],
-            cateringLunchMenu: [],
-            cateringPlatterMenu: [],
-            cateringDessertMenu: [],
-            cateringWeddingMenu: [],
-            cateringFGBMenu: [],
-            cateringIHEMenu: [],
-            cakesComposedMenu: [],
-            cakesBYOMenu: [],
             addNewItemForm: false,
             updateForm: true
         };
     }
 
-    populateQuillCCMenu = (event) => {
+    populateFormCCMenu = (event) => {
         event.preventDefault();
-        const { title, desc, price } = event.target.dataset;
+        const { title, desc, price, id, category, cafeorcatering } = event.target.dataset;
         console.log(event.target.dataset);
         this.setState({
             currentItem: [{
                 title,
                 desc,
-                price
+                price,
+                id,
+                category,
+                cafeorcatering
             }]
-        }, () => console.log(this.state.currentItem[0].title));
+        }, () => console.log(this.state.currentItem[0].cafeorcatering));
 
     }
-
+    //Consolidate these methods in to a single one?
     handleCurrentItemTitleChange = (i) => (event) => {
-        console.log("SOMETHING is happening!");
-        const newCurrentItem = this.state.currentItem.map((currentItem, sidx) => {
-            if (i !== sidx) return i;
-            return { ...currentItem, title: event.target.value };
-        }, () => console.log(this.state.currentItem));
-
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            if (i !== secondItem) return i;
+            return { ...currentItem,
+                title: event.target.value
+            };
+        });
         this.setState({ currentItem: newCurrentItem }, () => console.log(this.state.currentItem));
+    }
+
+    handleCurrentItemPriceChange = (i) => (event) => {
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            if (i !== secondItem) return i;
+            return { ...currentItem,
+                price: event.target.value
+            };
+        });
+        this.setState({ currentItem: newCurrentItem });
+    }
+
+    handleCurrentItemCategoryChange = (i) => (event) => {
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            if (i !== secondItem) return i;
+            return { ...currentItem,
+                category: event.target.value
+            };
+        });
+        this.setState({ currentItem: newCurrentItem });
+    }
+
+    handleCurrentItemCafeorCateringChange = (i) => (event) => {
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            if (i !== secondItem) return i;
+            return { ...currentItem,
+                cafeorcatering: event.target.value
+            };
+        });
+        this.setState({ currentItem: newCurrentItem });
     }
 
     loadCafeMenuItems = () => {
@@ -71,31 +88,45 @@ class ManagerView extends Component {
             .then(res =>
                 this.setState({
                     cafeBreakfastMenu: res.data.breakfast
-                }))
+                })).catch(err => console.log(err));
+    }
+
+    updateCafeMenuItem = () => {
+        let itemData = {
+            id: this.state.currentItem[0].id,
+            category: this.state.currentItem[0].category,
+            cafeOrcatering: this.state.currentItem[0].cafeorcatering,
+            title: this.state.currentItem[0].title,
+            price: this.state.currentItem[0].price,
+            description: this.state.currentItem[0].desc
+        }
+        API.updateCCMenuItem(itemData)
+            .then(res => this.loadCafeMenuItems(), () => console.log("Updating" + JSON.stringify(itemData)))
             .catch(err => console.log(err));
     }
 
-    loadCateringMenuItems = () => {
-        API.getCateringMenuItems()
-            .then(res => this.setState({
-                cateringBreakfastMenu: res.data.breakfast,
-                cateringBeverageMenu: res.data.beverage,
-                cateringLunchMenu: res.data.lunch,
-                cateringPlatterMenu: res.data.platter,
-                cateringDessertMenu: res.data.dessert,
-                cateringWeddingMenu: res.data.wedding,
-                cateringFGBMenu: res.data.favors,
-                cateringIHEMenu: res.data.inhouseevents,
-            }));
-    }
 
-    loadCakeMenuItems = () => {
-        API.getCakeMenuItems()
-            .then(res => this.setState({
-                cakesComposedMenu: res.data.composedcakes,
-                cakesBYOMenu: res.data.buildyourown
-            }));
-    }
+    // loadCateringMenuItems = () => {
+    //     API.getCateringMenuItems()
+    //         .then(res => this.setState({
+    //             cateringBreakfastMenu: res.data.breakfast,
+    //             cateringBeverageMenu: res.data.beverage,
+    //             cateringLunchMenu: res.data.lunch,
+    //             cateringPlatterMenu: res.data.platter,
+    //             cateringDessertMenu: res.data.dessert,
+    //             cateringWeddingMenu: res.data.wedding,
+    //             cateringFGBMenu: res.data.favors,
+    //             cateringIHEMenu: res.data.inhouseevents,
+    //         }));
+    // }
+
+    // loadCakeMenuItems = () => {
+    //     API.getCakeMenuItems()
+    //         .then(res => this.setState({
+    //             cakesComposedMenu: res.data.composedcakes,
+    //             cakesBYOMenu: res.data.buildyourown
+    //         }));
+    // }
 
     toggleForms(hasQuill) {
         this.setState({ addNewItemForm: !hasQuill, updateForm: hasQuill });
@@ -104,7 +135,7 @@ class ManagerView extends Component {
     isAuthed() {
         let token = sessionStorage.getItem('token');
         // console.log('token: ' + token);
-        this.loadCafeMenuItems();
+        // this.loadCafeMenuItems();
         if (token) {
             //add validation logic here, see if token has expired?
             return true;
@@ -130,7 +161,7 @@ class ManagerView extends Component {
                   
                     <Col lg="4">
                         <ManagerSidebar value={this.state.value}
-                        populateQuillCCMenu= {this.populateQuillCCMenu} 
+                        populateFormCCMenu= {this.populateFormCCMenu} 
                         toggleForms = {this.toggleForms} 
                         loadCafeMenuItems = {this.loadCafeMenuItems} 
                         loadCateringMenuItems={this.loadCateringMenuItems} 
@@ -142,10 +173,16 @@ class ManagerView extends Component {
                     <Col lg="8">
                     {this.state.updateForm 
                        ? <UpdateForm {...this.props} 
-                       handleCurrentItemTitleChange={this.handleCurrentItemTitleChange} 
+                       updateCafeMenuItem = {this.updateCafeMenuItem}
+                       handleCurrentItemCafeorCateringChange = {this.handleCurrentItemCafeorCateringChange}
+                       handleCurrentItemTitleChange = {this.handleCurrentItemTitleChange} 
+                       handleCurrentItemPriceChange = {this.handleCurrentItemPriceChange}
+                       handleCurrentItemCategoryChange = {this.handleCurrentItemCategoryChange}
                        currentItem = {this.state.currentItem}/> 
-                       : <AddNewForm {...this.props} 
-                       addNewItemForm = {this.state.addNewItemForm} />
+                       : <AddNewForm 
+                       loadCafeMenuItems = {this.loadCafeMenuItems}
+                       addNewItemForm = {this.state.addNewItemForm}
+                       toggleForms = {this.toggleForms}/>
                     }
                     </Col>
                   

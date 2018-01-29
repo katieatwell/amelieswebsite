@@ -25,7 +25,7 @@ export default class Footer extends Component {
                 
                 <Col xs="4" sm="4" md="4" >
                     <p className="linksContainer">
-                        <a href="https://ameliesfrenchbakery.applicantpool.com/jobs/" target="_blank" className="footerLink">Careers</a>
+                        <a href="https://ameliesfrenchbakery.applicantpool.com/jobs/" target="_blank" className="footerLink" rel="noopener noreferrer">Careers</a>
                         <br/>
                         <a href="/managerlogin" className="footerLink">Manager Login</a>
                         <br />

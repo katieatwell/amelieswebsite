@@ -50,25 +50,64 @@ export default class ManagerSidebar extends Component {
                     </ListGroupItem>
                     
                 <ListGroupItem action onClick={() => this.toggle(4)}>Lunch/Dinner
-                  {this.props.cafeBreakfastMenu.length ? (
-                    <Collapse isOpen={this.state.collapse[4]}>
-                    <Card>
+                  {this.props.cafeLunchMenu.length ? (
                     <ListGroup>
-                    {this.props.cafeBreakfastMenu.map(item => (
-                        <ListGroupItem onClick={()=> this.props.toggleForms(true)}> 
-                        <h4>
+                    {this.props.cafeLunchMenu.map(item => (
+                    <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
+                    key = {item._id}
+                    data-cafeorcatering={item.cafeOrcatering}
+                    data-id={item._id} 
+                    data-category={item.category} 
+                    data-price={item.price} 
+                    data-title={item.title} 
+                    data-desc={item.description}> 
                         {item.title}
-                        </h4>
                         </ListGroupItem>
                         ))}
                     </ListGroup>
-                    </Card>
-                    </Collapse>
                     ): (<h5>Content</h5>
                     )}
                 </ListGroupItem>
-                <ListGroupItem action>Coffee/Tea</ListGroupItem>
-                <ListGroupItem action>Desserts/Pastries</ListGroupItem>
+                
+                 <ListGroupItem action onClick={() => this.toggle(4)}>Coffee/Tea
+                  {this.props.cafeCoffeeMenu.length ? (
+                    <ListGroup>
+                    {this.props.cafeCoffeeMenu.map(item => (
+                    <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
+                    key = {item._id}
+                    data-cafeorcatering={item.cafeOrcatering}
+                    data-id={item._id} 
+                    data-category={item.category} 
+                    data-price={item.price} 
+                    data-title={item.title} 
+                    data-desc={item.description}> 
+                        {item.title}
+                        </ListGroupItem>
+                        ))}
+                    </ListGroup>
+                    ): (<h5>Content</h5>
+                    )}
+                </ListGroupItem>
+                
+                 <ListGroupItem action onClick={() => this.toggle(4)}>Desserts/Pastries
+                  {this.props.cafePastryMenu.length ? (
+                    <ListGroup>
+                    {this.props.cafePastryMenu.map(item => (
+                    <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
+                    key = {item._id}
+                    data-cafeorcatering={item.cafeOrcatering}
+                    data-id={item._id} 
+                    data-category={item.category} 
+                    data-price={item.price} 
+                    data-title={item.title} 
+                    data-desc={item.description}> 
+                        {item.title}
+                        </ListGroupItem>
+                        ))}
+                    </ListGroup>
+                    ): (<h5>Content</h5>
+                    )}
+                </ListGroupItem>
             </ListGroup>
             </Card>
             </Collapse>

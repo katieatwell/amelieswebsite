@@ -21,6 +21,9 @@ class ManagerView extends Component {
         this.state = {
             currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeorcatering: "" }],
             cafeBreakfastMenu: [],
+            cafeLunchMenu: [],
+            cafeCoffeeMenu: [],
+            cafePastryMenu: [],
             addNewItemForm: false,
             updateForm: true
         };
@@ -100,7 +103,10 @@ class ManagerView extends Component {
             .then(res =>
                 this.setState({
                     cafeBreakfastMenu: res.data.breakfast,
-                    cafeLunchMenu: res.data.lunch
+                    cafeLunchMenu: res.data.lunchdinner,
+                    cafeCoffeeMenu: res.data.coffeetea,
+                    cafePastryMenu: res.data.dessertspastry
+
                 })).catch(err => console.log(err));
     }
 
@@ -171,15 +177,15 @@ class ManagerView extends Component {
         }
         else {
             console.log("NO TOKEN!!!")
-            return this.authed=false;
+            return this.authed = false;
         }
     }
-    
-    authed =true;
+
+    authed = true;
 
     render() {
         return (
-            this.authed?
+            this.authed ?
             (<Wrapper>
                 <MainPanel>
                 <Row>
@@ -192,13 +198,16 @@ class ManagerView extends Component {
                  <Row>
                   
                     <Col lg="4">
-                        <ManagerSidebar value={this.state.value}
-                        populateFormCCMenu= {this.populateFormCCMenu} 
+                        <ManagerSidebar value = {this.state.value}
+                        populateFormCCMenu = {this.populateFormCCMenu} 
                         toggleForms = {this.toggleForms} 
                         loadCafeMenuItems = {this.loadCafeMenuItems} 
-                        loadCateringMenuItems={this.loadCateringMenuItems} 
-                        loadCakeMenuItems={this.loadCakeMenuItems} 
-                        cafeBreakfastMenu={this.state.cafeBreakfastMenu}/>
+                        loadCateringMenuItems = {this.loadCateringMenuItems} 
+                        loadCakeMenuItems = {this.loadCakeMenuItems} 
+                        cafeBreakfastMenu = {this.state.cafeBreakfastMenu}
+                        cafeCoffeeMenu = {this.state.cafeCoffeeMenu}
+                        cafeLunchMenu = {this.state.cafeLunchMenu}
+                        cafePastryMenu = {this.state.cafePastryMenu}/>
                     </Col>
                    
                    
@@ -222,8 +231,7 @@ class ManagerView extends Component {
                   
                 </Row>
                 </MainPanel>
-             </Wrapper>) 
-            :
+             </Wrapper>) :
             (
                 <Redirect to ="/managerlogin"/>
             )

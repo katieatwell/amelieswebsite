@@ -3,8 +3,10 @@ import Wrapper from "../../components/wrapper";
 import MainPanel from "../../components/mainpanel/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
+import { Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
+import "./style.css";
 
 
 class Blog extends Component {
@@ -27,6 +29,17 @@ class Blog extends Component {
             .catch(err => console.log("bad data"));
     };
 
+    titleCase = (str) => {
+        str = str.toLowerCase().split(' ');
+
+        for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].split('');
+            str[i][0] = str[i][0].toUpperCase();
+            str[i] = str[i].join('');
+        }
+        return str.join(' ');
+    }
+
     render() {
         return (
             <Wrapper>
@@ -37,15 +50,27 @@ class Blog extends Component {
                     
                     <PanelBody>
                         
-                        {this.state.blogs.map(blog => (
-                            <div key= {blog.id} >
-                                <h1> { blog.title } </h1> <br/>
-                                <h3> { blog.dateUnparsed } </h3> <br/>
-                                <p> { blog.summary } </p><br/>
-                                <Link to={"http://www.ameliesfrenchbakery.com" + blog.link}>Link</Link>
-                            </div>
-                            )
-                        )}
+                            {this.state.blogs.map(blog => (
+                                <div key= {blog.id} className ="blogEntry">
+                                    <img src="./display_images/blogbanner.png" width="80%" height="40%" />
+                                    
+                                    <div className="blogTitle"> 
+                                        { this.titleCase( blog.title ) }
+                                    </div> 
+                                    
+                                    <div className="blogDate"> 
+                                        { blog.dateUnparsed } 
+                                    </div> 
+                                    
+                                    <div> 
+                                        { this.titleCase ( blog.summary ) }
+                                    <Link to={"http://www.ameliesfrenchbakery.com" + blog.link} className="blogLink">Read More</Link>
+                                    </div>
+                                </div>
+                                
+                                )
+                            )}
+
                     </PanelBody>
                 </MainPanel>
             </Wrapper>

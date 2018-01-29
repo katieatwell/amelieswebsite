@@ -3,11 +3,14 @@
 }
 
 .navMenuTitle {
-    font-weight: bold;
-    font-size: 18px;
+    margin-top: -10px;
+    font-size: x-large;
     margin-bottom: 5px;
     color: #f7f2b0;
-    border: 1px solid white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    font-family: 'Patrick Hand SC', cursive;
+    opacity: .9;
 }
 
 .navMenuTitle:hover {
@@ -21,6 +24,9 @@
 
 .menuTitle {
     color: #c4d7e2;
+    font-family: 'Fredericka the Great', cursive;
+    font-weight: lighter;
+    font-size: 48px;
 }
 
 .menuNav {
@@ -31,9 +37,9 @@
 .scrollit {
     overflow: scroll;
     color: #ecebe9;
-    height: 47vh;
     margin-top: 15px;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .menuWrapper {
@@ -41,7 +47,22 @@
     width: 90%;
 }
 
-@media screen and (max-width: 800px) {
+.menuItemTitle {
+    font-size: xx-large;
+    font-weight: bold;
+    color: #f07e56;
+    font-family: 'Patrick Hand SC', cursive;
+    margin-bottom: -15px;
+    opacity: .9;
+}
+
+.menuItemDescript {
+    font-size: larger;
+    font-weight: lighter;
+    font-family: 'Handlee', cursive;
+}
+
+@media screen and (max-width: 980px) {
 
     .menuTitle {
         font-size: 24px;

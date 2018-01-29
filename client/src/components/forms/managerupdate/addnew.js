@@ -24,8 +24,7 @@ export default class AddNewForm extends Component {
         price: this.state.price,
         cafeOrcatering: this.state.cafeOrcatering
       })
-      // .then(res => this.props.loadCafeMenuItems(), () => console.log("new menu item added"))
-      .then(res => console.log(res))
+      .then(res => this.props.loadCafeMenuItems(), () => console.log("new menu item added"))
       .catch(err => console.log(err));
   }
 

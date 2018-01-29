@@ -45,10 +45,21 @@ export default class UpdateForm extends Component {
         <FormGroup>
           {this.props.currentItem.map((item, i) => (
           <div>
-          <Label for="directory">Item Category</Label>
+          <Label for="text">Item Category</Label>
             <Input type="text" name="category" id="itemCategory"
             value={item.category}
             onChange={this.props.handleCurrentItemCategoryChange(i)}/>
+          </div>
+          ))}
+        </FormGroup>
+        
+        <FormGroup>
+          {this.props.currentItem.map((item, i) => (
+          <div>
+          <Label for="text">Item Menu</Label>
+            <Input type="text" name="cafeorcatering" id="itemCategory"
+            value={item.cafeorcatering}
+            onChange={this.props.handleCurrentItemCafeorCateringChange(i)}/>
           </div>
           ))}
         </FormGroup>

@@ -10,10 +10,10 @@ export default class ManagerSidebar extends Component {
         this.id = "";
     }
 
-    // componentDidMount() {
-    //     this.props.loadCafeMenuItems;
-    // }
-    
+    componentDidMount() {
+        this.props.loadCafeMenuItems;
+    }
+
     toggle(num) {
         let tempArr = [...this.state.collapse];
         tempArr[num] = !tempArr[num];
@@ -33,7 +33,13 @@ export default class ManagerSidebar extends Component {
                     {this.props.cafeBreakfastMenu.length ? (
                     <ListGroup>
                     {this.props.cafeBreakfastMenu.map(item => (
-                    <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} data-id={item._id} data-category={item.category} data-price={item.price} data-title={item.title} data-desc={item.description}>
+                    <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
+                    data-cafeOrcatering={item.cafeOrcatering}
+                    data-id={item._id} 
+                    data-category={item.category} 
+                    data-price={item.price} 
+                    data-title={item.title} 
+                    data-desc={item.description}>
                      {item.title}
                      </ListGroupItem>
                      ))}

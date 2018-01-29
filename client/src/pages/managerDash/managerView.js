@@ -19,7 +19,7 @@ class ManagerView extends Component {
         super(props);
         this.toggleForms = this.toggleForms.bind(this);
         this.state = {
-            currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeOrcatering: "" }],
+            currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeorcatering: "" }],
             cafeBreakfastMenu: [],
             addNewItemForm: false,
             updateForm: true
@@ -28,7 +28,7 @@ class ManagerView extends Component {
 
     populateFormCCMenu = (event) => {
         event.preventDefault();
-        const { title, desc, price, id, category } = event.target.dataset;
+        const { title, desc, price, id, category, cafeorcatering } = event.target.dataset;
         console.log(event.target.dataset);
         this.setState({
             currentItem: [{
@@ -36,9 +36,10 @@ class ManagerView extends Component {
                 desc,
                 price,
                 id,
-                category
+                category,
+                cafeorcatering
             }]
-        }, () => console.log(this.state.currentItem[0].title));
+        }, () => console.log(this.state.currentItem[0].cafeorcatering));
 
     }
     //Consolidate these methods in to a single one?
@@ -72,6 +73,16 @@ class ManagerView extends Component {
         this.setState({ currentItem: newCurrentItem });
     }
 
+    handleCurrentItemCafeorCateringChange = (i) => (event) => {
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            if (i !== secondItem) return i;
+            return { ...currentItem,
+                cafeorcatering: event.target.value
+            };
+        });
+        this.setState({ currentItem: newCurrentItem });
+    }
+
     loadCafeMenuItems = () => {
         API.getCafeMenuItems()
             .then(res =>
@@ -80,11 +91,11 @@ class ManagerView extends Component {
                 })).catch(err => console.log(err));
     }
 
-    updateCafeMenuItem = (item_id) => {
+    updateCafeMenuItem = () => {
         let itemData = {
             id: this.state.currentItem[0].id,
             category: this.state.currentItem[0].category,
-            cafeOrcatering: this.state.currentItem[0].cafeOrcatering,
+            cafeOrcatering: this.state.currentItem[0].cafeorcatering,
             title: this.state.currentItem[0].title,
             price: this.state.currentItem[0].price,
             description: this.state.currentItem[0].desc
@@ -124,7 +135,7 @@ class ManagerView extends Component {
     isAuthed() {
         let token = sessionStorage.getItem('token');
         // console.log('token: ' + token);
-        this.loadCafeMenuItems();
+        // this.loadCafeMenuItems();
         if (token) {
             //add validation logic here, see if token has expired?
             return true;
@@ -163,6 +174,7 @@ class ManagerView extends Component {
                     {this.state.updateForm 
                        ? <UpdateForm {...this.props} 
                        updateCafeMenuItem = {this.updateCafeMenuItem}
+                       handleCurrentItemCafeorCateringChange = {this.handleCurrentItemCafeorCateringChange}
                        handleCurrentItemTitleChange = {this.handleCurrentItemTitleChange} 
                        handleCurrentItemPriceChange = {this.handleCurrentItemPriceChange}
                        handleCurrentItemCategoryChange = {this.handleCurrentItemCategoryChange}

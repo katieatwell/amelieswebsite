@@ -1,0 +1,22 @@
+.blogEntry {
+    /*border: 1px solid black;*/
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px
+}
+
+.blogTitle {
+    font-size: xx-large;
+    font-family: 'Petit Formal Script', cursive;
+    color: #145b74;
+}
+
+.blogDate {
+    font-size: x-large;
+}
+
+.blogLink {
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+}

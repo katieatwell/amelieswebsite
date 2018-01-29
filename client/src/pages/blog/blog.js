@@ -20,7 +20,6 @@ class Blog extends Component {
     loadBlogs = () => {
         API.getBlog()
             .then(res => {
-                console.log("no data");
                 this.setState({
                     blogs: res.data
                 });

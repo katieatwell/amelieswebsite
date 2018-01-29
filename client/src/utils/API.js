@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.headers.common['Authorization'] = "jwt " +sessionStorage.getItem('token');
+axios.defaults.headers.common['Authorization'] = "jwt " + sessionStorage.getItem('token');
 
 
 export default {
@@ -36,17 +36,15 @@ export default {
         return axios.delete("/api/manager/cake-menu");
     },
     //Update item in cafe and catering table
-    updateCCMenuItem: function(id) {
-        return axios.put("/api/manager/cc-menu");
+    updateCCMenuItem: function(itemData) {
+        return axios.put("/api/manager/cc-menu", itemData);
     },
     //Update Item in Cake Menu
     updateCakeMenuItem: function(id) {
         return axios.put("/api/manager/cake-menu");
     },
-    managerLogin:function(name, password){
-        console.log(name+"   "+password);
-        return axios.post("/login", {name:name, password:password})
+    managerLogin: function(name, password) {
+        console.log(name + "   " + password);
+        return axios.post("/login", { name: name, password: password })
     }
 };
-
-

@@ -54,8 +54,11 @@ export default class UpdateForm extends Component {
         </FormGroup>
         
         <Button outline color="secondary">Delete</Button>
-        <Button outline color="secondary">Update</Button>
-        
+        {this.props.currentItem.map((item) => (
+        <div>
+        <Button outline color="secondary" value={item._id} onClick={()=> this.props.updateCafeMenuItem(item._id)}>Update</Button>
+        </div>
+        ))}
       </Form>
     );
   }

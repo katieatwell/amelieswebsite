@@ -10,7 +10,6 @@ export default class AddNewForm extends Component {
         <FormGroup>
           <Label for="name">Item Title</Label>
           <Input type="text" name= "title" id="itemTitle" />
-          {/*{this.props.currentitem.title}*/}
         </FormGroup>
         
         <FormGroup>

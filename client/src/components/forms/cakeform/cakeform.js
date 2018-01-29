@@ -1,34 +1,69 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import API from './../../../utils/API';
 
 export default class CakeForm extends React.Component {
+  
+  state= {
+    name: "",
+    phone: "",
+    email:"",
+    date:"",
+    text:"",
+    cakeFlavor:"",
+    buttercream:"",
+    filling:"",
+    maskingDecorations:"",
+    subject:"#Placeholder#testing",
+    select:"Cake Order"
+  };
+  
+  handleSubmit = (event) => {
+    event.preventDefault;
+    console.log("submit button hit")
+    console.log(this.state);
+    API.sendEmail(this.state.email, this.state.select, `Hello there, thanks for your order! your order is name: ${this.state.name} date: ${this.state.date} cake flavor: ${this.state.cakeFlavor} buttercream flavor: ${this.state.buttercream} with filling of: ${this.state.filling} and has masking and decorations of ${this.state.maskingDecorations}. if anything seems wrong with your order, please contact us and let us know!`);
+    
+    //hard code to whatever email should recieve cake orders. for testing use mine.
+    let tempMail="pathayes2382@gmail.com";
+    API.sendEmail(tempMail, this.state.select,"Hello there, this is "+this.state.name+" and my number is:"+this.state.phone+" ... my message to go with my order: " +this.state.text+"  my order is as follows:"+`date: ${this.state.date} cake flavor: ${this.state.cakeFlavor} buttercream flavor: ${this.state.buttercream} with filling of: ${this.state.filling} and has masking and decorations of ${this.state.maskingDecorations}`)
+  }
+  
+  
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+  
   render() {
     return (
       <Form>
       
         <FormGroup>
           <Label for="name">Name</Label>
-          <Input type="text" name= "name" id="formName" />
+          <Input type="text" name= "name" id="formName" onChange={this.handleInputChange}/>
         </FormGroup>
         
         <FormGroup>
-          <Label for="name">Phone Number</Label>
-          <Input type="text" name="phone" id="formNumber" />
+          <Label for="phone">Phone Number</Label>
+          <Input type="text" name="phone" id="formNumber" onChange={this.handleInputChange}/>
         </FormGroup>
         
         <FormGroup>
           <Label for="email">Email</Label>
-          <Input type="email" name="email" id="formEmail" />
+          <Input type="email" name="email" id="formEmail" onChange={this.handleInputChange}/>
         </FormGroup>
         
         <FormGroup>
           <Label for="exampleDate">Date Needed By</Label>
-          <Input type="date" name="date" id="date" />
+          <Input type="date" name="date" id="date" onChange={this.handleInputChange}/>
         </FormGroup>
         
         <FormGroup>
           <Label for="directory">Cake Flavor</Label>
-          <Input type="select" name="select" id="cakeFlavor">
+          <Input type="select" name="cakeFlavor" id="cakeFlavor" onChange={this.handleInputChange}>
             <option>Chocolate Chiffon</option>
             <option>Vanilla Chiffon</option>
             <option>Lemon Chiffon</option>
@@ -38,7 +73,7 @@ export default class CakeForm extends React.Component {
         
         <FormGroup>
           <Label for="directory">Buttercream</Label>
-          <Input type="select" name="select" id="cakeButtercream">
+          <Input type="select" name="buttercream" id="cakeButtercream" onChange={this.handleInputChange}>
             <option>Chocolate</option>
             <option>Lemon</option>
             <option>Orange</option>
@@ -54,7 +89,7 @@ export default class CakeForm extends React.Component {
         
         <FormGroup>
           <Label for="directory">Filling (Choose 1 or 2) </Label>
-          <Input type="select" name="select" id="cakeFilling">
+          <Input type="select" name="filling" id="cakeFilling" onChange={this.handleInputChange}>
             <option>Chocolate Mousse</option>
             <option>Raspberry Mousse</option>
             <option>Passion Fruit Mousse</option>
@@ -88,7 +123,7 @@ export default class CakeForm extends React.Component {
         
         <FormGroup>
           <Label for="directory">Masking & Decorations (Choose any that apply) </Label>
-          <Input type="select" name="select" id="cakeDecor">
+          <Input type="select" name="maskingDecorations" id="cakeDecor" onChange={this.handleInputChange}>
             <option>Feuilletine</option>
             <option>Toasted Candied Almonds</option>
             <option>Toasted Coconut</option>
@@ -101,10 +136,10 @@ export default class CakeForm extends React.Component {
         
         <FormGroup>
           <Label for="message">Message</Label>
-          <Input type="textarea" name="text" id="formMessage" />
+          <Input type="textarea" name="text" id="formMessage" onChange={this.handleInputChange} />
         </FormGroup>
 
-        <Button>Submit</Button>
+        <Button onClick={this.handleSubmit}>Submit</Button>
         <br/>
       </Form>
     );

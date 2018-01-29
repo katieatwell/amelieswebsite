@@ -18,7 +18,7 @@ export default class ContactForm extends React.Component {
     console.log("submit button hit")
     console.log(this.state);
     API.sendEmail(this.state.email, this.state.select,"Hello there, this is "+this.state.name+" and my number is:"+this.state.phone+" ... I have a message: " +this.state.text)
-}
+  }
   
   
   handleInputChange = event => {

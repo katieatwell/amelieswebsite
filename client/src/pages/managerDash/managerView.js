@@ -39,13 +39,13 @@ class ManagerView extends Component {
                 category,
                 cafeorcatering
             }]
-        }, () => console.log(this.state.currentItem[0].cafeorcatering));
+        });
 
     }
     //Consolidate these methods in to a single one?
-    handleCurrentItemTitleChange = (i) => (event) => {
+    handleCurrentItemTitleChange = (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
-            if (i !== secondItem) return i;
+
             return { ...currentItem,
                 title: event.target.value
             };
@@ -53,9 +53,8 @@ class ManagerView extends Component {
         this.setState({ currentItem: newCurrentItem }, () => console.log(this.state.currentItem));
     }
 
-    handleCurrentItemPriceChange = (i) => (event) => {
+    handleCurrentItemPriceChange = (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
-            if (i !== secondItem) return i;
             return { ...currentItem,
                 price: event.target.value
             };
@@ -63,9 +62,9 @@ class ManagerView extends Component {
         this.setState({ currentItem: newCurrentItem });
     }
 
-    handleCurrentItemCategoryChange = (i) => (event) => {
+    handleCurrentItemCategoryChange = (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
-            if (i !== secondItem) return i;
+
             return { ...currentItem,
                 category: event.target.value
             };
@@ -73,11 +72,20 @@ class ManagerView extends Component {
         this.setState({ currentItem: newCurrentItem });
     }
 
-    handleCurrentItemCafeorCateringChange = (i) => (event) => {
+    handleCurrentItemCafeorCateringChange = (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
-            if (i !== secondItem) return i;
+
             return { ...currentItem,
                 cafeorcatering: event.target.value
+            };
+        });
+        this.setState({ currentItem: newCurrentItem });
+    }
+
+    handleCurrentItemDescChange = (value) => {
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            return { ...currentItem,
+                desc: value
             };
         });
         this.setState({ currentItem: newCurrentItem });
@@ -87,11 +95,13 @@ class ManagerView extends Component {
         API.getCafeMenuItems()
             .then(res =>
                 this.setState({
-                    cafeBreakfastMenu: res.data.breakfast
+                    cafeBreakfastMenu: res.data.breakfast,
+                    cafeLunchMenu: res.data.lunch
                 })).catch(err => console.log(err));
     }
 
     updateCafeMenuItem = () => {
+        console.log("here");
         let itemData = {
             id: this.state.currentItem[0].id,
             category: this.state.currentItem[0].category,
@@ -99,13 +109,26 @@ class ManagerView extends Component {
             title: this.state.currentItem[0].title,
             price: this.state.currentItem[0].price,
             description: this.state.currentItem[0].desc
-        }
+        };
         API.updateCCMenuItem(itemData)
-            .then(res => this.loadCafeMenuItems(), () => console.log("Updating" + JSON.stringify(itemData)))
+            .then(res => {
+                this.loadCafeMenuItems();
+                console.log("this is updating");
+            })
             .catch(err => console.log(err));
     }
 
+    deleteCafeMenuItem = () => {
+        let id = { id: this.state.currentItem[0].id };
+        console.log("deleting " + id);
+        API.deleteCCMenuItem(id)
+            .then(res => {
+                this.loadCafeMenuItems();
+                console.log("this is deleting");
+            })
 
+            .catch(err => console.log(err));
+    }
     // loadCateringMenuItems = () => {
     //     API.getCateringMenuItems()
     //         .then(res => this.setState({
@@ -178,7 +201,9 @@ class ManagerView extends Component {
                        handleCurrentItemTitleChange = {this.handleCurrentItemTitleChange} 
                        handleCurrentItemPriceChange = {this.handleCurrentItemPriceChange}
                        handleCurrentItemCategoryChange = {this.handleCurrentItemCategoryChange}
-                       currentItem = {this.state.currentItem}/> 
+                       handleCurrentItemDescChange = {this.handleCurrentItemDescChange}
+                       currentItem = {this.state.currentItem}
+                       deleteCafeMenuItem = {this.deleteCafeMenuItem}/> 
                        : <AddNewForm 
                        loadCafeMenuItems = {this.loadCafeMenuItems}
                        addNewItemForm = {this.state.addNewItemForm}

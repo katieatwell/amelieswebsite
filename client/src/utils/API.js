@@ -29,7 +29,8 @@ export default {
     },
     //Delete item in Cafe and Catering table
     deleteCCMenuItem: function(id) {
-        return axios.delete("/api/manager/cc-menu");
+        console.log(id);
+        return axios.delete("/api/manager/cc-menu", id);
     },
     //Delete Cake Menu Item
     deleteCakeMenuItem: function(id) {

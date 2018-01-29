@@ -16,43 +16,45 @@ export default class UpdateForm extends Component {
           value={item.title} 
           onChange={this.props.handleCurrentItemTitleChange(i)}/>
           </div>
-          )
-        )}
+          ))}
         </FormGroup>
         
         <FormGroup>
+         {this.props.currentItem.map((item, i) => (
+        <div>
           <Label for="name">Item Description</Label>
           {/*<Input type="text" name="description" id="itemDescription" />*/}
-          <QuillEditor/>
+          <QuillEditor
+          value={item.desc} 
+          onChange={this.props.handleCurrentItemTitleChange(i)}/>
+          </div>
+          ))}
         </FormGroup>
         
         <FormGroup>
-          <Label for="email">Item Price</Label>
-          <Input type="email" name="price" id="itemPrice" />
+         {this.props.currentItem.map((item, i) => (
+        <div>
+          <Label for="text">Item Price</Label>
+          <Input type="text" name="price" id="itemPrice"
+          value={item.price}
+          onChange={this.props.handleCurrentItemPriceChange(i)}/>
+          </div>
+          ))}
         </FormGroup>
         
         <FormGroup>
+          {this.props.currentItem.map((item, i) => (
+          <div>
           <Label for="directory">Item Category</Label>
-          <Input type="select" name="select" id="itemCategory">
-            <option>Cafe Menu - Breakfast</option>
-            <option>Cafe Menu - Lunch/Dinner</option>
-            <option>Cafe Menu - Coffee/Tea</option>
-            <option>Cafe Menu - Pastries/Dessert</option>
-            <option>Cake Menu - Composed Cakes</option>
-            <option>Cake Menu - Build Your Own Cake</option>
-            <option>Catering Menu - Beverages</option>
-            <option>Catering Menu - Breakfast & Brunch</option>
-            <option>Catering Menu - Desserts</option>
-            <option>Catering Menu - Favors and Gift Baskets</option>
-            <option>Catering Menu - In House Event Packages</option>
-            <option>Catering Menu - Lunch</option>
-            <option>Catering Menu - Platters</option>
-            <option>Catering Menu - Weddings and Specialty Cakess</option>
-          </Input>
+            <Input type="text" name="select" id="itemCategory"
+            value={item.category}
+            onChange={this.props.handleCurrentItemCategoryChange(i)}/>
+          </div>
+          ))}
         </FormGroup>
         
         <Button outline color="secondary">Delete</Button>
-        <Button outline color="secondary">Submit</Button>
+        <Button outline color="secondary">Update</Button>
         
       </Form>
     );

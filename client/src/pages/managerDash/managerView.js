@@ -19,24 +19,13 @@ class ManagerView extends Component {
         super(props);
         this.toggleForms = this.toggleForms.bind(this);
         this.state = {
-            currentItem: [{ title: "", desc: "", price: "" }],
+            currentItem: [{ title: "", desc: "", price: "", id: "", category: "" }],
             title: "",
             desc: "",
             price: "",
+            id: "",
+            category: "",
             cafeBreakfastMenu: [],
-            cafeLunchMenu: [],
-            cafeCoffeeMenu: [],
-            cafeDessertMenu: [],
-            cateringBreakfastMenu: [],
-            cateringBeverageMenu: [],
-            cateringLunchMenu: [],
-            cateringPlatterMenu: [],
-            cateringDessertMenu: [],
-            cateringWeddingMenu: [],
-            cateringFGBMenu: [],
-            cateringIHEMenu: [],
-            cakesComposedMenu: [],
-            cakesBYOMenu: [],
             addNewItemForm: false,
             updateForm: true
         };
@@ -44,26 +33,48 @@ class ManagerView extends Component {
 
     populateQuillCCMenu = (event) => {
         event.preventDefault();
-        const { title, desc, price } = event.target.dataset;
+        const { title, desc, price, id, category } = event.target.dataset;
         console.log(event.target.dataset);
         this.setState({
             currentItem: [{
                 title,
                 desc,
-                price
+                price,
+                id,
+                category
             }]
         }, () => console.log(this.state.currentItem[0].title));
 
     }
 
     handleCurrentItemTitleChange = (i) => (event) => {
-        console.log("SOMETHING is happening!");
-        const newCurrentItem = this.state.currentItem.map((currentItem, sidx) => {
-            if (i !== sidx) return i;
-            return { ...currentItem, title: event.target.value };
-        }, () => console.log(this.state.currentItem));
-
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            if (i !== secondItem) return i;
+            return { ...currentItem,
+                title: event.target.value
+            };
+        });
         this.setState({ currentItem: newCurrentItem }, () => console.log(this.state.currentItem));
+    }
+
+    handleCurrentItemPriceChange = (i) => (event) => {
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            if (i !== secondItem) return i;
+            return { ...currentItem,
+                price: event.target.value
+            };
+        });
+        this.setState({ currentItem: newCurrentItem });
+    }
+
+    handleCurrentItemCategoryChange = (i) => (event) => {
+        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
+            if (i !== secondItem) return i;
+            return { ...currentItem,
+                category: event.target.value
+            };
+        });
+        this.setState({ currentItem: newCurrentItem });
     }
 
     loadCafeMenuItems = () => {
@@ -75,27 +86,40 @@ class ManagerView extends Component {
             .catch(err => console.log(err));
     }
 
-    loadCateringMenuItems = () => {
-        API.getCateringMenuItems()
-            .then(res => this.setState({
-                cateringBreakfastMenu: res.data.breakfast,
-                cateringBeverageMenu: res.data.beverage,
-                cateringLunchMenu: res.data.lunch,
-                cateringPlatterMenu: res.data.platter,
-                cateringDessertMenu: res.data.dessert,
-                cateringWeddingMenu: res.data.wedding,
-                cateringFGBMenu: res.data.favors,
-                cateringIHEMenu: res.data.inhouseevents,
-            }));
+    updateCafeMenuItem = (id) => {
+        API.updateCCMenuItem(id)
+            .then(res =>
+                this.setState({
+                    title: this.state.title,
+                    id: this.state.id,
+                    desc: this.state.desc,
+                    price: this.state.price,
+                    category: this.state.category
+                })
+            );
     }
 
-    loadCakeMenuItems = () => {
-        API.getCakeMenuItems()
-            .then(res => this.setState({
-                cakesComposedMenu: res.data.composedcakes,
-                cakesBYOMenu: res.data.buildyourown
-            }));
-    }
+    // loadCateringMenuItems = () => {
+    //     API.getCateringMenuItems()
+    //         .then(res => this.setState({
+    //             cateringBreakfastMenu: res.data.breakfast,
+    //             cateringBeverageMenu: res.data.beverage,
+    //             cateringLunchMenu: res.data.lunch,
+    //             cateringPlatterMenu: res.data.platter,
+    //             cateringDessertMenu: res.data.dessert,
+    //             cateringWeddingMenu: res.data.wedding,
+    //             cateringFGBMenu: res.data.favors,
+    //             cateringIHEMenu: res.data.inhouseevents,
+    //         }));
+    // }
+
+    // loadCakeMenuItems = () => {
+    //     API.getCakeMenuItems()
+    //         .then(res => this.setState({
+    //             cakesComposedMenu: res.data.composedcakes,
+    //             cakesBYOMenu: res.data.buildyourown
+    //         }));
+    // }
 
     toggleForms(hasQuill) {
         this.setState({ addNewItemForm: !hasQuill, updateForm: hasQuill });
@@ -142,7 +166,9 @@ class ManagerView extends Component {
                     <Col lg="8">
                     {this.state.updateForm 
                        ? <UpdateForm {...this.props} 
-                       handleCurrentItemTitleChange={this.handleCurrentItemTitleChange} 
+                       handleCurrentItemTitleChange = {this.handleCurrentItemTitleChange} 
+                       handleCurrentItemPriceChange = {this.handleCurrentItemPriceChange}
+                       handleCurrentItemCategoryChange = {this.handleCurrentItemCategoryChange}
                        currentItem = {this.state.currentItem}/> 
                        : <AddNewForm {...this.props} 
                        addNewItemForm = {this.state.addNewItemForm} />

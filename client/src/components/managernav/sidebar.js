@@ -33,7 +33,7 @@ export default class ManagerSidebar extends Component {
                     {this.props.cafeBreakfastMenu.length ? (
                     <ListGroup>
                     {this.props.cafeBreakfastMenu.map(item => (
-                    <ListGroupItem action onClick={(event)=>this.props.populateQuillCCMenu(event)} id={item._id} data-price={item.price} data-title={item.title} data-desc={item.description}>
+                    <ListGroupItem action onClick={(event)=>this.props.populateQuillCCMenu(event)} data-id={item._id} data-category={item.category} data-price={item.price} data-title={item.title} data-desc={item.description}>
                      {item.title}
                      </ListGroupItem>
                      ))}

@@ -22,7 +22,7 @@ class CafeMenu extends Component {
       activeTab: '1',
       cafeBreakfast: [],
       cafeLunchDinner: [],
-      cafeCoffeTea: [],
+      cafeCoffeeTea: [],
       cafeDessert: []
     };
   }
@@ -60,18 +60,12 @@ class CafeMenu extends Component {
     return (
       <Wrapper>
           <MenuPanel>
-            
-            <div className="menuWrapper">
-                <PanelTitle>
-                    <div className="menuTitle">
-                        Café Menu
-                    </div>
-                </PanelTitle>
-                
+              <div className="menuWrapper">            
+
                 <PanelBody>
                     <Nav className="menuNav" justified>
                       <NavItem className="navMenuTitle">
-                        <NavLink
+                        <NavLink 
                           className={classnames({ active: this.state.activeTab === '1' })}
                           onClick={() => { this.toggle('1'), this.loadCafeMenuItems() }}>
                             Breakfast
@@ -102,81 +96,88 @@ class CafeMenu extends Component {
                         </NavLink>
                       </NavItem>
                     </Nav>
-                    
+                 
                     
                     <TabContent activeTab={this.state.activeTab}>
                       <TabPane tabId="1">
-                        <div className="scrollit">
                           <MenuContent> 
+                            <div className="menuTitle">
+                                BREAKFAST MENU
+                            </div>
                             
-                            {this.state.cafeBreakfast.map(item => (
-                              <div key={item.id}>
-                                <p className="menuItemTitle">{item.title}</p>
-                                <p className="menuItemPrice">{item.price}</p>
-                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
-                              </div>
-                              )
-                            )}
+                            <div className="scrollit">
                             
+                              {this.state.cafeBreakfast.map(item => (
+                                <div key={item.id}>
+                                  <p className="menuItemTitle">{item.title}</p>
+                                  <p className="menuItemPrice">{item.price}</p>
+                                  <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                                </div>
+                              ))}
+                            </div>
                           </MenuContent>
-                        </div>
+                      </TabPane>
+                    </TabContent>
+                      
+                    <TabContent activeTab={this.state.activeTab}>
+                      <TabPane tabId="2">
+                          <MenuContent> 
+                            <div className="menuTitle">
+                                LUNCH & DINNER MENU
+                            </div>
+                            
+                            <div className="scrollit">
+                              {this.state.cafeLunchDinner.map(item => (
+                                <div key={item.id}>
+                                  <p className="menuItemTitle">{item.title}</p>
+                                  <p className="menuItemPrice">{item.price}</p>
+                                  <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                                </div>
+                              ))}
+                            </div>
+                          </MenuContent>
                       </TabPane>
                       </TabContent>
                       
-                       <TabContent activeTab={this.state.activeTab}>
-                      <TabPane tabId="2">
-                        <div className="scrollit">
-                          <MenuContent> 
-                            
-                            {this.state.cafeLunchDinner.map(item => (
-                              <div key={item.id}>
-                                <p className="menuItemTitle">{item.title}</p>
-                                <p className="menuItemPrice">{item.price}</p>
-                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
-                              </div>
-                              )
-                            )}
-                            
-                          </MenuContent>
-                        </div>
-                      </TabPane>
-                      </TabContent>
-                       <TabContent activeTab={this.state.activeTab}>
+                    <TabContent activeTab={this.state.activeTab}>
                       <TabPane tabId="3">
-                        <div className="scrollit">
-                          <MenuContent> 
+                        <MenuContent> 
+                            <div className="menuTitle">
+                                COFFEE & TEA MENU
+                            </div>
                             
-                            {this.state.cafeCoffeTea.map(item => (
-                              <div key={item.id}>
-                                <p className="menuItemTitle">{item.title}</p>
-                                <p className="menuItemPrice">{item.price}</p>
-                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
-                              </div>
-                              )
-                            )}
-                            
+                            <div className="scrollit">
+                              {this.state.cafeCoffeeTea.map(item => (
+                                <div key={item.id}>
+                                  <p className="menuItemTitle">{item.title}</p>
+                                  <p className="menuItemPrice">{item.price}</p>
+                                  <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                                </div>
+                              ))}
+                            </div>
                           </MenuContent>
-                        </div>
                       </TabPane>
-                      </TabContent>
-                       <TabContent activeTab={this.state.activeTab}>
+                    </TabContent>
+                    
+                    <TabContent activeTab={this.state.activeTab}>
                       <TabPane tabId="4">
-                        <div className="scrollit">
                           <MenuContent> 
+                            <div className="menuTitle">
+                                DESSERT MENU
+                            </div>
                             
-                            {this.state.cafeDessert.map(item => (
-                              <div key={item.id}>
-                                <p className="menuItemTitle">{item.title}</p>
-                                <p className="menuItemPrice">{item.price}</p>
-                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
-                              </div>
-                              )
-                            )}
-                            
+                            <div className="scrollit">
+                              {this.state.cafeDessert.map(item => (
+                                <div key={item.id}>
+                                  <p className="menuItemTitle">{item.title}</p>
+                                  <p className="menuItemPrice">{item.price}</p>
+                                  <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                                </div>
+                              ))}
+                            </div>
                           </MenuContent>
-                        </div>
                       </TabPane>
-                      </TabContent>
+                    </TabContent>
                   </PanelBody>
                 </div>
             </MenuPanel>

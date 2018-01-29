@@ -46,6 +46,9 @@ export default {
     managerLogin:function(name, password){
         console.log(name+"   "+password);
         return axios.post("/login", {name:name, password:password})
+    },
+    sendEmail:function(email, subject, text){
+        return axios.post('/api/email/', {email:email, subject:subject, text:text})
     }
 };
 

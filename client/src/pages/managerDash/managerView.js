@@ -55,6 +55,9 @@ class ManagerView extends Component {
         }, () => console.log(this.state.currentItem[0].title));
 
     }
+    componentDidMount() {
+        this.isAuthed();
+    }
 
     handleCurrentItemTitleChange = (i) => (event) => {
         console.log("SOMETHING is happening!");
@@ -104,19 +107,23 @@ class ManagerView extends Component {
     isAuthed() {
         let token = sessionStorage.getItem('token');
         // console.log('token: ' + token);
-        this.loadCafeMenuItems();
+        //this.loadCafeMenuItems();
         if (token) {
             //add validation logic here, see if token has expired?
+            //console.log(token);
             return true;
         }
         else {
-            return false;
+            console.log("NO TOKEN!!!")
+            return this.authed=false;
         }
     }
+    
+    authed =true;
 
     render() {
         return (
-            this.isAuthed() ?
+            this.authed?
             (<Wrapper>
                 <MainPanel>
                 <Row>
@@ -151,7 +158,8 @@ class ManagerView extends Component {
                   
                 </Row>
                 </MainPanel>
-            </Wrapper>) :
+             </Wrapper>) 
+            :
             (
                 <Redirect to ="/managerlogin"/>
             )

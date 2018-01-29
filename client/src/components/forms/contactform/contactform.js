@@ -1,6 +1,14 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+const sendmail=require("./../../../../../email_setup/mailer.js");
+
+const handleSubmit = (event) => {
+  event.preventDefault;
+  console.log("submit button hit")
+  
+}
+
 export default class ContactForm extends React.Component {
   render() {
     return (
@@ -38,7 +46,7 @@ export default class ContactForm extends React.Component {
           <Input type="textarea" name="text" id="formMessage" />
         </FormGroup>
 
-        <Button>Submit</Button>
+        <Button onClick={handleSubmit}>Submit</Button>
         <br/>
         
       </Form>

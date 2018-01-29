@@ -21,7 +21,7 @@ export default {
     },
     //Add a new item to the cafe/catering table
     addCCMenuItem: function(newItem) {
-        return axios.post("/api/manager/cc-menu");
+        return axios.post("/api/manager/cc-menu", newItem);
     },
     //Add new composed cake
     addCakeMenuItem: function(newItem) {

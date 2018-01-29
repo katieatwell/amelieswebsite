@@ -1,49 +1,72 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import "./style.css";
+import API from "../../../utils/API";
 
 export default class AddNewForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      desc: "",
+      price: "",
+      id: "",
+      category: "",
+      cafeOrcatering: "",
+    };
+  }
+  addNewCCMenuItem = (event) => {
+    console.log("You are clicking");
+    API.addCCMenuItem({
+        category: this.state.category,
+        description: this.state.desc,
+        title: this.state.title,
+        price: this.state.price,
+        cafeOrcatering: this.state.cafeOrcatering
+      })
+      // .then(res => this.props.loadCafeMenuItems(), () => console.log("new menu item added"))
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
+  handleAddInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
+
   render() {
     return (
       <Form>
  
         <FormGroup>
           <Label for="name">Item Title</Label>
-          <Input type="text" name= "title" id="itemTitle" />
+          <Input type="text" name= "title" id="itemTitle" value={this.state.title} onChange={this.handleAddInputChange}/>
         </FormGroup>
         
         <FormGroup>
           <Label for="name">Item Description</Label>
-          <Input type="text" name="description" id="itemDescription" />
+          <Input type="text" name="desc" id="itemDescription" value={this.state.desc} onChange={this.handleAddInputChange}/>
         </FormGroup>
         
         <FormGroup>
           <Label for="email">Item Price</Label>
-          <Input type="email" name="price" id="itemPrice" />
+          <Input type="text" name="price" id="itemPrice" value={this.state.price} onChange={this.handleAddInputChange}/>
+        </FormGroup>
+        
+        <FormGroup> 
+        <Label for="email">Menu Choice (Either Cafe or Catering)</Label>
+          <Input type="text" name="cafeOrcatering" id="itemMenu" value={this.state.cafeOrcatering} onChange={this.handleAddInputChange}/>
         </FormGroup>
         
         <FormGroup>
-          <Label for="directory">Item Category</Label>
-          <Input type="select" name="select" id="itemCategory">
-            <option>Cafe Menu - Breakfast</option>
-            <option>Cafe Menu - Lunch/Dinner</option>
-            <option>Cafe Menu - Coffee/Tea</option>
-            <option>Cafe Menu - Pastries/Dessert</option>
-            <option>Cake Menu - Composed Cakes</option>
-            <option>Cake Menu - Build Your Own Cake</option>
-            <option>Catering Menu - Beverages</option>
-            <option>Catering Menu - Breakfast & Brunch</option>
-            <option>Catering Menu - Desserts</option>
-            <option>Catering Menu - Favors and Gift Baskets</option>
-            <option>Catering Menu - In House Event Packages</option>
-            <option>Catering Menu - Lunch</option>
-            <option>Catering Menu - Platters</option>
-            <option>Catering Menu - Weddings and Specialty Cakess</option>
+          <Label for="name">Item Category</Label>
+          <Input type="text" name="category" id="itemCategory" value={this.state.category} onChange={this.handleAddInputChange}>
           </Input>
         </FormGroup>
         
-        <Button outline color="secondary">Delete</Button>
-        <Button outline color="secondary" onClick={()=>{this.toggleForms(false)}}>Add New</Button>
+        <Button outline color="secondary" onClick={this.addNewCCMenuItem}>Add New</Button>
         
       </Form>
     );

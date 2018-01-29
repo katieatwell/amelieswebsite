@@ -10,10 +10,10 @@ export default class ManagerSidebar extends Component {
         this.id = "";
     }
 
-    componentDidMount() {
-        this.props.loadCafeMenuItems();
-    }
-
+    // componentDidMount() {
+    //     this.props.loadCafeMenuItems;
+    // }
+    
     toggle(num) {
         let tempArr = [...this.state.collapse];
         tempArr[num] = !tempArr[num];

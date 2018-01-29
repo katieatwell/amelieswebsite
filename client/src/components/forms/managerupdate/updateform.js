@@ -46,7 +46,7 @@ export default class UpdateForm extends Component {
           {this.props.currentItem.map((item, i) => (
           <div>
           <Label for="directory">Item Category</Label>
-            <Input type="text" name="select" id="itemCategory"
+            <Input type="text" name="category" id="itemCategory"
             value={item.category}
             onChange={this.props.handleCurrentItemCategoryChange(i)}/>
           </div>

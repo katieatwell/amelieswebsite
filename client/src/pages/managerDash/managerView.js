@@ -19,12 +19,7 @@ class ManagerView extends Component {
         super(props);
         this.toggleForms = this.toggleForms.bind(this);
         this.state = {
-            currentItem: [{ title: "", desc: "", price: "", id: "", category: "" }],
-            title: "",
-            desc: "",
-            price: "",
-            id: "",
-            category: "",
+            currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeOrcatering: "" }],
             cafeBreakfastMenu: [],
             addNewItemForm: false,
             updateForm: true
@@ -46,7 +41,7 @@ class ManagerView extends Component {
         }, () => console.log(this.state.currentItem[0].title));
 
     }
-    //Consolidate these methods in to a single one
+    //Consolidate these methods in to a single one?
     handleCurrentItemTitleChange = (i) => (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
             if (i !== secondItem) return i;
@@ -82,22 +77,23 @@ class ManagerView extends Component {
             .then(res =>
                 this.setState({
                     cafeBreakfastMenu: res.data.breakfast
-                }))
+                })).catch(err => console.log(err));
+    }
+
+    updateCafeMenuItem = (item_id) => {
+        let itemData = {
+            id: this.state.currentItem[0].id,
+            category: this.state.currentItem[0].category,
+            cafeOrcatering: this.state.currentItem[0].cafeOrcatering,
+            title: this.state.currentItem[0].title,
+            price: this.state.currentItem[0].price,
+            description: this.state.currentItem[0].desc
+        }
+        API.updateCCMenuItem(itemData)
+            .then(res => this.loadCafeMenuItems(), () => console.log("Updating" + JSON.stringify(itemData)))
             .catch(err => console.log(err));
     }
 
-    updateCafeMenuItem = (itemData) => {
-        API.updateCCMenuItem({
-                id: this.state.currentItem[0].id,
-                category: this.state.currentItem[0].category,
-                cafeOrCatering: this.state.currentItem[0].cafeOrCatering,
-                title: this.state.currentItem[0].title,
-                price: this.state.currentItem[0].price,
-                description: this.state.currentItem[0].desc
-            }, () => console.log(itemData))
-            .then(res => this.loadCafeMenuItems(), () => console.log("Updating" + itemData))
-            .catch(err => console.log(err));
-    }
 
     // loadCateringMenuItems = () => {
     //     API.getCateringMenuItems()
@@ -171,8 +167,10 @@ class ManagerView extends Component {
                        handleCurrentItemPriceChange = {this.handleCurrentItemPriceChange}
                        handleCurrentItemCategoryChange = {this.handleCurrentItemCategoryChange}
                        currentItem = {this.state.currentItem}/> 
-                       : <AddNewForm {...this.props} 
-                       addNewItemForm = {this.state.addNewItemForm} />
+                       : <AddNewForm 
+                       loadCafeMenuItems = {this.loadCafeMenuItems}
+                       addNewItemForm = {this.state.addNewItemForm}
+                       toggleForms = {this.toggleForms}/>
                     }
                     </Col>
                   

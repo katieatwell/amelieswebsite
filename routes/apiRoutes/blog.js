@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
             const dateUntrimmed = $(element).find(".blog-entry-date").text().trim();
             const dateUnparsed = dateUntrimmed.replace("Posted on ", "").replace("| Stefanie Haviv", "");
             const dateParsed = Date.parse(dateUnparsed);
-            const summary = $(element).find(".small-12").find(".blog-entry-content").text().trim();
+            const summary = $(element).find(".small-12").find(".blog-entry-content").text().trim().replace("...\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\tRead More", "...");
             const link = $(element).find(".small-12").find(".blog-entry-content").find("a").attr("href").trim();
             const img = $(element).find(".small-12").find("div").find("a").find("img").attr("src");
 
@@ -43,7 +43,7 @@ router.get("/", (req, res) => {
                 db.BlogModel
                     .find({}).sort({ dateParsed: -1 })
                     .then((scrapedResults) => {
-                        // console.log("date: " + scrapedResults)
+                        // console.log(scrapedResults)
                         res.json(scrapedResults);
                     })
                     .catch((err) => {

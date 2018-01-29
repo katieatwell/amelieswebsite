@@ -3,8 +3,9 @@ import Wrapper from "../../components/wrapper";
 import MenuPanel from "../../components/mainpanel/menupanel"
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from "classnames";
+import renderHTML from "react-render-html";
 import { MenuContent } from "../../components/menu/menucontents";
 import API from "../../utils/API";
 import "./style.css";
@@ -89,7 +90,7 @@ class CafeMenu extends Component {
                         <NavLink
                           className={classnames({ active: this.state.activeTab === '3' })}
                           onClick={() => { this.toggle('3'), this.loadCafeMenuItems() }}>
-                            Coffee & Tea
+                            Coffee  &  Tea
                         </NavLink>
                       </NavItem>
                       
@@ -110,9 +111,9 @@ class CafeMenu extends Component {
                             
                             {this.state.cafeBreakfast.map(item => (
                               <div key={item.id}>
-                                {item.title} <br/>
-                                {item.price}<br/>
-                                {item.description}
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
                               </div>
                               )
                             )}
@@ -129,9 +130,9 @@ class CafeMenu extends Component {
                             
                             {this.state.cafeLunchDinner.map(item => (
                               <div key={item.id}>
-                                {item.title} <br/>
-                                {item.price}<br/>
-                                {item.description}
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
                               </div>
                               )
                             )}
@@ -147,9 +148,9 @@ class CafeMenu extends Component {
                             
                             {this.state.cafeCoffeTea.map(item => (
                               <div key={item.id}>
-                                {item.title} <br/>
-                                {item.price}<br/>
-                                {item.description}
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
                               </div>
                               )
                             )}
@@ -165,9 +166,9 @@ class CafeMenu extends Component {
                             
                             {this.state.cafeDessert.map(item => (
                               <div key={item.id}>
-                                {item.title} <br/>
-                                {item.price}<br/>
-                                {item.description}
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
                               </div>
                               )
                             )}

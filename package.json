@@ -31,7 +31,8 @@
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1",
     "react-native-cheerio": "^1.0.0-rc.4",
-    "react-player": "^1.1.1"
+    "react-player": "^1.1.1",
+    "sendgrid": "^5.2.3"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",

@@ -42,6 +42,10 @@ class ManagerView extends Component {
         }, () => console.log(this.state.currentItem[0].cafeorcatering));
 
     }
+    componentDidMount() {
+        this.isAuthed();
+    }
+
     //Consolidate these methods in to a single one?
     handleCurrentItemTitleChange = (i) => (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
@@ -135,19 +139,24 @@ class ManagerView extends Component {
     isAuthed() {
         let token = sessionStorage.getItem('token');
         // console.log('token: ' + token);
-        // this.loadCafeMenuItems();
+        //this.loadCafeMenuItems();
+
         if (token) {
             //add validation logic here, see if token has expired?
+            //console.log(token);
             return true;
         }
         else {
-            return false;
+            console.log("NO TOKEN!!!")
+            return this.authed=false;
         }
     }
+    
+    authed =true;
 
     render() {
         return (
-            this.isAuthed() ?
+            this.authed?
             (<Wrapper>
                 <MainPanel>
                 <Row>
@@ -188,7 +197,8 @@ class ManagerView extends Component {
                   
                 </Row>
                 </MainPanel>
-            </Wrapper>) :
+             </Wrapper>) 
+            :
             (
                 <Redirect to ="/managerlogin"/>
             )

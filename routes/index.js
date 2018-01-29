@@ -57,7 +57,7 @@ router.use(express.static('client/public'));
 // Router
 // const controller = require('./controller/index.js'); //need an index file for the controller
 // app.use('/menu', controller.menu ); // wont work without index file.
-const seed = require('../controllers/seedDB');
+const seed = require('../controllers/seedDB'); //run the seedDB file if needed to set up authorized user name and password.
 
 
 router.post("/login", function(req, res) {
@@ -68,14 +68,14 @@ router.post("/login", function(req, res) {
     const password = req.body.password;
   };
 
-  db.AuthUser.findOne({ name: name }, function(err, user) {
+  db.AuthUser.findOne({ name: name }, function(err, user) { //see if there is a matching name in our database
     console.log(user);
     if (err) console.error(err);
     if (user === null) {
       return res.status(401).json({ message: "no such user found" })
     }
     if (user.password !== null) {
-      bcrypt.compare(req.body.password, user.password, function(err, result) {
+      bcrypt.compare(req.body.password, user.password, function(err, result) { //compare plain text password to hash password from database
         if (err) console.error(err);
         console.log(result);
         if (result === true) {

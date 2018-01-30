@@ -37,7 +37,7 @@ export default class CakeForm extends Component {
         </FormGroup>
         
           <div>
-            <Button outline color="secondary">Delete</Button>
+            <Button outline color="secondary" onClick={() => this.props.deleteComposedCakeMenuItem(currentCake.id)}>Delete</Button>
           </div>
           <div>
             <Button outline color="secondary" onClick={this.props.updateCakeMenuItem}>Update</Button>

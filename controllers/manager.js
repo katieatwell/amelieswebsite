@@ -111,7 +111,7 @@ module.exports = {
     },
 
     deleteEntry: function(req, res) {
-      db.CakeData.deleteOne({ '_id': req.body._id }, function(err) {
+      db.CakeData.deleteOne({ '_id': req.body.id }, function(err) {
         if (err) {
           console.log(err);
           res.sendStatus(500);

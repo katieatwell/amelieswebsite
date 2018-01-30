@@ -335,16 +335,6 @@ db.cakedatas.insert([{
   },
   {
     'menuCategory': 'ComposedCakes',
-    'descriptor': 'Chocolate Rasberry',
-    'detail': 'Chambord Simple Syrup'
-  },
-  {
-    'menuCategory': 'ComposedCakes',
-    'descriptor': 'Fraise',
-    'detail': 'Vanilla Chiffon'
-  },
-  {
-    'menuCategory': 'ComposedCakes',
     'descriptor': 'Fraise',
     'detail': 'Gran Marnier Simple Syrup'
   }

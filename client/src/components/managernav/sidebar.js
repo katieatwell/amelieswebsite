@@ -8,7 +8,8 @@ export default class ManagerSidebar extends Component {
             collapse: [false, false, false, false, false, false, false],
             cakeForm: "cake",
             cafeForm: "cafe",
-            addNew: "addNew"
+            addNewCafe: "addNewCafe",
+            addNewCake: "addNewCake"
         };
         this.id = "";
     }
@@ -126,12 +127,12 @@ export default class ManagerSidebar extends Component {
                         <ListGroup>
                             {this.props.cakesComposedMenu.map(item => (
                                 <ListGroupItem action onClick={(event) => this.props.populateFormCakeMenu(event)}
-                                    key={item._id}
-                                    data-descriptor={item.descriptor}
-                                    data-detail={item.detail}
-                                    data-category = {item.menuCategory}
-                                    data-id = {item._id}>
-                                    {item.descriptor}
+                                    key={item[0]._id}
+                                    data-descriptor={item[0].descriptor}
+                                    data-detail={item[0].detail}
+                                    data-category = {item[0].menuCategory}
+                                    data-id = {item[0]._id}>
+                                    {item[0].descriptor}
                                 </ListGroupItem>
                                 ))}
                         </ListGroup>
@@ -291,8 +292,11 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem action onClick={()=>this.props.changeForms(this.state.addNew)}>
-        Add New Cafe or Catering Menu Item
+        <ListGroupItem action onClick={()=>this.props.changeForms(this.state.addNewCafe)}>
+        Add New Cafe/Catering Menu Item
+        </ListGroupItem>
+        <ListGroupItem action onClick={()=> this.props.changeForms(this.state.addNewCake)}>
+        Add New Cake Menu Item
         </ListGroupItem>
     </ListGroup>
 </div>

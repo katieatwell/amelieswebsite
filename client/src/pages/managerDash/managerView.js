@@ -5,7 +5,8 @@ import PanelTitle from "../../components/paragraphdiv/ptitle";
 import UpdateForm from "../../components/forms/managerupdate/updateform";
 import AddNewForm from "../../components/forms/managerupdate/addnew";
 import ManagerSidebar from "../../components/managernav/sidebar";
-import CakeForm from "../../components/forms/managerupdate/cakeform"
+import CakeForm from "../../components/forms/managerupdate/cakeform";
+import AddNewCake from "../../components/forms/managerupdate/addnewcake";
 import API from "../../utils/API";
 import { Row, Col } from "reactstrap";
 import { Redirect } from 'react-router';
@@ -154,10 +155,21 @@ class ManagerView extends Component {
         };
         API.updateCakeMenuItem(itemData)
             .then(res => {
+                this.setState({ currentCake: [{ descriptor: "", detail: "", category: "", id: "" }] });
                 this.loadCafeMenuItems();
-                console.log("updating cake " + itemData.id)
+                console.log("updating cake " + itemData.id);
             })
             .catch(err => console.log(err));
+    }
+
+    deleteComposedCakeMenuItem = () => {
+        let id = { id: this.state.currentCake[0].id };
+        console.log(id);
+        API.deleteCakeMenuItem(id)
+            .then(res => {
+                this.setState({ currentCake: [{ descriptor: "", detail: "", category: "", id: "" }] });
+                this.loadComposedCakeMenuItems();
+            });
     }
 
     //Update a cafe OR catering menu item
@@ -173,6 +185,10 @@ class ManagerView extends Component {
         };
         API.updateCCMenuItem(itemData)
             .then(res => {
+                this.setState({
+                    currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeorcatering: "" }],
+                    currentCake: [{ descriptor: "", detail: "", category: "", id: "" }]
+                });
                 this.loadCafeMenuItems();
                 this.loadCateringMenuItems();
                 console.log("this is updating");
@@ -185,6 +201,9 @@ class ManagerView extends Component {
         console.log(id);
         API.deleteCCMenuItem(id)
             .then(res => {
+                this.setState({
+                    currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeorcatering: "" }]
+                });
                 this.loadCafeMenuItems();
                 this.loadCateringMenuItems();
                 console.log("this is deleting");
@@ -207,15 +226,16 @@ class ManagerView extends Component {
     //load composed cake menu and its items
     loadComposedCakeMenuItems = () => {
         API.getComposedCakeMenuItems()
-            .then(res => this.setState({
-                cakesComposedMenu: [
-                    res.data[0].data[0],
-                    res.data[0].data[1],
-                    res.data[1].data[0],
-                    res.data[1].data[1]
-                ]
-            }));
+            .then(res =>
+                this.setState({
+                    cakesComposedMenu: [
+                        res.data[0].data,
+                        res.data[1].data
+
+                    ]
+                }));
     }
+
     //change the forms for cakes/cafe/and add new
     changeForms(menuState) {
         console.log(menuState);
@@ -301,15 +321,23 @@ class ManagerView extends Component {
                       currentCake = {this.state.currentCake}
                       populateFormCakeMenu = {this.populateFormCakeMenu}
                       handleCurrentCakeDetailsChange = {this.handleCurrentCakeDetailsChange}
-                      updateCakeMenuItem = {this.updateCakeMenuItem}/>
+                      updateCakeMenuItem = {this.updateCakeMenuItem}
+                      deleteComposedCakeMenuItem = {this.deleteComposedCakeMenuItem}/>
                       :
                       <div></div>
                     }
                     
-                    {this.state.menuOperator === "addNew"
+                    {this.state.menuOperator === "addNewCafe"
                     ? <AddNewForm 
                     loadCafeMenuItems = { this.loadCafeMenuItems }
-                    addNewItemForm = { this.state.addNewItemForm }
+                    changeForms = { this.changeForms }
+                  />
+                  : <div></div>
+                    }
+                    
+                      {this.state.menuOperator === "addNewCake"
+                    ? <AddNewCake 
+                    loadCakeMenuItems = { this.loadCafeMenuItems }
                     changeForms = { this.changeForms }
                   />
                   : <div></div>

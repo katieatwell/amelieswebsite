@@ -127,12 +127,12 @@ export default class ManagerSidebar extends Component {
                         <ListGroup>
                             {this.props.cakesComposedMenu.map(item => (
                                 <ListGroupItem action onClick={(event) => this.props.populateFormCakeMenu(event)}
-                                    key={item[0]._id}
-                                    data-descriptor={item[0].descriptor}
-                                    data-detail={item[0].detail}
-                                    data-category = {item[0].menuCategory}
-                                    data-id = {item[0]._id}>
-                                    {item[0].descriptor}
+                                    key={item._id}
+                                    data-descriptor={item.descriptor}
+                                    data-detail={item.detail}
+                                    data-category = {item.menuCategory}
+                                    data-id = {item._id}>
+                                    {item.descriptor}
                                 </ListGroupItem>
                                 ))}
                         </ListGroup>

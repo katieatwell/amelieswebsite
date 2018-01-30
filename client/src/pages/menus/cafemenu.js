@@ -113,6 +113,8 @@ class CafeMenu extends Component {
                                   <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
                                 </div>
                               ))}
+                              
+                                <p className="subMenuTitle">* GLUTEN FREE</p>
                             </div>
                           </MenuContent>
                       </TabPane>
@@ -124,7 +126,7 @@ class CafeMenu extends Component {
                             <div className="menuTitle">
                                 LUNCH & DINNER MENU
                             </div>
-                            
+
                             <div className="scrollit">
                               {this.state.cafeLunchDinner.map(item => (
                                 <div key={item.id}>
@@ -133,6 +135,7 @@ class CafeMenu extends Component {
                                   <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
                                 </div>
                               ))}
+                                <p className="subMenuTitle">* GLUTEN FREE</p>
                             </div>
                           </MenuContent>
                       </TabPane>
@@ -153,6 +156,7 @@ class CafeMenu extends Component {
                                   <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
                                 </div>
                               ))}
+                                <p className="subMenuTitle">* GLUTEN FREE</p>                            
                             </div>
                           </MenuContent>
                       </TabPane>
@@ -173,6 +177,7 @@ class CafeMenu extends Component {
                                   <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
                                 </div>
                               ))}
+                                <p className="subMenuTitle">* GLUTEN FREE</p>                              
                             </div>
                           </MenuContent>
                       </TabPane>

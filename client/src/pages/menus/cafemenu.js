@@ -46,7 +46,7 @@ class CafeMenu extends Component {
         this.setState({
           cafeBreakfast: res.data.breakfast,
           cafeLunchDinner: res.data.lunchdinner,
-          cafeCoffeTea: res.data.coffeetea,
+          cafeCoffeeTea: res.data.coffeetea,
           cafeDessert: res.data.dessertspastry
         }, () => console.log(this.state));
       })

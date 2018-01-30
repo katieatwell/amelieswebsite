@@ -147,7 +147,6 @@ class ManagerView extends Component {
 
                 })).catch(err => console.log(err));
     }
-
     loadCakePriceItems = () => {
         API.getPriceCakeMenuItems()
             .then(res =>

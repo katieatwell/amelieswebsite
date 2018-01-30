@@ -150,38 +150,6 @@ class ManagerView extends Component {
         API.getPriceCakeMenuItems()
             .then(res =>
                 this.setState({
-                    cakesPriceMenu: res.data.price
-                })
-            );
-    }
-    //Load all catering menus and their respective items
-    loadCateringMenuItems = () => {
-        API.getCateringMenuItems()
-            .then(res => this.setState({
-                cateringBreakfastMenu: res.data.breakfastbrunch,
-                cateringBeverageMenu: res.data.beverages,
-                cateringLunchMenu: res.data.lunch,
-                cateringPlatterMenu: res.data.platters,
-                cateringDessertMenu: res.data.desserts,
-                cateringFGBMenu: res.data.favorsgiftbaskets,
-                cateringIHEMenu: res.data.inhouseeventpackages
-            }));
-    }
-    //load composed cake menu and its items
-    loadComposedCakeMenuItems = () => {
-        API.getComposedCakeMenuItems()
-            .then(res =>
-                this.setState({
-                    cakesComposedMenu: [
-                        res.data[0].data,
-                        res.data[1].data
-                    ]
-                }));
-                
-    loadCakePriceItems = () => {
-        API.getPriceCakeMenuItems()
-            .then(res =>
-                this.setState({
                     cakesPriceMenu: res.data
                 })
             );

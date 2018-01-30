@@ -52,14 +52,21 @@
     font-weight: bold;
     color: #f07e56;
     font-family: 'Fredericka the Great', cursive;
-    margin-bottom: -15px;
+    margin-bottom: -10px;
     opacity: .9;
+}
+
+.menuItemPrice {
+    font-size: larger;
+    margin-bottom: 0px;
+
 }
 
 .menuItemDescript {
     font-size: larger;
     font-weight: lighter;
     font-family: 'Handlee', cursive;
+
 }
 
 @media screen and (max-width: 980px) {

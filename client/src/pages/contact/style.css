@@ -2,10 +2,6 @@
     text-align: center;
 }
 
-.holla {
-    font-family: 'Fjalla One', sans-serif;
-}
-
 .navTitle {
     font-weight: bold;
     font-size: larger;
@@ -17,7 +13,6 @@
 .navTitle:hover {
     text-decoration: underline;
     color: #52575a;
-
 }
 
 .roomHeader {

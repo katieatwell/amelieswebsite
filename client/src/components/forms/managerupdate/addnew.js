@@ -16,7 +16,6 @@ export default class AddNewForm extends Component {
     };
   }
   addNewCCMenuItem = (event) => {
-    console.log("You are clicking");
     API.addCCMenuItem({
         category: this.state.category,
         description: this.state.desc,
@@ -24,7 +23,15 @@ export default class AddNewForm extends Component {
         price: this.state.price,
         cafeOrcatering: this.state.cafeOrcatering
       })
-      .then(res => this.props.loadCafeMenuItems(), () => console.log("new menu item added"))
+      .then(res => this.props.loadCafeMenuItems(),
+        this.setState({
+          title: "",
+          desc: "",
+          price: "",
+          id: "",
+          category: "",
+          cafeOrcatering: ""
+        }))
       .catch(err => console.log(err));
   }
 

@@ -15,8 +15,8 @@ export default {
     getCateringMenuItems: function() {
         return axios.get("/api/menu/cc-menu/catering");
     },
-    //Get all of the cake menu items
-    getCakeMenuItems: function() {
+    //Get all of the composed cake menu items
+    getComposedCakeMenuItems: function() {
         return axios.get("/api/menu/cake-menu/composed");
     },
     //Add a new item to the cafe/catering table
@@ -25,24 +25,23 @@ export default {
     },
     //Add new composed cake
     addCakeMenuItem: function(newItem) {
-        return axios.post("/api/manager/cake-menu");
+        return axios.post("/api/manager/cake-menu/composed", newItem);
     },
     //Delete item in Cafe and Catering table
     deleteCCMenuItem: function(id) {
-        console.log(id);
-        return axios.delete("/api/manager/cc-menu", id);
+        return axios.delete("/api/manager/cc-menu", { data: (id) });
     },
     //Delete Cake Menu Item
     deleteCakeMenuItem: function(id) {
-        return axios.delete("/api/manager/cake-menu");
+        return axios.delete("/api/manager/cake-menu", { data: (id) });
     },
     //Update item in cafe and catering table
     updateCCMenuItem: function(itemData) {
         return axios.put("/api/manager/cc-menu", itemData);
     },
     //Update Item in Cake Menu
-    updateCakeMenuItem: function(id) {
-        return axios.put("/api/manager/cake-menu");
+    updateCakeMenuItem: function(itemData) {
+        return axios.put("/api/manager/cake-menu", itemData);
     },
     managerLogin: function(name, password) {
         console.log(name + "   " + password);

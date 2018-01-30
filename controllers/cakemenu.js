@@ -8,23 +8,23 @@ let CakeMenu = {
       });
     });
   },
-  
+
   getComposedCakesALL: function(req, res) {
     CakeMenu.findDescriptors('ComposedCakes').then(function(descriptors) {
       CakeMenu.queryByDescriptors(descriptors).then(function(data) {
-        res.json(CakeMenu.buildComposedCakesObject(data));    
+        res.json(CakeMenu.buildArray(data));
       });
     });
   },
-  
+
   getCakePricesALL: function(req, res) {
     CakeMenu.findDescriptors('CakePrices').then(function(descriptors) {
       CakeMenu.queryByDescriptors(descriptors).then(function(data) {
-        res.json(CakeMenu.buildObject(data));    
+        res.json(CakeMenu.buildArray(data));
       });
     });
   },
-  
+
   findDescriptors: function(menuCategory) {
     return db.CakeData.distinct('descriptor', { 'menuCategory': menuCategory });
   },
@@ -36,7 +36,7 @@ let CakeMenu = {
     });
     return Promise.all(qPromises);
   },
-  
+
   buildObject: function(data) {
     let results = {};
     data.forEach(function(each) {
@@ -46,15 +46,14 @@ let CakeMenu = {
     });
     return results;
   },
-  
-  buildComposedCakesObject: function(data) {
-    let results =[];
+
+  buildArray: function(data) {
+    let results = [];
     data.forEach(function(each) {
-      let cake = {};
       if (each.length > 0) {
-        cake.name = each[0].descriptor;
-        cake.data = each;
-        results.push(cake);
+        each.forEach(function(cake) {
+          results.push(cake);
+        });
       }
     });
     return results;

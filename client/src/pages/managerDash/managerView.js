@@ -27,6 +27,14 @@ class ManagerView extends Component {
             cafeCoffeeMenu: [],
             cafePastryMenu: [],
             cakesComposedMenu: [],
+            cateringBreakfastMenu: [],
+            cateringBeverageMenu: [],
+            cateringLunchMenu: [],
+            cateringPlatterMenu: [],
+            cateringDessertMenu: [],
+            cateringWeddingMenu: [],
+            cateringFGBMenu: [],
+            cateringIHEMenu: [],
             // cakesBYOMenu: [],
             addNewItemForm: false,
             updateForm: true,
@@ -183,19 +191,19 @@ class ManagerView extends Component {
 
             .catch(err => console.log(err));
     }
-    // loadCateringMenuItems = () => {
-    //     API.getCateringMenuItems()
-    //         .then(res => this.setState({
-    //             cateringBreakfastMenu: res.data.breakfast,
-    //             cateringBeverageMenu: res.data.beverage,
-    //             cateringLunchMenu: res.data.lunch,
-    //             cateringPlatterMenu: res.data.platter,
-    //             cateringDessertMenu: res.data.dessert,
-    //             cateringWeddingMenu: res.data.wedding,
-    //             cateringFGBMenu: res.data.favors,
-    //             cateringIHEMenu: res.data.inhouseevents,
-    //         }));
-    // }
+
+    loadCateringMenuItems = () => {
+        API.getCateringMenuItems()
+            .then(res => this.setState({
+                cateringBreakfastMenu: res.data.breakfastbrunch,
+                cateringBeverageMenu: res.data.beverages,
+                cateringLunchMenu: res.data.lunch,
+                cateringPlatterMenu: res.data.platters,
+                cateringDessertMenu: res.data.desserts,
+                cateringFGBMenu: res.data.favorsgiftbaskets,
+                cateringIHEMenu: res.data.inhouseeventpackages
+            }, () => console.log(res.data)));
+    }
 
     loadComposedCakeMenuItems = () => {
         API.getComposedCakeMenuItems()
@@ -257,7 +265,15 @@ class ManagerView extends Component {
                         cafeLunchMenu = {this.state.cafeLunchMenu}
                         cafePastryMenu = {this.state.cafePastryMenu}
                         cakesComposedMenu = {this.state.cakesComposedMenu}
-                        populateFormCakeMenu = {this.populateFormCakeMenu}/>
+                        populateFormCakeMenu = {this.populateFormCakeMenu}
+                        cateringBreakfastMenu = {this.state.cateringBreakfastMenu}
+                        cateringBeverageMenu = {this.state.cateringBeverageMenu}
+                        cateringLunchMenu = {this.state.cateringLunchMenu}
+                        cateringPlatterMenu = {this.state.cateringPlatterMenu}
+                        cateringDessertMenu= {this.state.cateringDessertMenu}
+                        cateringWeddingMenu= {this.state.cateringWeddingMenu}
+                        cateringFGBMenu= {this.state.cateringFGBMenu}
+                        cateringIHEMenu= {this.state.cateringIHEMenu}/>
                     </Col>
                    
                    

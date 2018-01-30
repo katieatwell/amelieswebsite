@@ -42,7 +42,6 @@ class CafeMenu extends Component {
   loadCafeMenuItems = () => {
     API.getCafeMenuItems()
       .then(res => {
-        console.log("$$$$$$$$$$$$$$$$$$$$$");
         console.log(res.data);
         this.setState({
           cafeBreakfast: res.data.breakfast,

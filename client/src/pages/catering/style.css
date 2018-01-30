@@ -2,7 +2,28 @@
     text-align: center;
 }
 
-.navMenuTitle {
-    font-size: 8px;
-}
 
+@media screen and (max-width: 980px) {
+
+    .menuTitle {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .menuWrapper {
+        padding-top: 30px;
+        margin-left: 7px;
+        width: 84%;
+    }
+    .scrollit {
+        overflow: scroll;
+        height: 80vw;
+    }
+
+    .navMenuTitle {
+        border: none;
+        font-size: 13px;
+    }
+
+
+}

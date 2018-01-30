@@ -6,6 +6,8 @@ import PanelBody from "../../components/paragraphdiv/ptextbox";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from "classnames";
 import { MenuContent } from "../../components/menu/menucontents";
+import renderHTML from "react-render-html";
+import API from "../../utils/API";
 import "./style.css";
 
 export default class CateringMenu extends Component {
@@ -14,7 +16,14 @@ export default class CateringMenu extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeTab: '1'
+      activeTab: '1',
+      caterBeverages: [],
+      caterBreakfast: [],
+      caterDesserts: [],
+      caterFavors: [],
+      caterInHouseEvents: [],
+      caterLunch: [],
+      caterPlatters: []
     };
   }
 
@@ -24,6 +33,27 @@ export default class CateringMenu extends Component {
         activeTab: tab
       });
     }
+  }
+
+  componentDidMount() {
+    this.loadCateringMenuItems()
+  }
+
+  loadCateringMenuItems = () => {
+    API.getCateringMenuItems()
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          caterBeverages: res.data.beverages,
+          caterBreakfast: res.data.breakfastbrunch,
+          caterDesserts: res.data.desserts,
+          caterFavors: res.data.favorsgiftbaskets,
+          caterInHouseEvents: res.data.inhouseeventpackages,
+          caterLunch: res.data.lunch,
+          caterPlatters: res.data.platters
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -37,56 +67,56 @@ export default class CateringMenu extends Component {
                     <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '1' })}
-                        onClick={() => { this.toggle('1'); }}>
+                        onClick={() => { this.toggle('1'), this.loadCateringMenuItems(); }}>
                         Breakfast & Brunch
                       </NavLink>
                     </NavItem>
                     <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '2' })}
-                        onClick={() => { this.toggle('2'); }}>
+                        onClick={() => { this.toggle('2'), this.loadCateringMenuItems(); }}>
                        Beverages
                       </NavLink>
                     </NavItem>
                      <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '3' })}
-                        onClick={() => { this.toggle('3'); }}>
+                        onClick={() => { this.toggle('3'), this.loadCateringMenuItems(); }}>
                        Desserts
                       </NavLink>
                     </NavItem>
                      <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '4' })}
-                        onClick={() => { this.toggle('4'); }}>
+                        onClick={() => { this.toggle('4'), this.loadCateringMenuItems(); }}>
                       Favors & Gift Baskets
                       </NavLink>
                     </NavItem>
                       <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '5' })}
-                        onClick={() => { this.toggle('5'); }}>
+                        onClick={() => { this.toggle('5'), this.loadCateringMenuItems(); }}>
                       In House Event Packages
                       </NavLink>
                     </NavItem>
                       <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '6' })}
-                        onClick={() => { this.toggle('6'); }}>
+                        onClick={() => { this.toggle('6'), this.loadCateringMenuItems(); }}>
                       Lunch
                       </NavLink>
                     </NavItem>
                       <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '7' })}
-                        onClick={() => { this.toggle('7'); }}>
+                        onClick={() => { this.toggle('7'), this.loadCateringMenuItems(); }}>
                      Specialty Cakes
                       </NavLink>
                     </NavItem>
                       <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '8' })}
-                        onClick={() => { this.toggle('8'); }}>
+                        onClick={() => { this.toggle('8'), this.loadCateringMenuItems(); }}>
                       Platters
                       </NavLink>
                     </NavItem>
@@ -101,7 +131,13 @@ export default class CateringMenu extends Component {
                         </div>
                         
                         <div className="scrollit">
-                            hi
+                            {this.state.caterBreakfast.map(item => (
+                              <div key={item.id}>
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                              </div>
+                            ))}
                         </div>
                       </MenuContent>
                     </TabPane>
@@ -115,7 +151,13 @@ export default class CateringMenu extends Component {
                         </div>
                         
                         <div className="scrollit">
-                            hi
+                            {this.state.caterBeverages.map(item => (
+                              <div key={item.id}>
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                              </div>
+                            ))}
                         </div>
                       </MenuContent>
                     </TabPane>
@@ -129,7 +171,13 @@ export default class CateringMenu extends Component {
                         </div>
                         
                         <div className="scrollit">
-                            hi
+                            {this.state.caterDesserts.map(item => (
+                              <div key={item.id}>
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                              </div>
+                            ))}
                         </div>
                       </MenuContent>
                     </TabPane>
@@ -143,7 +191,13 @@ export default class CateringMenu extends Component {
                         </div>
                         
                         <div className="scrollit">
-                            hi
+                            {this.state.caterFavors.map(item => (
+                              <div key={item.id}>
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                              </div>
+                            ))}
                         </div>
                       </MenuContent>
                     </TabPane>
@@ -157,7 +211,13 @@ export default class CateringMenu extends Component {
                         </div>
                         
                         <div className="scrollit">
-                            hi
+                            {this.state.caterInHouseEvents.map(item => (
+                              <div key={item.id}>
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                              </div>
+                            ))}
                         </div>
                       </MenuContent>
                     </TabPane>
@@ -171,7 +231,13 @@ export default class CateringMenu extends Component {
                         </div>
                         
                         <div className="scrollit">
-                            hi
+                            {this.state.caterLunch.map(item => (
+                              <div key={item.id}>
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                              </div>
+                            ))}
                         </div>
                       </MenuContent>
                     </TabPane>
@@ -195,11 +261,17 @@ export default class CateringMenu extends Component {
                     <TabPane tabId="8">
                       <MenuContent> 
                         <div className="menuTitle">
-                            PLATTERSE
+                            PLATTERS
                         </div>
                         
                         <div className="scrollit">
-                            hi
+                            {this.state.caterPlatters.map(item => (
+                              <div key={item.id}>
+                                <p className="menuItemTitle">{item.title}</p>
+                                <p className="menuItemPrice">{item.price}</p>
+                                <p className="menuItemDescript">{renderHTML(item.description) }</p><br/>
+                              </div>
+                            ))}
                         </div>
                       </MenuContent>
                     </TabPane>

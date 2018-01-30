@@ -231,6 +231,7 @@ class ManagerView extends Component {
             })
             .catch(err => console.log(err));
     }
+
     deleteComposedCakeMenuItem = () => {
         let id = { id: this.state.currentCake[0].id };
         console.log(id);

@@ -20,7 +20,7 @@ module.exports = {
     },
 
     updateEntry: function(req, res) {
-      console.log(req.body)
+      console.log(req.body.id);
       db.CCMenu.findOneAndUpdate({ '_id': req.body.id }, {
           title: req.body.title,
           cafeOrcatering: req.body.cafeOrcatering,
@@ -38,7 +38,7 @@ module.exports = {
     },
 
     deleteEntry: function(req, res) {
-      console.log(req.body);
+      console.log(req.body.id);
       db.CCMenu.deleteOne({ '_id': req.body.id }, function(err) {
         if (err) {
           console.log(err);
@@ -96,7 +96,8 @@ module.exports = {
     },
 
     updateEntry: function(req, res) {
-      db.CakeData.findOneAndUpdate({ '_id': req.body._id }, {
+      console.log(req.body.id);
+      db.CakeData.findOneAndUpdate({ '_id': req.body.id }, {
           descriptor: req.body.descriptor,
           detail: req.body.detail
         },
@@ -110,7 +111,7 @@ module.exports = {
     },
 
     deleteEntry: function(req, res) {
-      db.CakeData.deleteOne({ '_id': req.body._id }, function(err) {
+      db.CakeData.deleteOne({ '_id': req.body.id }, function(err) {
         if (err) {
           console.log(err);
           res.sendStatus(500);

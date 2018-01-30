@@ -16,7 +16,8 @@ class CakeMenu extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeTab: '1'
+      activeTab: '1',
+      cakeComposed: []
     };
   }
 
@@ -26,6 +27,20 @@ class CakeMenu extends Component {
         activeTab: tab
       });
     }
+  }
+
+  componentDidMount() {
+    this.loadCakeMenuItems();
+  }
+
+  loadCakeMenuItems = () => {
+    API.getCakeMenuItems()
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          cakeComposed: res.data
+        });
+      });
   }
 
   render() {
@@ -39,7 +54,7 @@ class CakeMenu extends Component {
                     <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '2' })}
-                        onClick={() => { this.toggle('1'); }}>
+                        onClick={() => { this.toggle('1'), this.loadCakeMenuItems() }}>
                             Composed Cakes
                       </NavLink>
                     </NavItem>

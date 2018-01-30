@@ -17,7 +17,7 @@ export default {
     },
     //Get all of the cake menu items
     getCakeMenuItems: function() {
-        return axios.get("/api/menu/cake-menu");
+        return axios.get("/api/menu/cake-menu/composed");
     },
     //Add a new item to the cafe/catering table
     addCCMenuItem: function(newItem) {
@@ -44,11 +44,11 @@ export default {
     updateCakeMenuItem: function(id) {
         return axios.put("/api/manager/cake-menu");
     },
-    managerLogin:function(name, password){
-        console.log(name+"   "+password);
-        return axios.post("/login", {name:name, password:password})
+    managerLogin: function(name, password) {
+        console.log(name + "   " + password);
+        return axios.post("/login", { name: name, password: password })
     },
-    sendEmail:function(email, subject, text){
-        return axios.post('/api/email/', {email:email, subject:subject, text:text})
+    sendEmail: function(email, subject, text) {
+        return axios.post('/api/email/', { email: email, subject: subject, text: text })
     }
 };

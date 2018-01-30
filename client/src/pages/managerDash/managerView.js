@@ -146,11 +146,12 @@ class ManagerView extends Component {
 
                 })).catch(err => console.log(err));
     }
+
     loadCakePriceItems = () => {
         API.getPriceCakeMenuItems()
             .then(res =>
                 this.setState({
-                    cakesPriceMenu: res.data.price
+                    cakesPriceMenu: res.data
                 })
             );
     }
@@ -172,12 +173,8 @@ class ManagerView extends Component {
         API.getComposedCakeMenuItems()
             .then(res =>
                 this.setState({
-                    cakesComposedMenu: [
-                        res.data[0].data,
-                        res.data[1].data
-
-                    ]
-                }));
+                    cakesComposedMenu: res.data
+                }, () => console.log(res.data)));
     }
     //Update an item on the cake menu based on the "current" item
     updateCakeMenuItem = () => {
@@ -190,7 +187,7 @@ class ManagerView extends Component {
         API.updateCakeMenuItem(itemData)
             .then(res => {
                 this.setState({ currentCake: [{ descriptor: "", detail: "", category: "", id: "" }] });
-                this.loadCafeMenuItems();
+                this.loadCakeMenuItems();
                 console.log("updating cake " + itemData.id);
             })
             .catch(err => console.log(err));

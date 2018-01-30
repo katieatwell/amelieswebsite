@@ -2,6 +2,9 @@
     text-align: center;
 }
 
+.nav {
+    justify-content: center;
+}
 
 @media screen and (max-width: 980px) {
 

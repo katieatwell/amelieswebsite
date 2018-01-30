@@ -39,7 +39,13 @@ class QuillEditor extends React.Component {
 
   handleChange = (value) => {
     this.setState({ html: value });
-    this.props.updateState(value);
+    //CREATE TERNARY OPERATOR FOR THESE
+    if (this.props.useCake === true) {
+      this.props.updateCurrentCake(value);
+    }
+    if (this.props.useCafe === true) {
+      this.props.updateState(value);
+    }
   }
 
   render() {

@@ -10,6 +10,7 @@ import AddNewCake from "../../components/forms/managerupdate/addnewcake";
 import API from "../../utils/API";
 import { Row, Col } from "reactstrap";
 import { Redirect } from 'react-router';
+import "./style.css";
 import axios from "axios";
 
 axios.defaults.headers.common['Authorization'] = "jwt " + sessionStorage.getItem('token');
@@ -271,10 +272,14 @@ class ManagerView extends Component {
             (<Wrapper>
                 <MainPanel>
                 <Row>
-                    <Col lg="5">
-                    <PanelTitle>
-                       Add/Update Menus:
-                    </PanelTitle>
+                    <Col lg="12">
+                   <div><h3 className="subTitle">Add or Update Menu Items</h3></div>
+                    <br></br>
+                    <div className="instructions">Select items from the sidebar below and use the form box to update these items.
+                    <br></br>
+                    You may also select "add new" to add additional items to a specific menu.
+                    <br></br>
+                    </div>
                     </Col>
                  </Row>
                  <Row>

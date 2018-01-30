@@ -35,7 +35,7 @@ class Locations extends Component {
                     </PanelTitle>
                     
                     <PanelBody>
-                        <Nav className="menuNav" justified>
+                        <Nav className="roomsNav" justified>
                           <NavItem className="navTitle">
                             <NavLink
                               className={classnames({ active: this.state.activeTab === '1' })}

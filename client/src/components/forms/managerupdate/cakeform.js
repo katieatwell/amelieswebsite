@@ -4,12 +4,17 @@ import QuillEditor from "./quilleditor";
 import "./style.css";
 
 export default class CakeForm extends Component {
-
-    render() {
-        const currentCake = this.props.currentCake[0];
-        console.log(currentCake);
-        return (
-            <Form>
+  constructor(props) {
+    super(props);
+    this.state = {
+      cake: true
+    };
+  }
+  render() {
+    const currentCake = this.props.currentCake[0];
+    console.log(currentCake);
+    return (
+      <Form>
       
         <FormGroup>
         <div>
@@ -26,7 +31,8 @@ export default class CakeForm extends Component {
           <QuillEditor
           value={currentCake.detail}
            key={currentCake.id}
-          updateCurrentCake = {this.props.handleCurrentCakeDetailsChange}/>
+          updateCurrentCake = {this.props.handleCurrentCakeDetailsChange}
+          useCake={this.state.cake}/>
           </div>
         </FormGroup>
         
@@ -38,6 +44,6 @@ export default class CakeForm extends Component {
           </div>
   
       </Form>
-        );
-    }
+    );
+  }
 }

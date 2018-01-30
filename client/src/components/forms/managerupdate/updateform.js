@@ -4,7 +4,12 @@ import QuillEditor from "./quilleditor";
 import "./style.css";
 
 export default class UpdateForm extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      cafe: true
+    };
+  }
   render() {
     const currentItem = this.props.currentItem[0];
     console.log(currentItem.id);
@@ -29,7 +34,8 @@ export default class UpdateForm extends Component {
           <QuillEditor
           value={currentItem.desc} 
           key={currentItem.id}
-          updateState={this.props.handleCurrentItemDescChange}/>
+          updateState={this.props.handleCurrentItemDescChange}
+          useCafe={this.state.cafe}/>
           </div>
        
         </FormGroup>

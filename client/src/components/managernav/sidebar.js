@@ -292,7 +292,7 @@ export default class ManagerSidebar extends Component {
         </ListGroupItem>
         
         <ListGroupItem action onClick={()=>this.props.changeForms(this.state.addNew)}>
-        Add New Menu Item
+        Add New Cafe or Catering Menu Item
         </ListGroupItem>
     </ListGroup>
 </div>

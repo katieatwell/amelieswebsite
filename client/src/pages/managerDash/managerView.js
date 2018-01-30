@@ -81,7 +81,6 @@ class ManagerView extends Component {
     //Consolidate these methods in to a single one?
     handleCurrentItemTitleChange = (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
-
             return { ...currentItem,
                 title: event.target.value
             };
@@ -100,7 +99,6 @@ class ManagerView extends Component {
 
     handleCurrentItemCategoryChange = (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
-
             return { ...currentItem,
                 category: event.target.value
             };
@@ -110,7 +108,6 @@ class ManagerView extends Component {
 
     handleCurrentItemCafeorCateringChange = (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
-
             return { ...currentItem,
                 cafeorcatering: event.target.value
             };
@@ -161,7 +158,6 @@ class ManagerView extends Component {
                 console.log("updating cake " + itemData.id)
             })
             .catch(err => console.log(err));
-
     }
 
     //Update a cafe OR catering menu item
@@ -183,10 +179,10 @@ class ManagerView extends Component {
             })
             .catch(err => console.log(err));
     }
-
+    //Delete a cafe OR catering menu item
     deleteCCMenuItem = () => {
         let id = { id: this.state.currentItem[0].id };
-        console.log("deleting " + id);
+        console.log(id);
         API.deleteCCMenuItem(id)
             .then(res => {
                 this.loadCafeMenuItems();
@@ -195,7 +191,7 @@ class ManagerView extends Component {
             })
             .catch(err => console.log(err));
     }
-
+    //Load all catering menus and their respective items
     loadCateringMenuItems = () => {
         API.getCateringMenuItems()
             .then(res => this.setState({
@@ -208,7 +204,7 @@ class ManagerView extends Component {
                 cateringIHEMenu: res.data.inhouseeventpackages
             }, () => console.log(res.data)));
     }
-
+    //load composed cake menu and its items
     loadComposedCakeMenuItems = () => {
         API.getComposedCakeMenuItems()
             .then(res => this.setState({
@@ -220,11 +216,11 @@ class ManagerView extends Component {
                 ]
             }));
     }
-
+    //change the forms for cakes/cafe/and add new
     changeForms(menuState) {
         console.log(menuState);
         this.setState({
-            menuOperator: { menuState }
+            menuOperator: menuState
         });
     }
 
@@ -287,7 +283,7 @@ class ManagerView extends Component {
                    
                     <Col lg="8">
                     <div>
-                    {this.state.menuOperator == "cafe"
+                    {this.state.menuOperator === "cafe"
                        ? <UpdateForm {...this.props} 
                        updateCCMenuItem = {this.updateCCMenuItem}
                        handleCurrentItemCafeorCateringChange = {this.handleCurrentItemCafeorCateringChange}
@@ -299,7 +295,7 @@ class ManagerView extends Component {
                        deleteCCMenuItem = {this.deleteCCMenuItem}/> 
                        : <div></div>
                     }
-                      {this.state.menuOperator == "cake"
+                      {this.state.menuOperator === "cake"
                       ? <CakeForm changeForms = {this.changeForms}
                       cakesComposedMenu = {this.state.cakesComposedMenu}
                       currentCake = {this.state.currentCake}
@@ -310,11 +306,11 @@ class ManagerView extends Component {
                       <div></div>
                     }
                     
-                {this.state.menuOperator == "addNew"
+                    {this.state.menuOperator === "addNew"
                     ? <AddNewForm 
-                  loadCafeMenuItems = { this.loadCafeMenuItems }
-                  addNewItemForm = { this.state.addNewItemForm }
-                  changeForms = { this.changeForms }
+                    loadCafeMenuItems = { this.loadCafeMenuItems }
+                    addNewItemForm = { this.state.addNewItemForm }
+                    changeForms = { this.changeForms }
                   />
                   : <div></div>
                     }

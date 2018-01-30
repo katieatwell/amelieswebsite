@@ -96,7 +96,8 @@ module.exports = {
     },
 
     updateEntry: function(req, res) {
-      db.CakeData.findOneAndUpdate({ '_id': req.body._id }, {
+      console.log(req.body.id);
+      db.CakeData.findOneAndUpdate({ '_id': req.body.id }, {
           descriptor: req.body.descriptor,
           detail: req.body.detail
         },

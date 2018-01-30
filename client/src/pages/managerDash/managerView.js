@@ -28,6 +28,7 @@ class ManagerView extends Component {
             cafeCoffeeMenu: [],
             cafePastryMenu: [],
             cakesComposedMenu: [],
+            cakesPriceMenu: [],
             cateringBreakfastMenu: [],
             cateringBeverageMenu: [],
             cateringLunchMenu: [],
@@ -145,6 +146,39 @@ class ManagerView extends Component {
 
                 })).catch(err => console.log(err));
     }
+    loadCakePriceItems = () => {
+        API.getPriceCakeMenuItems()
+            .then(res =>
+                this.setState({
+                    cakesPriceMenu: res.data.price
+                })
+            );
+    }
+    //Load all catering menus and their respective items
+    loadCateringMenuItems = () => {
+        API.getCateringMenuItems()
+            .then(res => this.setState({
+                cateringBreakfastMenu: res.data.breakfastbrunch,
+                cateringBeverageMenu: res.data.beverages,
+                cateringLunchMenu: res.data.lunch,
+                cateringPlatterMenu: res.data.platters,
+                cateringDessertMenu: res.data.desserts,
+                cateringFGBMenu: res.data.favorsgiftbaskets,
+                cateringIHEMenu: res.data.inhouseeventpackages
+            }));
+    }
+    //load composed cake menu and its items
+    loadComposedCakeMenuItems = () => {
+        API.getComposedCakeMenuItems()
+            .then(res =>
+                this.setState({
+                    cakesComposedMenu: [
+                        res.data[0].data,
+                        res.data[1].data
+
+                    ]
+                }));
+    }
     //Update an item on the cake menu based on the "current" item
     updateCakeMenuItem = () => {
         let itemData = {
@@ -161,17 +195,6 @@ class ManagerView extends Component {
             })
             .catch(err => console.log(err));
     }
-
-    deleteComposedCakeMenuItem = () => {
-        let id = { id: this.state.currentCake[0].id };
-        console.log(id);
-        API.deleteCakeMenuItem(id)
-            .then(res => {
-                this.setState({ currentCake: [{ descriptor: "", detail: "", category: "", id: "" }] });
-                this.loadComposedCakeMenuItems();
-            });
-    }
-
     //Update a cafe OR catering menu item
     updateCCMenuItem = () => {
         console.log("here");
@@ -210,32 +233,15 @@ class ManagerView extends Component {
             })
             .catch(err => console.log(err));
     }
-    //Load all catering menus and their respective items
-    loadCateringMenuItems = () => {
-        API.getCateringMenuItems()
-            .then(res => this.setState({
-                cateringBreakfastMenu: res.data.breakfastbrunch,
-                cateringBeverageMenu: res.data.beverages,
-                cateringLunchMenu: res.data.lunch,
-                cateringPlatterMenu: res.data.platters,
-                cateringDessertMenu: res.data.desserts,
-                cateringFGBMenu: res.data.favorsgiftbaskets,
-                cateringIHEMenu: res.data.inhouseeventpackages
-            }, () => console.log(res.data)));
+    deleteComposedCakeMenuItem = () => {
+        let id = { id: this.state.currentCake[0].id };
+        console.log(id);
+        API.deleteCakeMenuItem(id)
+            .then(res => {
+                this.setState({ currentCake: [{ descriptor: "", detail: "", category: "", id: "" }] });
+                this.loadComposedCakeMenuItems();
+            });
     }
-    //load composed cake menu and its items
-    loadComposedCakeMenuItems = () => {
-        API.getComposedCakeMenuItems()
-            .then(res =>
-                this.setState({
-                    cakesComposedMenu: [
-                        res.data[0].data,
-                        res.data[1].data
-
-                    ]
-                }));
-    }
-
     //change the forms for cakes/cafe/and add new
     changeForms(menuState) {
         console.log(menuState);
@@ -283,6 +289,7 @@ class ManagerView extends Component {
                         loadCafeMenuItems = {this.loadCafeMenuItems} 
                         loadCateringMenuItems = {this.loadCateringMenuItems} 
                         loadComposedCakeMenuItems = {this.loadComposedCakeMenuItems} 
+                        loadCakePriceItems = {this.loadCakePriceItems}
                         cafeBreakfastMenu = {this.state.cafeBreakfastMenu}
                         cafeCoffeeMenu = {this.state.cafeCoffeeMenu}
                         cafeLunchMenu = {this.state.cafeLunchMenu}
@@ -297,6 +304,7 @@ class ManagerView extends Component {
                         cateringWeddingMenu= {this.state.cateringWeddingMenu}
                         cateringFGBMenu= {this.state.cateringFGBMenu}
                         cateringIHEMenu= {this.state.cateringIHEMenu}
+                        cakesPriceMenu= {this.state.cakesPriceMenu}
                         menuOperator ={this.state.menuOperator}/>
                     </Col>
                    

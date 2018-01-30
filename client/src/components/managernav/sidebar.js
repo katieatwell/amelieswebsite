@@ -117,7 +117,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="2" action onClick={() => {this.toggle(1); this.props.loadComposedCakeMenuItems(); this.props.changeForms(this.state.cakeForm)}}>
+        <ListGroupItem id="2" action onClick={() => {this.toggle(1); this.props.loadComposedCakeMenuItems(); this.props.loadCakePriceItems(); this.props.changeForms(this.state.cakeForm)}}>
         Cake Menu
            <Collapse isOpen={this.state.collapse[1]}>
             <Card>
@@ -133,6 +133,23 @@ export default class ManagerSidebar extends Component {
                                     data-category = {item[0].menuCategory}
                                     data-id = {item[0]._id}>
                                     {item[0].descriptor}
+                                </ListGroupItem>
+                                ))}
+                        </ListGroup>
+                        ):(<h5>Content</h5>
+                        )}
+                    </ListGroupItem>
+                 <ListGroupItem>Cake Prices
+                    {this.props.cakesPriceMenu.length ? (
+                        <ListGroup>
+                            {this.props.cakesPriceMenu.map(item => (
+                                <ListGroupItem action onClick={(event) => this.props.populateFormCakeMenu(event)}
+                                    key={item._id}
+                                    data-descriptor={item.descriptor}
+                                    data-detail={item.detail}
+                                    data-category = {item.menuCategory}
+                                    data-id = {item._id}>
+                                    {item.detail}
                                 </ListGroupItem>
                                 ))}
                         </ListGroup>
@@ -293,10 +310,10 @@ export default class ManagerSidebar extends Component {
         </ListGroupItem>
         
         <ListGroupItem action onClick={()=>this.props.changeForms(this.state.addNewCafe)}>
-        Add New Cafe/Catering Menu Item
+        Add New Cafe/Catering Item
         </ListGroupItem>
         <ListGroupItem action onClick={()=> this.props.changeForms(this.state.addNewCake)}>
-        Add New Cake Menu Item
+        Add New Composed Cake
         </ListGroupItem>
     </ListGroup>
 </div>

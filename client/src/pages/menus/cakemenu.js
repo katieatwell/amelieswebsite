@@ -34,7 +34,7 @@ class CakeMenu extends Component {
   }
 
   loadCakeMenuItems = () => {
-    API.getCakeMenuItems()
+    API.getComposedCakeMenuItems()
       .then(res => {
         console.log(res.data);
         this.setState({

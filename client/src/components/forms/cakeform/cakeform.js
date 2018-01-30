@@ -21,12 +21,19 @@ export default class CakeForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("submit button hit")
-    console.log(this.state);
+    console.log(this.state); 
+    const re = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if(!re.test(String(this.state.email).toLowerCase())){
+      alert("please use a valid email");
+      return;
+    }
+    
     API.sendEmail(this.state.email, this.state.select, `Hello there, thanks for your order! your order is name: ${this.state.name} date: ${this.state.date} cake flavor: ${this.state.cakeFlavor} buttercream flavor: ${this.state.buttercream} with filling of: ${this.state.filling} and has masking and decorations of ${this.state.maskingDecorations}. if anything seems wrong with your order, please contact us and let us know!`);
     
     //hard code to whatever email should recieve cake orders. for testing use mine.
     let tempMail="pathayes2382@gmail.com";
-    API.sendEmail(tempMail, this.state.select,"Hello there, this is "+this.state.name+" and my number is:"+this.state.phone+" ... my message to go with my order: " +this.state.text+"  my order is as follows:"+`date: ${this.state.date} cake flavor: ${this.state.cakeFlavor} buttercream flavor: ${this.state.buttercream} with filling of: ${this.state.filling} and has masking and decorations of ${this.state.maskingDecorations}`)
+    API.sendEmail(tempMail, this.state.select,`Hello there, this is ${this.state.name} and my number is: ${this.state.phone} ... my message to go with my order: ${this.state.text}  my order is as follows: date: ${this.state.date} cake flavor: ${this.state.cakeFlavor} buttercream flavor: ${this.state.buttercream} with filling of: ${this.state.filling} and has masking and decorations of ${this.state.maskingDecorations}`);
+    alert("Thanks for ordering a cake with us, we've sent you an email to see your ordering details");
   }
   
   

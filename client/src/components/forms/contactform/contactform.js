@@ -15,9 +15,39 @@ export default class ContactForm extends React.Component {
   
   handleSubmit = (event) => {
     event.preventDefault();
+    let tempMail="pathayes2382@gmail.com";
+    let select=this.state.select.trim();
+    // change temp mail depending on department selected. Currently just using my email address for testing
+    // switch case shows how to change email based on what the selected value is
+    switch(select){
+      case "Become a VIP member!":
+        tempMail="pathayes2382@gmail.com";
+        break;
+      case "Management":
+        tempMail="pathayes2382@gmail.com";
+        break;
+      case "Catering & Events":
+        tempMail="pathayes2382@gmail.com";
+        break;
+      case "General Information":
+        tempMail="pathayes2382@gmail.com";
+        break;
+      case "Real Estate & Construction":
+        tempMail="pathayes2382@gmail.com";
+        break;
+      case "Marketing & PR":
+        tempMail="pathayes2382@gmail.com";
+        break;
+    }
     console.log("submit button hit")
     console.log(this.state);
+    const re = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if(!re.test(String(this.state.email).toLowerCase())){
+      alert("please use a valid email");
+      return;
+    };
     API.sendEmail(this.state.email, this.state.select,"Hello there, this is "+this.state.name+" and my number is:"+this.state.phone+" ... I have a message: " +this.state.text)
+    alert("Thanks for reaching out! We've forwarded your message to the appropriate location");
   };
   
   

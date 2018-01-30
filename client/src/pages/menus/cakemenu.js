@@ -34,12 +34,12 @@ class CakeMenu extends Component {
   }
 
   loadCakeMenuItems = () => {
-    API.getCakeMenuItems()
+    API.getComposedCakeMenuItems()
       .then(res => {
         console.log(res.data);
         this.setState({
           cakeComposed: res.data
-        });
+        }, console.log(this.state));
       });
   }
 
@@ -77,7 +77,12 @@ class CakeMenu extends Component {
                           </div>
                           
                           <div className="scrollit">
-                          
+                            {this.state.cakeComposed.map(item => (
+                                <div key={item.id}>
+                                  <p className="menuItemTitle">{item.descriptor}</p>
+                                  <p className="menuItemDescript">{renderHTML(item.detail) }</p><br/>
+                                </div>
+                              ))}
                           </div>
                         </MenuContent>
                     </TabPane>

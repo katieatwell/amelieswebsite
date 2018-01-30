@@ -5,7 +5,10 @@ export default class ManagerSidebar extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            collapse: [false, false, false, false, false, false, false]
+            collapse: [false, false, false, false, false, false, false],
+            cakeForm: "cake",
+            cafeForm: "cafe",
+            addNew: "addNew"
         };
         this.id = "";
     }
@@ -24,7 +27,7 @@ export default class ManagerSidebar extends Component {
         return (
             <div>
     <ListGroup>
-        <ListGroupItem id="1" action onClick={() => {this.toggle(0); this.props.loadCafeMenuItems(); this.props.changeForms(true)}}>
+        <ListGroupItem id="1" action  onClick={() => {this.toggle(0); this.props.loadCafeMenuItems(); this.props.changeForms(this.state.cafeForm)}}>
             Cafe Menu
             <Collapse isOpen={this.state.collapse[0]}>
             <Card>
@@ -113,7 +116,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="2" action onClick={() => {this.toggle(1); this.props.loadComposedCakeMenuItems(); this.props.changeForms(false)}}>
+        <ListGroupItem id="2" action onClick={() => {this.toggle(1); this.props.loadComposedCakeMenuItems(); this.props.changeForms(this.state.cakeForm)}}>
         Cake Menu
            <Collapse isOpen={this.state.collapse[1]}>
             <Card>
@@ -140,7 +143,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="3" action onClick={() => {this.toggle(2); this.props.loadCateringMenuItems(); this.props.changeForms(true)}}>
+        <ListGroupItem id="3" action onClick={() => {this.toggle(2); this.props.loadCateringMenuItems(); this.props.changeForms(this.state.cafeForm)}}>
             Catering Menu
             <Collapse isOpen={this.state.collapse[2]}>
             <Card>
@@ -288,7 +291,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem action onClick={()=>this.props.changeForms(false)}>
+        <ListGroupItem action onClick={()=>this.props.changeForms(this.state.addNew)}>
         Add New Menu Item
         </ListGroupItem>
     </ListGroup>

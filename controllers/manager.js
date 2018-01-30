@@ -38,7 +38,7 @@ module.exports = {
     },
 
     deleteEntry: function(req, res) {
-      console.log(req.body);
+      console.log(req.body.id);
       db.CCMenu.deleteOne({ '_id': req.body.id }, function(err) {
         if (err) {
           console.log(err);

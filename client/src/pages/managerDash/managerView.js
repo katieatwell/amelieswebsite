@@ -36,12 +36,11 @@ class ManagerView extends Component {
             cateringFGBMenu: [],
             cateringIHEMenu: [],
             // cakesBYOMenu: [],
-            addNewItemForm: false,
-            updateForm: true,
-            cakeForm: true
+            menuOperator: ""
         };
     }
-
+    //Grab item from sidebar (cafe) menu on click and set state of currentItem --> 
+    //Then use this information to populate the values of the form
     populateFormCCMenu = (event) => {
         event.preventDefault();
         const { title, desc, price, id, category, cafeorcatering } = event.target.dataset;
@@ -58,7 +57,8 @@ class ManagerView extends Component {
         });
 
     }
-
+    //Grab item from sidebar (cafe) menu on click and set state of currentItem --> 
+    //Then use this information to populate the values of the form
     populateFormCakeMenu = (event) => {
         event.preventDefault();
         const { id, descriptor, detail, category } = event.target.dataset;
@@ -76,7 +76,8 @@ class ManagerView extends Component {
     componentDidMount() {
         this.isAuthed();
     }
-
+    //Make form field values able to handle change for title, price etc. 
+    //Then set the state of the current item to that new value
     //Consolidate these methods in to a single one?
     handleCurrentItemTitleChange = (event) => {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
@@ -134,7 +135,7 @@ class ManagerView extends Component {
         });
         this.setState({ currentCake: newCurrentCake });
     }
-
+    //Load Items from the cafe menu and set the state of the individual menus based on this state
     loadCafeMenuItems = () => {
         API.getCafeMenuItems()
             .then(res =>
@@ -146,7 +147,7 @@ class ManagerView extends Component {
 
                 })).catch(err => console.log(err));
     }
-
+    //Update an item on the cake menu based on the "current" item
     updateCakeMenuItem = () => {
         let itemData = {
             id: this.state.currentCake[0].id,
@@ -162,6 +163,8 @@ class ManagerView extends Component {
             .catch(err => console.log(err));
 
     }
+
+    //Update a cafe OR catering menu item
     updateCCMenuItem = () => {
         console.log("here");
         let itemData = {
@@ -218,8 +221,11 @@ class ManagerView extends Component {
             }));
     }
 
-    changeForms(hasQuill) {
-        this.setState({ cakeForm: !hasQuill, addNewItemForm: !hasQuill, updateForm: hasQuill });
+    changeForms(menuState) {
+        console.log(menuState);
+        this.setState({
+            menuOperator: { menuState }
+        });
     }
 
     isAuthed() {
@@ -274,12 +280,14 @@ class ManagerView extends Component {
                         cateringDessertMenu= {this.state.cateringDessertMenu}
                         cateringWeddingMenu= {this.state.cateringWeddingMenu}
                         cateringFGBMenu= {this.state.cateringFGBMenu}
-                        cateringIHEMenu= {this.state.cateringIHEMenu}/>
+                        cateringIHEMenu= {this.state.cateringIHEMenu}
+                        menuOperator ={this.state.menuOperator}/>
                     </Col>
                    
                    
                     <Col lg="8">
-                    {this.state.updateForm 
+                    <div>
+                    {this.state.menuOperator == "cafe"
                        ? <UpdateForm {...this.props} 
                        updateCCMenuItem = {this.updateCCMenuItem}
                        handleCurrentItemCafeorCateringChange = {this.handleCurrentItemCafeorCateringChange}
@@ -289,15 +297,28 @@ class ManagerView extends Component {
                        handleCurrentItemDescChange = {this.handleCurrentItemDescChange}
                        currentItem = {this.state.currentItem}
                        deleteCCMenuItem = {this.deleteCCMenuItem}/> 
-                       
-                      : <CakeForm changeForms = {this.changeForms}
+                       : <div></div>
+                    }
+                      {this.state.menuOperator == "cake"
+                      ? <CakeForm changeForms = {this.changeForms}
                       cakesComposedMenu = {this.state.cakesComposedMenu}
                       currentCake = {this.state.currentCake}
                       populateFormCakeMenu = {this.populateFormCakeMenu}
                       handleCurrentCakeDetailsChange = {this.handleCurrentCakeDetailsChange}
                       updateCakeMenuItem = {this.updateCakeMenuItem}/>
-                      
+                      :
+                      <div></div>
                     }
+                    
+                {this.state.menuOperator == "addNew"
+                    ? <AddNewForm 
+                  loadCafeMenuItems = { this.loadCafeMenuItems }
+                  addNewItemForm = { this.state.addNewItemForm }
+                  changeForms = { this.changeForms }
+                  />
+                  : <div></div>
+                    }
+                  </div>
                     </Col>
                   
                 </Row>
@@ -309,9 +330,4 @@ class ManagerView extends Component {
         );
     }
 }
-//                  <AddNewForm 
-//                   loadCafeMenuItems = {this.loadCafeMenuItems}
-//                   addNewItemForm = {this.state.addNewItemForm}
-//                   changeForms = {this.changeForms}/>
-
 export default ManagerView;

@@ -7,6 +7,7 @@ export default class UpdateForm extends Component {
 
   render() {
     const currentItem = this.props.currentItem[0];
+    console.log(currentItem.id);
     return (
       <Form>
       

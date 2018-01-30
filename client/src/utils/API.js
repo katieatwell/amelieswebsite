@@ -38,6 +38,7 @@ export default {
     },
     //Update item in cafe and catering table
     updateCCMenuItem: function(itemData) {
+        console.log(itemData);
         return axios.put("/api/manager/cc-menu", itemData);
     },
     //Update Item in Cake Menu

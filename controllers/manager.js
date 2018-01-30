@@ -20,7 +20,7 @@ module.exports = {
     },
 
     updateEntry: function(req, res) {
-      console.log(req.body)
+      console.log(req.body.id);
       db.CCMenu.findOneAndUpdate({ '_id': req.body.id }, {
           title: req.body.title,
           cafeOrcatering: req.body.cafeOrcatering,

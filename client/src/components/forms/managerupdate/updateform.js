@@ -7,7 +7,6 @@ export default class UpdateForm extends Component {
 
   render() {
     const currentItem = this.props.currentItem[0];
-    // console.log(currentItem.desc);
     return (
       <Form>
       
@@ -69,12 +68,12 @@ export default class UpdateForm extends Component {
          
          
           <div>
-            <Button outline color="secondary" value={currentItem.id} onClick={() => this.props.deleteCafeMenuItem(currentItem.id)}>Delete</Button>
+            <Button outline color="secondary" value={currentItem.id} onClick={()=>this.props.deleteCCMenuItem(currentItem.id)}>Delete</Button>
           </div>
         
    
           <div>
-            <Button outline color="secondary" value={currentItem.id} onClick={this.props.updateCafeMenuItem}>Update</Button>
+            <Button outline color="secondary" value={currentItem.id} onClick={this.props.updateCCMenuItem}>Update</Button>
           </div>
   
       </Form>

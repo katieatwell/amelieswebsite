@@ -11,7 +11,7 @@ export default class ManagerSidebar extends Component {
     }
 
     componentDidMount() {
-        this.props.loadCafeMenuItems;
+        this.props.loadCafeMenuItems();
     }
 
     toggle(num) {

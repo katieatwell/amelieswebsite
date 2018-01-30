@@ -162,7 +162,7 @@ class ManagerView extends Component {
             .catch(err => console.log(err));
 
     }
-    updateCafeMenuItem = () => {
+    updateCCMenuItem = () => {
         console.log("here");
         let itemData = {
             id: this.state.currentItem[0].id,
@@ -175,20 +175,21 @@ class ManagerView extends Component {
         API.updateCCMenuItem(itemData)
             .then(res => {
                 this.loadCafeMenuItems();
+                this.loadCateringMenuItems();
                 console.log("this is updating");
             })
             .catch(err => console.log(err));
     }
 
-    deleteCafeMenuItem = () => {
+    deleteCCMenuItem = () => {
         let id = { id: this.state.currentItem[0].id };
         console.log("deleting " + id);
         API.deleteCCMenuItem(id)
             .then(res => {
                 this.loadCafeMenuItems();
+                this.loadCateringMenuItems();
                 console.log("this is deleting");
             })
-
             .catch(err => console.log(err));
     }
 
@@ -280,14 +281,14 @@ class ManagerView extends Component {
                     <Col lg="8">
                     {this.state.updateForm 
                        ? <UpdateForm {...this.props} 
-                       updateCafeMenuItem = {this.updateCafeMenuItem}
+                       updateCCMenuItem = {this.updateCCMenuItem}
                        handleCurrentItemCafeorCateringChange = {this.handleCurrentItemCafeorCateringChange}
                        handleCurrentItemTitleChange = {this.handleCurrentItemTitleChange} 
                        handleCurrentItemPriceChange = {this.handleCurrentItemPriceChange}
                        handleCurrentItemCategoryChange = {this.handleCurrentItemCategoryChange}
                        handleCurrentItemDescChange = {this.handleCurrentItemDescChange}
                        currentItem = {this.state.currentItem}
-                       deleteCafeMenuItem = {this.deleteCafeMenuItem}/> 
+                       deleteCCMenuItem = {this.deleteCCMenuItem}/> 
                        
                       : <CakeForm changeForms = {this.changeForms}
                       cakesComposedMenu = {this.state.cakesComposedMenu}

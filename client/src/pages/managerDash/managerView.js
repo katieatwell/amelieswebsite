@@ -175,9 +175,37 @@ class ManagerView extends Component {
                     cakesComposedMenu: [
                         res.data[0].data,
                         res.data[1].data
-
                     ]
                 }));
+                
+    loadCakePriceItems = () => {
+        API.getPriceCakeMenuItems()
+            .then(res =>
+                this.setState({
+                    cakesPriceMenu: res.data
+                })
+            );
+    }
+    //Load all catering menus and their respective items
+    loadCateringMenuItems = () => {
+        API.getCateringMenuItems()
+            .then(res => this.setState({
+                cateringBreakfastMenu: res.data.breakfastbrunch,
+                cateringBeverageMenu: res.data.beverages,
+                cateringLunchMenu: res.data.lunch,
+                cateringPlatterMenu: res.data.platters,
+                cateringDessertMenu: res.data.desserts,
+                cateringFGBMenu: res.data.favorsgiftbaskets,
+                cateringIHEMenu: res.data.inhouseeventpackages
+            }));
+    }
+    //load composed cake menu and its items
+    loadComposedCakeMenuItems = () => {
+        API.getComposedCakeMenuItems()
+            .then(res =>
+                this.setState({
+                    cakesComposedMenu: res.data
+                }, () => console.log(res.data)));
     }
     //Update an item on the cake menu based on the "current" item
     updateCakeMenuItem = () => {
@@ -190,7 +218,7 @@ class ManagerView extends Component {
         API.updateCakeMenuItem(itemData)
             .then(res => {
                 this.setState({ currentCake: [{ descriptor: "", detail: "", category: "", id: "" }] });
-                this.loadCafeMenuItems();
+                this.loadCakeMenuItems();
                 console.log("updating cake " + itemData.id);
             })
             .catch(err => console.log(err));

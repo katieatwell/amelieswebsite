@@ -66,7 +66,7 @@ class CafeMenu extends Component {
                       <NavItem className="navMenuTitle">
                         <NavLink 
                           className={classnames({ active: this.state.activeTab === '1' })}
-                          onClick={() => { this.toggle('1'), this.loadCafeMenuItems() }}>
+                          onClick={() => { this.toggle('1'); this.loadCafeMenuItems() }}>
                             Breakfast
                         </NavLink>
                       </NavItem>
@@ -74,7 +74,7 @@ class CafeMenu extends Component {
                       <NavItem className="navMenuTitle">
                         <NavLink
                           className={classnames({ active: this.state.activeTab === '2' })}
-                          onClick={() => { this.toggle('2'), this.loadCafeMenuItems() }}>
+                          onClick={() => { this.toggle('2'); this.loadCafeMenuItems() }}>
                             Lunch & Dinner
                         </NavLink>
                       </NavItem>
@@ -82,7 +82,7 @@ class CafeMenu extends Component {
                        <NavItem className="navMenuTitle">
                         <NavLink
                           className={classnames({ active: this.state.activeTab === '3' })}
-                          onClick={() => { this.toggle('3'), this.loadCafeMenuItems() }}>
+                          onClick={() => { this.toggle('3'); this.loadCafeMenuItems() }}>
                             Coffee & Tea
                         </NavLink>
                       </NavItem>
@@ -90,7 +90,7 @@ class CafeMenu extends Component {
                        <NavItem className="navMenuTitle">
                         <NavLink
                           className={classnames({ active: this.state.activeTab === '4' })}
-                          onClick={() => { this.toggle('4'), this.loadCafeMenuItems() }}>
+                          onClick={() => { this.toggle('4'); this.loadCafeMenuItems() }}>
                             Desserts
                         </NavLink>
                       </NavItem>

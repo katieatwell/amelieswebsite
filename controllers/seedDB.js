@@ -6,7 +6,7 @@ const bcrypt=require("bcrypt");
 //store with bcrypt - seed with encryption
 
 //this code will run automatically if not commented out. Only want to run this Once and then remove from heroku.
-/*bcrypt.hash('tested',12,function(err, hash){
+bcrypt.hash('tested',12,function(err, hash){
 if (err)console.error(err);
 db.AuthUser
   .create({ name: "test3", password:hash })
@@ -18,10 +18,10 @@ db.AuthUser
     // If an error occurs, print it to the console
     console.log(err.message);
   });
-})*/
+})
 
-/*db.AuthUser.find(function(err,user){
+/*db.AuthUser.find({name:"test3"}, function(err,user){
   if (err) return console.error(err);
   console.log(user);
-})*/
-
+})
+*/

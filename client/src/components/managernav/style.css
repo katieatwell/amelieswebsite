@@ -1,0 +1,19 @@
+.scrollSidebar {
+    overflow: scroll;
+    color: #ecebe9;
+}
+
+.cateringItem {
+    max-height: 350vh;
+}
+.topLayerItem {
+    max-height: 150vh;
+}
+
+.midLayerItem {
+    max-height: 30vh;
+}
+
+.midLayerGroup {
+    max-height: 20vh;
+}

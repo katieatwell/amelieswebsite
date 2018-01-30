@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Collapse, Card } from "reactstrap";
+import "./style.css";
 export default class ManagerSidebar extends Component {
     constructor(props) {
         super(props);
@@ -28,14 +29,13 @@ export default class ManagerSidebar extends Component {
         return (
             <div>
     <ListGroup>
-        <ListGroupItem id="1" action  onClick={() => {this.toggle(0); this.props.loadCafeMenuItems(); this.props.changeForms(this.state.cafeForm)}}>
+        <ListGroupItem className="topLayerItem" id="1" action  onClick={() => {this.toggle(0); this.props.loadCafeMenuItems(); this.props.changeForms(this.state.cafeForm)}}>
             Cafe Menu
             <Collapse isOpen={this.state.collapse[0]}>
-            <Card>
             <ListGroup>
-                <ListGroupItem action>Breakfast
+                <ListGroupItem action className="midLayerItem">Breakfast
                     {this.props.cafeBreakfastMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cafeBreakfastMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -53,9 +53,9 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
                     
-                <ListGroupItem action>Lunch/Dinner
+                <ListGroupItem action className="midLayerItem">Lunch/Dinner
                     {this.props.cafeLunchMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cafeLunchMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -73,9 +73,9 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
                 
-                 <ListGroupItem action>Coffee/Tea
+                 <ListGroupItem action className="midLayerItem">Coffee/Tea
                     {this.props.cafeCoffeeMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cafeCoffeeMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -93,9 +93,9 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
                 
-                 <ListGroupItem action>Desserts/Pastries
+                 <ListGroupItem action className="midLayerItem">Desserts/Pastries
                     {this.props.cafePastryMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cafePastryMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -113,18 +113,17 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
             </ListGroup>
-            </Card>
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="2" action onClick={() => {this.toggle(1); this.props.loadComposedCakeMenuItems(); this.props.loadCakePriceItems(); this.props.changeForms(this.state.cakeForm)}}>
+        <ListGroupItem className="topLayerItem" id="2" action onClick={() => {this.toggle(1); this.props.loadComposedCakeMenuItems(); this.props.loadCakePriceItems(); this.props.changeForms(this.state.cakeForm)}}>
         Cake Menu
            <Collapse isOpen={this.state.collapse[1]}>
             <Card>
             <ListGroup>
-                <ListGroupItem>Composed Cakes
+                <ListGroupItem className="midLayerItem">Composed Cakes
                     {this.props.cakesComposedMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cakesComposedMenu.map(item => (
                                 <ListGroupItem action onClick={(event) => this.props.populateFormCakeMenu(event)}
                                     key={item._id}
@@ -139,9 +138,9 @@ export default class ManagerSidebar extends Component {
                         ):(<h5>Content</h5>
                         )}
                     </ListGroupItem>
-                 <ListGroupItem>Cake Prices
+                 <ListGroupItem className="midLayerItem">Cake Prices
                     {this.props.cakesPriceMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cakesPriceMenu.map(item => (
                                 <ListGroupItem action onClick={(event) => this.props.populateFormCakeMenu(event)}
                                     key={item._id}
@@ -161,14 +160,14 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="3" action onClick={() => {this.toggle(2); this.props.loadCateringMenuItems(); this.props.changeForms(this.state.cafeForm)}}>
+        <ListGroupItem id="3" className="cateringItem" action onClick={() => {this.toggle(2); this.props.loadCateringMenuItems(); this.props.changeForms(this.state.cafeForm)}}>
             Catering Menu
             <Collapse isOpen={this.state.collapse[2]}>
             <Card>
             <ListGroup>
-                <ListGroupItem action>Breakfast && Brunch
+                <ListGroupItem action className="midLayerItem">Breakfast && Brunch
                     {this.props.cateringBreakfastMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cateringBreakfastMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -186,9 +185,9 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
                     
-                <ListGroupItem action>Beverages
+                <ListGroupItem action className="midLayerItem">Beverages
                     {this.props.cateringBeverageMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cateringBeverageMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -206,9 +205,9 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
                 
-                <ListGroupItem action>Lunch
+                <ListGroupItem action className="midLayerItem">Lunch
                     {this.props.cateringLunchMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cateringLunchMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -226,9 +225,9 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
                     
-                <ListGroupItem action>Desserts
+                <ListGroupItem action className="midLayerItem">Desserts
                     {this.props.cateringDessertMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cateringDessertMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -245,9 +244,9 @@ export default class ManagerSidebar extends Component {
                         ): (<h4>Nothing</h4>
                         )}
                 </ListGroupItem>
-                <ListGroupItem action>Platters
+                <ListGroupItem action className="midLayerItem">Platters
                     {this.props.cateringPlatterMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cateringPlatterMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -265,9 +264,9 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
                 
-                <ListGroupItem action>Favors and Gift Baskets
+                <ListGroupItem action className="midLayerItem">Favors and Gift Baskets
                     {this.props.cateringFGBMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cateringFGBMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}
@@ -285,9 +284,9 @@ export default class ManagerSidebar extends Component {
                         )}
                 </ListGroupItem>
                     
-                <ListGroupItem action>In House Event Packages
+                <ListGroupItem action className="midLayerItem">In House Event Packages
                     {this.props.cateringIHEMenu.length ? (
-                        <ListGroup>
+                        <ListGroup className="scrollSidebar midLayerGroup">
                             {this.props.cateringIHEMenu.map(item => (
                                 <ListGroupItem action onClick={(event)=>this.props.populateFormCCMenu(event)} 
                                     key = {item._id}

@@ -36,7 +36,7 @@ export default class CateringMenu extends Component {
   }
 
   componentDidMount() {
-    this.loadCateringMenuItems()
+    this.loadCateringMenuItems();
   }
 
   loadCateringMenuItems = () => {
@@ -67,49 +67,49 @@ export default class CateringMenu extends Component {
                     <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '1' })}
-                        onClick={() => { this.toggle('1'), this.loadCateringMenuItems(); }}>
+                        onClick={() => { this.toggle('1'); this.loadCateringMenuItems(); }}>
                         Breakfast & Brunch
                       </NavLink>
                     </NavItem>
                     <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '2' })}
-                        onClick={() => { this.toggle('2'), this.loadCateringMenuItems(); }}>
+                        onClick={() => { this.toggle('2'); this.loadCateringMenuItems(); }}>
                        Beverages
                       </NavLink>
                     </NavItem>
                      <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '3' })}
-                        onClick={() => { this.toggle('3'), this.loadCateringMenuItems(); }}>
+                        onClick={() => { this.toggle('3'); this.loadCateringMenuItems(); }}>
                        Desserts
                       </NavLink>
                     </NavItem>
                      <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '4' })}
-                        onClick={() => { this.toggle('4'), this.loadCateringMenuItems(); }}>
+                        onClick={() => { this.toggle('4'); this.loadCateringMenuItems(); }}>
                       Favors & Gift Baskets
                       </NavLink>
                     </NavItem>
                       <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '5' })}
-                        onClick={() => { this.toggle('5'), this.loadCateringMenuItems(); }}>
+                        onClick={() => { this.toggle('5'); this.loadCateringMenuItems(); }}>
                       In House Event Packages
                       </NavLink>
                     </NavItem>
                       <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '6' })}
-                        onClick={() => { this.toggle('6'), this.loadCateringMenuItems(); }}>
+                        onClick={() => { this.toggle('6'); this.loadCateringMenuItems(); }}>
                       Lunch
                       </NavLink>
                     </NavItem>
                     <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '8' })}
-                        onClick={() => { this.toggle('7'), this.loadCateringMenuItems(); }}>
+                        onClick={() => { this.toggle('7'); this.loadCateringMenuItems(); }}>
                       Platters
                       </NavLink>
                     </NavItem>

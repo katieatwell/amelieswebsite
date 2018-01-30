@@ -106,17 +106,10 @@ export default class CateringMenu extends Component {
                       Lunch
                       </NavLink>
                     </NavItem>
-                      <NavItem className="navMenuTitle">
-                      <NavLink
-                        className={classnames({ active: this.state.activeTab === '7' })}
-                        onClick={() => { this.toggle('7'); this.loadCateringMenuItems(); }}>
-                     Specialty Cakes
-                      </NavLink>
-                    </NavItem>
-                      <NavItem className="navMenuTitle">
+                    <NavItem className="navMenuTitle">
                       <NavLink
                         className={classnames({ active: this.state.activeTab === '8' })}
-                        onClick={() => { this.toggle('8'); this.loadCateringMenuItems(); }}>
+                        onClick={() => { this.toggle('7'); this.loadCateringMenuItems(); }}>
                       Platters
                       </NavLink>
                     </NavItem>
@@ -130,7 +123,7 @@ export default class CateringMenu extends Component {
                             BREAKFAST & BRUNCH
                         </div>
                         
-                        <div className="scrollit">
+                        <div className="scrollitCater">
                             {this.state.caterBreakfast.map(item => (
                               <div key={item.id}>
                                 <p className="menuItemTitle">{item.title}</p>
@@ -245,20 +238,6 @@ export default class CateringMenu extends Component {
                   
                   <TabContent activeTab={this.state.activeTab}>
                     <TabPane tabId="7">
-                      <MenuContent> 
-                        <div className="menuTitle">
-                            WEDDING & SPECIALTY CAKES
-                        </div>
-                        
-                        <div className="scrollit">
-                            hi
-                        </div>
-                      </MenuContent>
-                    </TabPane>
-                  </TabContent>
-                  
-                  <TabContent activeTab={this.state.activeTab}>
-                    <TabPane tabId="8">
                       <MenuContent> 
                         <div className="menuTitle">
                             PLATTERS

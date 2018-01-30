@@ -1293,17 +1293,17 @@ db.cakedatas.insert([{
 db.cakedatas.insert([{
     'menuCategory': 'ComposedCakes',
     'descriptor': 'Chocolate Rasberry',
-    'detail': '<p>Chocolate Chiffon</p><p><br></p><p>Chambord Simple Syrup</p><p><br></p><p>Raspberry Mousse</p><p><br></p><p>Chocolate Buttercream</p><p><br></p><p>Chocolate Ganache</p><p><br></p><p>Raspberries</p><p><br></p><p>Chocolate Curls</p>'
+    'detail': '<p>Chocolate Chiffon</p><p>Chambord Simple Syrup</p><p>Raspberry Mousse</p><p>Chocolate Buttercream</p><p>Chocolate Ganache</p><p>Raspberries</p><p>Chocolate Curls</p>'
   },
   {
     'menuCategory': 'ComposedCakes',
     'descriptor': 'Fraise',
-    'detail': '<p>Vanilla Chiffon</p><p><br></p><p>Gran Marnier Simple Syrup</p><p><br></p><p>Pastry Cream with Fresh Strawberry Pieces</p><p><br></p><p>Traditional Buttercream</p><p><br></p><p>Toasted Candied Almonds</p><p><br></p><p>Topped with Glazed Strawberries</p>'
+    'detail': '<p>Vanilla Chiffon</p><p>Gran Marnier Simple Syrup</p><p>Pastry Cream with Fresh Strawberry Pieces</p><p>Traditional Buttercream</p><p>Toasted Candied Almonds</p><p>Topped with Glazed Strawberries</p>'
   },
   {
     'menuCategory': 'ComposedCakes',
     'descriptor': 'Lemon Raspberry',
-    'detail': '<p>Lemon Chiffon</p><p><br></p><p>Chambord Simple Syrup</p><p><br></p><p>Raspberry Mousse</p><p><br></p><p>Lemon Buttercream</p><p><br></p><p>Raspberries</p><p><br></p><p>Feulletine</p>'
+    'detail': '<p>Lemon Chiffon</p><p>Chambord Simple Syrup</p><p>Raspberry Mousse</p><p>Lemon Buttercream</p><p>Raspberries</p><p>Feulletine</p>'
   }
 ])
 

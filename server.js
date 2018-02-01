@@ -8,10 +8,16 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Serve React App Build 
+const path = require('path');
+app.use(express.static(path.join(__dirname + '/client/build')));
+app.get('/', function(req, res) {
+  res.sendFile('index.html');
+});
+
 // Routes
 const routes = require('./routes');
 app.use(routes);
-
 
 
 // Set up mongoose and connect to mongoDB

@@ -107,7 +107,7 @@ class Locations extends Component {
                           </Col>
       
                           <Col xs="12" sm="12" md="6">
-                              <img src="http://via.placeholder.com/150x150" alt="placeholder"/>
+                              <img src="./location_images/noda.jpg" alt="placeholder" width="100%" height="70%"/>
                           </Col>                    
                       </Row>
                   </TabPane>
@@ -117,10 +117,6 @@ class Locations extends Component {
                   <TabPane tabId="2">
                       <br></br>
                       <Row className="locationInfo">
-                          <Col xs="12" sm="12" md="6">
-                              <img src="http://via.placeholder.com/150x150" alt="placeholder"/>
-                          </Col>   
-                          
                           <Col xs="12" sm="12" md="6">
                               <h4>Amélie's - Park Road</h4>
                               <p>Our newest location! Full selection of pastry, savory, coffee, and Beer & Wine. Free Wi-Fi.</p>
@@ -137,6 +133,10 @@ class Locations extends Component {
                               Charlotte, NC 28209<br/>
                               Located in the Backlot at Park Road Shopping Center</p>
                           </Col>
+
+                          <Col xs="12" sm="12" md="6">
+                              <img src="./location_images/parkrd.jpg" alt="parkrd" width="100%"/>
+                          </Col>   
                       </Row>
                   </TabPane>
               </TabContent>
@@ -164,7 +164,7 @@ class Locations extends Component {
                           </Col>
       
                           <Col xs="12" sm="12" md="6">
-                              <img src="http://via.placeholder.com/150x150" alt="placeholder"/>
+                              <img src="./location_images/rockhill.jpg" alt="rockhill" width="100%" height="70%"/>
                           </Col>                    
                       </Row>
                   </TabPane>
@@ -174,10 +174,6 @@ class Locations extends Component {
                   <TabPane tabId="4">
                     <br></br>
                       <Row className="locationInfo">
-                          <Col xs="12" sm="12" md="6">
-                              <img src="http://via.placeholder.com/150x150" alt="placeholder"/>
-                          </Col>   
-                            
                           <Col xs="12" sm="12" md="6">
                               <h4>Amélie's - Uptown</h4>
                               <p>Full selection of pastry, savory and coffee. Private event space available. Beer + wine. Free wifi.</p>
@@ -195,6 +191,10 @@ class Locations extends Component {
                               Charlotte, NC 28202<br/>
                               Accessible entrance on the corner of Martin Luther King Jr. Blvd./ College St.</p>
                           </Col>
+                          
+                          <Col xs="12" sm="12" md="6">
+                              <img src="./location_images/uptown.jpg" alt="uptown" width="80%" height="70%"/>
+                          </Col>   
                       </Row>
                   </TabPane>
               </TabContent>
@@ -220,7 +220,7 @@ class Locations extends Component {
                           </Col>
       
                           <Col xs="12" sm="12" md="6">
-                              <img src="http://via.placeholder.com/150x150" alt="placeholder"/>
+                              <img src="./location_images/carmelcommons.jpg" alt="carmelcommons" width="80%" height="70%"/>
                           </Col>                    
                       </Row>
                   </TabPane>
@@ -230,10 +230,6 @@ class Locations extends Component {
                   <TabPane tabId="6">
                       <br></br>
                       <Row className="locationInfo">
-                          <Col xs="12" sm="12" md="6">
-                              <img src="http://via.placeholder.com/150x150" alt="placeholder"/>
-                          </Col>   
-                            
                           <Col xs="12" sm="12" md="6">
                               <h4>Amélie's - Atlanta</h4>
                               <p>Located in West Midtown near Georgia Tech. Curated selection of pastry, savory and coffee. Private event space available. Free parking and wifi.</p>
@@ -249,6 +245,10 @@ class Locations extends Component {
                               <p>840 Marietta St. NW<br/>
                               Atlanta, GA 30318</p>
                           </Col>
+                          
+                          <Col xs="12" sm="12" md="6">
+                              <img src="./location_images/atlanta.jpg" alt="atlanta" width="100%" height="70%"/>
+                          </Col>  
                       </Row>
                   </TabPane>
               </TabContent>

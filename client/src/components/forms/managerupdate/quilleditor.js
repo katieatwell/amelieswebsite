@@ -22,7 +22,7 @@ class QuillEditor extends React.Component {
         ['bold', 'italic', 'underline'],
         [{ 'align': '' }, { 'align': 'center' }, { 'align': 'right' }],
         [{ 'header': [2, 3, 4, false] }],
-        [{ 'indent': '+1' }, { 'indent': '-1' }],
+        // [{ 'indent': '+1' }, { 'indent': '-1' }],
         [{ 'list': 'ordered' }, { 'list': 'bullet' }]
       ]
     };
@@ -32,7 +32,7 @@ class QuillEditor extends React.Component {
       'underline',
       'align',
       'header',
-      'indent',
+      // 'indent',
       'list',
     ];
   }

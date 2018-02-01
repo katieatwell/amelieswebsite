@@ -311,6 +311,7 @@ class ManagerView extends Component {
                       handleCurrentItemTitleChange ={this.handleCurrentItemTitleChange}
                       handleCurrentItemPriceChange ={this.handleCurrentItemPriceChange}
                       loadCafeMenuItems = {this.loadCafeMenuItems}
+                      deleteCCMenuItem = {this.deleteCCMenuItem}
                       /> 
                        : <div></div>
                     }
@@ -335,6 +336,7 @@ class ManagerView extends Component {
                       handleCurrentItemDescChange={this.handleCurrentItemDescChange}
                       handleCurrentItemTitleChange ={this.handleCurrentItemTitleChange}
                       handleCurrentItemPriceChange ={this.handleCurrentItemPriceChange}
+                      deleteCCMenuItem = {this.deleteCCMenuItem}
                       /> 
                        : <div></div>
                     }
@@ -360,6 +362,7 @@ class ManagerView extends Component {
                       {this.state.menuOperator === "addNewCake"
                     ? <AddNewCake 
                     loadComposedCakeMenuItems = { this.loadComposedCakeMenuItems }
+                    loadCakePriceItems = {this.loadCakePriceItems}
                     cakeMenuCat = {this.cakeMenuCat}
                   />
                   : <div></div>

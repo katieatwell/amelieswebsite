@@ -67,7 +67,6 @@ export default class UpdateCaterForm extends Component {
            <Input type="select" name="category" id="itemCategory"
             value={this.state.value}
              onChange={(event) => this.selectCategory(event)}>
-             <option selected>{currentItem.category}</option>
             {caterCat.map(item => (
             <option value={item}
             >{item}</option>

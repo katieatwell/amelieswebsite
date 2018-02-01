@@ -67,7 +67,6 @@ export default class UpdateCafeForm extends Component {
            <Input type="select" name="category" id="itemCategory"
             value={this.state.cat}
              onChange={(event) => this.selectCategory(event)}>
-             <option selected>{currentItem.category}</option>
             {cafeCat.map(item => (
             <option value={item}
             >{item}</option>

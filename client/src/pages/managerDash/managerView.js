@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Wrapper from "../../components/wrapper";
 import MainPanel from "../../components/mainpanel/mainpanel";
+import UpdateForm from "../../components/forms/managerupdate/updateform";
+import AddNewForm from "../../components/forms/managerupdate/addnew";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import UpdateCafeForm from "../../components/forms/managerupdate/updateform";
 import UpdateCaterForm from "../../components/forms/managerupdate/caterform";

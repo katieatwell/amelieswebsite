@@ -44,7 +44,17 @@ class CoreValues extends Component {
                         </Col>
                         
                         <Col xs="0" sm="0" md="6">
-                            <img src="http://via.placeholder.com/150x150" alt="placeholder"/>
+                            <Row className="catclassic">
+                                <img src="./art_images/CatClassic.jpg" alt="catclassic" width="250vw" height="250vh" className="aboutArtIMG" />
+                            </Row>
+                            
+                            <Row className="shatteredphone" >
+                                <img src="./art_images/ShatteredIphone.jpg" alt="shatteredphone" width="250vw" height="250vh" className="aboutArtIMG"/>
+                            </Row>
+                            
+                            <Row className="monacat">
+                                <img src="./art_images/MonaCat.jpg" alt="monacat" width="250vw" height="250vh" className="aboutArtIMG"/>
+                            </Row>
                         </Col>
                         
                         </Row>

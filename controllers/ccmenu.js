@@ -24,7 +24,7 @@ let CCMenu = {
   querySelection: function(selection, categories) {
     let qPromises = [];
     categories.forEach(function(category) {
-      qPromises.push(db.CCMenu.find({ 'cafeOrcatering': selection, 'category': category }));
+      qPromises.push(db.CCMenu.find({ 'cafeOrcatering': selection, 'category': category }).sort('title'));
     });
     return Promise.all(qPromises);
   },

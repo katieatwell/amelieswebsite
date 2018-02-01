@@ -3,7 +3,6 @@ import Wrapper from "../../components/wrapper";
 import MainPanel from "../../components/mainpanel/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
-import { Row, Col, Collapse } from "reactstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";

@@ -16,10 +16,10 @@ export default class Footer extends Component {
                 
                 <Col xs="4" sm="4" md="4" >
                     <p className="socialMediaContainer">
-                        <a href=""><img src="social_images/facebook.png" alt="facebookIcon" className="socialImg" /></a>
-                        <a href=""><img src="social_images/twitter.png" alt="twitterIcon" className="socialImg" /></a>
-                        <a href=""><img src="social_images/instagram.png" alt="instagramIcon" className="socialImg" /></a>
-                        <a href=""><img src="social_images/yelp.png" alt="yelpIcon" className="socialImg" /></a>
+                        <a href="https://www.facebook.com/AmeliesFrenchBakery" target="_blank"><img src="social_images/facebook.png" alt="facebookIcon" className="socialImg" /></a>
+                        <a href="https://twitter.com/AmeliesBakery" target="_blank"><img src="social_images/twitter.png" alt="twitterIcon" className="socialImg" /></a>
+                        <a href="https://www.instagram.com/ameliesfrenchbakery/?hl=en" target="_blank"><img src="social_images/instagram.png" alt="instagramIcon" className="socialImg" /></a>
+                        <a href="http://www.yelp.com/biz/am%C3%A9lies-french-bakery-charlotte-3?osq=Amelie%27s+French+Baker" target="_blank"><img src="social_images/yelp.png" alt="yelpIcon" className="socialImg" /></a>
                     </p>
                 </Col>
                 

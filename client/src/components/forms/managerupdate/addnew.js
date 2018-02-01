@@ -30,15 +30,16 @@ export default class AddNewCafe extends Component {
         price: this.state.price,
         cafeOrcatering: this.state.cafeOrcatering
       }, () => console.log(this.state.cafeOrcatering))
-      .then(res => this.props.loadCafeMenuItems(),
+      .then(res =>
         this.setState({
           title: "",
           desc: "",
           price: "",
           id: "",
           category: "",
-          cafeOrcatering: "cafe"
-        }))
+          cafeOrcatering: "cafe",
+          value: ""
+        }, this.props.loadCafeMenuItems()))
       .catch(err => console.log(err));
   }
 

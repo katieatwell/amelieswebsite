@@ -307,9 +307,10 @@ class ManagerView extends Component {
                       {...this.state}
                       changeForms = {this.changeForms}
                       updateCCMenuItem = {this.updateCCMenuItem}
-                      handleCurrentItemDescChange={this.props.handleCurrentItemDescChange}
-                      handleCurrentItemTitleChange ={this.props.handleCurrentItemTitleChange}
-                      handleCurrentItemPriceChange ={this.props.handleCurrentItemPriceChange}
+                      handleCurrentItemDescChange={this.handleCurrentItemDescChange}
+                      handleCurrentItemTitleChange ={this.handleCurrentItemTitleChange}
+                      handleCurrentItemPriceChange ={this.handleCurrentItemPriceChange}
+                      loadCafeMenuItems = {this.loadCafeMenuItems}
                       /> 
                        : <div></div>
                     }
@@ -331,9 +332,9 @@ class ManagerView extends Component {
                       {...this.state}
                       changeForms = {this.changeForms}
                       updateCCMenuItem = {this.updateCCMenuItem}
-                      handleCurrentItemDescChange={this.props.handleCurrentItemDescChange}
-                      handleCurrentItemTitleChange ={this.props.handleCurrentItemTitleChange}
-                      handleCurrentItemPriceChange ={this.props.handleCurrentItemPriceChange}
+                      handleCurrentItemDescChange={this.handleCurrentItemDescChange}
+                      handleCurrentItemTitleChange ={this.handleCurrentItemTitleChange}
+                      handleCurrentItemPriceChange ={this.handleCurrentItemPriceChange}
                       /> 
                        : <div></div>
                     }

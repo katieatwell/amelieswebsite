@@ -8,13 +8,13 @@ export default class UpdateCafeForm extends Component {
     super(props);
     this.state = {
       cafe: true,
-      value: ''
+      cat: ""
     };
   }
 
   selectCategory(event) {
     this.setState({
-      value: event.target.value,
+      cat: event.target.value,
     });
   }
   render() {
@@ -65,7 +65,7 @@ export default class UpdateCafeForm extends Component {
           <Label for="text">Cafe Menu Categories</Label>
           {cafeCat.length ? (
            <Input type="select" name="category" id="itemCategory"
-            value={this.state.value}
+            value={this.state.cat}
              onChange={(event) => this.selectCategory(event)}>
              <option selected>{currentItem.category}</option>
             {cafeCat.map(item => (
@@ -86,7 +86,7 @@ export default class UpdateCafeForm extends Component {
         
    
           <div>
-            <Button outline color="secondary" value={currentItem.id} onClick={(event) => this.props.updateCCMenuItem(event, this.state.value)}>Update</Button>
+            <Button outline color="secondary" value={currentItem.id} onClick={(event) => this.props.updateCCMenuItem(event, this.state.cat)}>Update</Button>
           </div>
   
       </Form>

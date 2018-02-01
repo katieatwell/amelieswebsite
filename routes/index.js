@@ -1,14 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const path = require('path');
-
-router.use(express.static(path.join(__dirname + '/client/build')));
 router.use('/api', require('./apiRoutes'));
 
-// router.get('*', path.join(__dirname + '/client/build/index.html'), function(req,res){
-//   res.json("Success! You can only see this with a token!")
-// });
 
 // set up jwt dependencies
 const _ = require("lodash");
@@ -55,8 +49,6 @@ router.use(express.static('client/public'));
 
 
 // Router
-// const controller = require('./controller/index.js'); //need an index file for the controller
-// app.use('/menu', controller.menu ); // wont work without index file.
 const seed = require('../controllers/seedDB'); //run the seedDB file if needed to set up authorized user name and password.
 
 
@@ -87,11 +79,10 @@ router.post("/login", function(req, res) {
         else {
           res.status(401).json({ message: "password did not match" });
         }
-      })
+      });
     }
   });
-})
-
+});
 
 
 module.exports = router;

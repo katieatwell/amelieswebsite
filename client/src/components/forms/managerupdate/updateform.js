@@ -7,11 +7,19 @@ export default class UpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cafe: true
+      cafe: true,
+      value: ""
     };
+  }
+
+  selectCategory(event) {
+    this.setState({
+      value: event.target.value,
+    });
   }
   render() {
     const currentItem = this.props.currentItem[0];
+    const cafeCat = Object.keys(this.props.cafeMenuCat);
     return (
       <Form>
       
@@ -53,11 +61,21 @@ export default class UpdateForm extends Component {
         <FormGroup>
           
           <div>
-          <Label for="text">Item Category</Label>
-            <Input type="text" name="category" id="itemCategory"
-            value={currentItem.category}
-            onChange={this.props.handleCurrentItemCategoryChange}/>
+          {cafeCat.length ? (
+          <Input type="select" name="category" id="itemCategory"
+            value={this.state.value}
+             onChange={(event) => this.selectCategory(event)}>
+          <Label for="text">Cafe Menu Categories</Label>
+          <option selected value={currentItem.category}>{currentItem.category}</option>
+            {cafeCat.map(item => (
+            <option value={item}
+            >{item}</option>
+             ))}
+             </Input>
+           ) : ( <h5> Nothing </h5> 
+           )}
           </div>
+          
       
         </FormGroup>
         
@@ -79,7 +97,7 @@ export default class UpdateForm extends Component {
         
    
           <div>
-            <Button outline color="secondary" value={currentItem.id} onClick={this.props.updateCCMenuItem}>Update</Button>
+            <Button outline color="secondary" value={currentItem.id} onClick={(event) => this.props.updateCCMenuItem(event, this.state.value)}>Update</Button>
           </div>
   
       </Form>

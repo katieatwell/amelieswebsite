@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Collapse, Card } from "reactstrap";
 import "./style.css";
+
 export default class ManagerSidebar extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            collapse: [false, false, false, false, false, false, false],
+            collapse: [false, false, false],
             cakeForm: "cake",
             cafeForm: "cafe",
             addNewCafe: "addNewCafe",
@@ -317,6 +318,6 @@ export default class ManagerSidebar extends Component {
     </ListGroup>
 </div>
 
-        )
+        );
     }
 }

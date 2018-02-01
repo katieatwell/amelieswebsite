@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import "./style.css";
 import API from "../../../utils/API";
 
-export default class AddNewForm extends Component {
+export default class AddNewCafe extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,27 +11,39 @@ export default class AddNewForm extends Component {
       desc: "",
       price: "",
       id: "",
-      category: "",
-      cafeOrcatering: "",
+      cafeOrcatering: "cafe",
+      cat: ""
     };
   }
+
+  componentDidMount() {
+    this.props.loadCafeMenuItems();
+  }
+
+  selectCategory(event) {
+    this.setState({
+      cat: event.target.value,
+    }, () => console.log(this.state.cat));
+  }
+
   addNewCCMenuItem = (event) => {
     API.addCCMenuItem({
-        category: this.state.category,
+        category: this.state.cat,
         description: this.state.desc,
         title: this.state.title,
         price: this.state.price,
         cafeOrcatering: this.state.cafeOrcatering
-      })
-      .then(res => this.props.loadCafeMenuItems(),
+      }, () => console.log(this.state.cafeOrcatering))
+      .then(res =>
         this.setState({
           title: "",
           desc: "",
           price: "",
           id: "",
           category: "",
-          cafeOrcatering: ""
-        }))
+          cafeOrcatering: "cafe",
+          value: ""
+        }, this.props.loadCafeMenuItems()))
       .catch(err => console.log(err));
   }
 
@@ -43,6 +55,7 @@ export default class AddNewForm extends Component {
   }
 
   render() {
+    const cafeCat = Object.keys(this.props.cafeMenuCat);
     return (
       <Form>
  
@@ -61,15 +74,21 @@ export default class AddNewForm extends Component {
           <Input type="text" name="price" id="itemPrice" value={this.state.price} onChange={this.handleAddInputChange}/>
         </FormGroup>
         
-        <FormGroup> 
-        <Label for="email">Menu Choice (Either Cafe or Catering)</Label>
-          <Input type="text" name="cafeOrcatering" id="itemMenu" value={this.state.cafeOrcatering} onChange={this.handleAddInputChange}/>
-        </FormGroup>
-        
         <FormGroup>
-          <Label for="name">Item Category</Label>
-          <Input type="text" name="category" id="itemCategory" value={this.state.category} onChange={this.handleAddInputChange}>
-          </Input>
+          <div>
+          <Label for="text">Cafe Menu Categories</Label>
+          {cafeCat.length ? (
+           <Input type="select" name="category" id="itemCategory"
+            value={this.state.cat}
+             onChange={(event) => this.selectCategory(event)}>
+            {cafeCat.map(item => (
+            <option value={item}
+            >{item}</option>
+             ))}
+             </Input>
+           ) : ( <h5> Nothing </h5> 
+           )}
+          </div>
         </FormGroup>
         
         <Button outline color="secondary" onClick={this.addNewCCMenuItem}>Add New</Button>

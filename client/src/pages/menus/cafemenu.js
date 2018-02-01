@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Wrapper from "../../components/wrapper";
 import MenuPanel from "../../components/mainpanel/menupanel"
-import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from "classnames";

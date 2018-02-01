@@ -16,22 +16,22 @@ export default class AddNewCake extends Component {
     addNewComposedCakeMenuItem = (event) => {
         API.addCakeMenuItem({
                 descriptor: this.state.descriptor,
-                category: this.state.category,
+                category: "ComposedCakes",
                 detail: this.state.detail,
                 id: this.state.id
             })
-            .then(res => this.props.loadCakeMenuItems(),
+            .then(res =>
                 this.setState({
-                    descriptor: "",
-                    detail: "",
-                    category: "",
-                    id: ""
-                }))
+                        descriptor: "",
+                        detail: "",
+                        category: "",
+                        id: ""
+                    },
+                    () => this.props.loadComposedCakeMenuItems()))
             .catch(err => console.log(err));
     }
 
     handleAddCakeInputChange = event => {
-        console.log("type type")
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -50,11 +50,6 @@ export default class AddNewCake extends Component {
         <FormGroup>
           <Label for="name">Item Details</Label>
           <Input type="text" name="detail" id="itemDetail" value={this.state.detail} onChange={this.handleAddCakeInputChange}/>
-        </FormGroup>
-        
-        <FormGroup>
-          <Label for="email">Item Category (Composed Cakes)</Label>
-          <Input type="text" name="category" id="itemCategory" value={this.state.category} onChange={this.handleAddCakeInputChange}/>
         </FormGroup>
         
         <Button outline color="secondary" onClick={this.addNewComposedCakeMenuItem}>Add New</Button>

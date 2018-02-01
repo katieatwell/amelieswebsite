@@ -1,74 +1,97 @@
+.landingPageWrapper {
+    margin: 15px 80px 40px 80px;
+    text-align: center;
+}
+
+.landingPageHeader {
+    justify-content: center;
+}
+
+.textDivider {
+    width: 65vw;
+    height: 30vh;
+}
+
+.welcomeText {
+    margin-top: -60px;
+    font-size: 60px;
+    color: #454545;
+    font-family: 'Euphoria Script', cursive;
+}
+
 .bannerImg {
-    width: 80%;
-    height: 100%;
+    width: 50vw;
+    height: 30vh;
+    margin-top: -80px;
 }
 
-.firstRow {
-    font-size: 48px;
-    text-align: center;
+.proImg {
+    margin: 30px;
+    border: 1px solid gold;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
-.secondRow {
-    text-align: center;
-    margin-top: -50px;
+
+.proImg:hover {
+    -webkit-filter: grayscale(100%);
+}
+
+.droptown-toggle {}
+
+.navLinkName {
+    background-color: white;
+    border-radius: 25px;
+    border: 1px solid gold;
+    opacity: .9;
+}
+
+.droptown-toggle,
+.nav-link:hover {
+    color: black;
+}
+
+
+#landingPageBody {
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
+
+#landingPageBody .nav-link {
+    font-size: 28px;
+    margin-right: 10px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    color: #454545;
 }
 
 
 
-/*.thirdRow {*/
+@media screen and (max-width: 1060px) {
+    .bannerImg {
+        margin-top: -75px;
+        width: 90vw;
+        height: 60%;
+    }
 
-/*    text-align: center;*/
+    #landingPageBody {
+        margin-top: 160px;
+    }
+}
 
-/*    margin-bottom: 30px*/
+@media screen and (max-width: 769px) {
+    .bannerImg {
+        margin-top: -75px;
+        width: 90vw;
+        height: 60%;
+    }
 
-/*}*/
-
-/*.fourthRow {*/
-
-/*    text-align: center;*/
-
-/*    font-family: 'Playfair Display', serif;*/
-
-/*}*/
-
-/*<img src="/images/MonaCat.jpg" alt="art" className="monacat" />*/
-
-/*<img src="/images/FramedChildVector.jpg" alt="art" className="vector" />*/
-
-/*<img src="/images/ShatteredIphone.jpg" alt="art" className="iphone" />*/
-
-/*.monacat {*/
-
-/*    width: 20%;*/
-
-/*    height: 50%;*/
-
-/*    opacity: 0.8;*/
-
-/*    margin-right: 15%;*/
-
-/*    margin-bottom: 30%;*/
-
-/*}*/
-
-/*.vector {*/
-
-/*    width: 20%;*/
-
-/*    height: 35%;*/
-
-/*    opacity: 0.8;*/
-
-/*    margin-right: 20%;*/
-
-/*}*/
-
-/*.iphone {*/
-
-/*    width: 20%;*/
-
-/*    height: 70%;*/
-
-/*    opacity: 0.8;*/
-
-/*}*/
+    #landingPageBody {
+        margin-top: 80px;
+    }
+}

@@ -352,13 +352,15 @@ class ManagerView extends Component {
                      {this.state.menuOperator === "addNewCater"
                     ? <AddNewCater 
                     {...this.state}
-                    loadCafeMenuItems = { this.loadCafeMenuItems }
+                    caterMenuCat = {this.state.caterMenuCat}
+                    loadCateringMenuItems = { this.loadCateringMenuItems }
                   />
                   : <div></div>
                     }
                       {this.state.menuOperator === "addNewCake"
                     ? <AddNewCake 
-                    loadCakeMenuItems = { this.loadCafeMenuItems }
+                    loadComposedCakeMenuItems = { this.loadComposedCakeMenuItems }
+                    cakeMenuCat = {this.cakeMenuCat}
                   />
                   : <div></div>
                     }

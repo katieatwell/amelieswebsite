@@ -8,14 +8,13 @@ export default class UpdateCaterForm extends Component {
         super(props);
         this.state = {
             cater: true,
-            value: "",
-            currentCat: this.props.currentItem[0].category
+            cat: ""
         };
     }
 
     selectCategory(event) {
         this.setState({
-            value: event.target.value,
+            cat: event.target.value,
         });
     }
     render() {
@@ -87,7 +86,7 @@ export default class UpdateCaterForm extends Component {
         
    
           <div>
-            <Button outline color="secondary" value={currentItem.id} onClick={(event) => this.props.updateCCMenuItem(event, this.state.value)}>Update</Button>
+            <Button outline color="secondary" value={currentItem.id} onClick={(event) => this.props.updateCCMenuItem(event, this.state.cat)}>Update</Button>
           </div>
   
       </Form>

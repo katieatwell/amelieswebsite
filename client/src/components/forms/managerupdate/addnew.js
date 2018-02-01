@@ -16,6 +16,10 @@ export default class AddNewCafe extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.loadCafeMenuItems();
+  }
+
   selectCategory(event) {
     this.setState({
       cat: event.target.value,

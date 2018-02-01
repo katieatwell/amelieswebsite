@@ -315,7 +315,7 @@ export default class ManagerSidebar extends Component {
         Add New Cafe Menu Item
         </ListGroupItem>
         <ListGroupItem action onClick={()=>this.props.changeForms(this.state.addNewCater)}>
-        Add New Cater Menu Item
+        Add New Catering Menu Item
         </ListGroupItem>
         <ListGroupItem action onClick={()=> this.props.changeForms(this.state.addNewCake)}>
         Add New Composed Cake

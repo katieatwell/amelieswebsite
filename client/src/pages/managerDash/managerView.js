@@ -142,7 +142,8 @@ class ManagerView extends Component {
         API.deleteCCMenuItem(id)
             .then(res => {
                 this.setState({
-                    currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeorcatering: "" }]
+                    currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeorcatering: "" }],
+                    category: ""
                 });
                 this.loadCafeMenuItems();
                 this.loadCateringMenuItems();

@@ -29,7 +29,6 @@ export default class AddNewCater extends Component {
                     desc: "",
                     price: "",
                     id: "",
-                    category: "",
                     cafeOrcatering: ""
                 }))
             .catch(err => console.log(err));
@@ -43,6 +42,7 @@ export default class AddNewCater extends Component {
     }
 
     render() {
+
         return (
             <Form>
  

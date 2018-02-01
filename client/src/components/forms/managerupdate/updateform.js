@@ -8,8 +8,7 @@ export default class UpdateCafeForm extends Component {
     super(props);
     this.state = {
       cafe: true,
-      value: "",
-      currentCat: this.props.currentItem[0].category
+      value: ''
     };
   }
 
@@ -42,7 +41,7 @@ export default class UpdateCafeForm extends Component {
           <QuillEditor
           value={currentItem.desc} 
           key={currentItem.id}
-          updateState={this.props.handleCurrentItemDescChange}
+          updateCafeState={this.props.handleCurrentItemDescChange}
           useCafe={this.state.cafe}/>
           </div>
        

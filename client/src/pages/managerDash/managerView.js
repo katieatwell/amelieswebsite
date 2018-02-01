@@ -305,7 +305,8 @@ class ManagerView extends Component {
                     {this.state.menuOperator === "cafe"
                        ? <UpdateCafeForm {...this.props} 
                       {...this.state}
-                      updateCCMenuItem = {this.props.updateCCMenuItem}
+                      changeForms = {this.changeForms}
+                      updateCCMenuItem = {this.updateCCMenuItem}
                       handleCurrentItemDescChange={this.props.handleCurrentItemDescChange}
                       handleCurrentItemTitleChange ={this.props.handleCurrentItemTitleChange}
                       handleCurrentItemPriceChange ={this.props.handleCurrentItemPriceChange}
@@ -313,7 +314,8 @@ class ManagerView extends Component {
                        : <div></div>
                     }
                       {this.state.menuOperator === "cake"
-                      ? <CakeForm changeForms = {this.changeForms}
+                      ? <CakeForm
+                      changeForms ={this.changeForms}
                       cakesComposedMenu = {this.state.cakesComposedMenu}
                       currentCake = {this.state.currentCake}
                       populateFormCakeMenu = {this.populateFormCakeMenu}
@@ -327,7 +329,7 @@ class ManagerView extends Component {
                     {this.state.menuOperator === "cater"
                     ? <UpdateCaterForm {...this.props} 
                       {...this.state}
-                      changeForms={this.changeForms}
+                      changeForms = {this.changeForms}
                       updateCCMenuItem = {this.updateCCMenuItem}
                       handleCurrentItemDescChange={this.props.handleCurrentItemDescChange}
                       handleCurrentItemTitleChange ={this.props.handleCurrentItemTitleChange}
@@ -338,23 +340,24 @@ class ManagerView extends Component {
                     
                     {this.state.menuOperator === "addNewCafe"
                     ? <AddNewCafe 
+                    {...this.state}
+                    changeForms = {this.changeForms}
+                    currentItem = {this.state.currentItem}
                     loadCafeMenuItems = { this.loadCafeMenuItems }
-                    changeForms = { this.changeForms }
                   />
                   : <div></div>
                     }
                     
                      {this.state.menuOperator === "addNewCater"
                     ? <AddNewCater 
+                    {...this.state}
                     loadCafeMenuItems = { this.loadCafeMenuItems }
-                    changeForms = { this.changeForms }
                   />
                   : <div></div>
                     }
                       {this.state.menuOperator === "addNewCake"
                     ? <AddNewCake 
                     loadCakeMenuItems = { this.loadCafeMenuItems }
-                    changeForms = { this.changeForms }
                   />
                   : <div></div>
                     }

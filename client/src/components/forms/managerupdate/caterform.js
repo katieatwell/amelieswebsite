@@ -42,8 +42,8 @@ export default class UpdateCaterForm extends Component {
           <QuillEditor
           value={currentItem.desc} 
           key={currentItem.id}
-          updateState={this.props.handleCurrentItemDescChange}
-          useCafe={this.state.cafe}/>
+          updateCaterState={this.props.handleCurrentItemDescChange}
+          useCater={this.state.cater}/>
           </div>
        
         </FormGroup>

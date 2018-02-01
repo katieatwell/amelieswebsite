@@ -44,7 +44,10 @@ class QuillEditor extends React.Component {
       this.props.updateCurrentCake(value);
     }
     if (this.props.useCafe === true) {
-      this.props.updateState(value);
+      this.props.updateCafeState(value);
+    }
+    if (this.props.useCater === true) {
+      this.props.updateCaterState(value);
     }
   }
 

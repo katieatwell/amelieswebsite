@@ -3,48 +3,48 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import "./style.css";
 import API from "../../../utils/API";
 
-export default class AddNewCafe extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      desc: "",
-      price: "",
-      id: "",
-      category: "",
-      cafeOrcatering: "",
-    };
-  }
-  addNewCCMenuItem = (event) => {
-    API.addCCMenuItem({
-        category: this.state.category,
-        description: this.state.desc,
-        title: this.state.title,
-        price: this.state.price,
-        cafeOrcatering: this.state.cafeOrcatering
-      })
-      .then(res => this.props.loadCafeMenuItems(),
+export default class AddNewCater extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "",
+            desc: "",
+            price: "",
+            id: "",
+            category: "",
+            cafeOrcatering: "",
+        };
+    }
+    addNewCCMenuItem = (event) => {
+        API.addCCMenuItem({
+                category: this.state.category,
+                description: this.state.desc,
+                title: this.state.title,
+                price: this.state.price,
+                cafeOrcatering: this.state.cafeOrcatering
+            })
+            .then(res => this.props.loadCafeMenuItems(),
+                this.setState({
+                    title: "",
+                    desc: "",
+                    price: "",
+                    id: "",
+                    category: "",
+                    cafeOrcatering: ""
+                }))
+            .catch(err => console.log(err));
+    }
+
+    handleAddInputChange = event => {
+        const { name, value } = event.target;
         this.setState({
-          title: "",
-          desc: "",
-          price: "",
-          id: "",
-          category: "",
-          cafeOrcatering: ""
-        }))
-      .catch(err => console.log(err));
-  }
+            [name]: value
+        });
+    }
 
-  handleAddInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  }
-
-  render() {
-    return (
-      <Form>
+    render() {
+        return (
+            <Form>
  
         <FormGroup>
           <Label for="name">Item Title</Label>
@@ -75,6 +75,6 @@ export default class AddNewCafe extends Component {
         <Button outline color="secondary" onClick={this.addNewCCMenuItem}>Add New</Button>
         
       </Form>
-    );
-  }
+        );
+    }
 }

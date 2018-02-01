@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import Wrapper from "../../components/wrapper";
 import MainPanel from "../../components/mainpanel/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
-import UpdateForm from "../../components/forms/managerupdate/updateform";
-import AddNewForm from "../../components/forms/managerupdate/addnew";
+import UpdateCafeForm from "../../components/forms/managerupdate/updateform";
+import UpdateCaterForm from "../../components/forms/managerupdate/caterform";
+import AddNewCafe from "../../components/forms/managerupdate/addnew";
+import AddNewCater from "../../components/forms/managerupdate/addnewcater";
 import ManagerSidebar from "../../components/managernav/sidebar";
 import CakeForm from "../../components/forms/managerupdate/cakeform";
 import AddNewCake from "../../components/forms/managerupdate/addnewcake";
@@ -118,12 +120,12 @@ class ManagerView extends Component {
             price: this.state.currentItem[0].price,
             description: this.state.currentItem[0].desc
         };
-        console.log(category);
         API.updateCCMenuItem(itemData)
             .then(res => {
                 this.setState({
                     currentItem: [{ title: "", desc: "", price: "", id: "", category: "", cafeorcatering: "" }],
-                    currentCake: [{ descriptor: "", detail: "", category: "", id: "" }]
+                    currentCake: [{ descriptor: "", detail: "", category: "", id: "" }],
+                    category: ""
                 });
                 this.loadCafeMenuItems();
                 this.loadCateringMenuItems();
@@ -172,24 +174,6 @@ class ManagerView extends Component {
         const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
             return { ...currentItem,
                 price: event.target.value
-            };
-        });
-        this.setState({ currentItem: newCurrentItem });
-    }
-
-    handleCurrentItemCategoryChange = (event) => {
-        const newCurrentCat = this.state.currentCat.map((cat) => {
-            return { ...cat,
-                category: event.target.dataset
-            }
-        })
-        this.setState({ currrentCat: newCurrentCat })
-    }
-
-    handleCurrentItemCafeorCateringChange = (event) => {
-        const newCurrentItem = this.state.currentItem.map((currentItem, secondItem) => {
-            return { ...currentItem,
-                cafeorcatering: event.target.value
             };
         });
         this.setState({ currentItem: newCurrentItem });
@@ -319,17 +303,13 @@ class ManagerView extends Component {
                     <Col lg="8">
                     <div>
                     {this.state.menuOperator === "cafe"
-                       ? <UpdateForm {...this.props} 
-                       cafeMenuCat = {this.state.cafeMenuCat}
-                       caterMenuCat ={this.state.caterMenuCat}
-                       updateCCMenuItem = {this.updateCCMenuItem}
-                       handleCurrentItemCafeorCateringChange = {this.handleCurrentItemCafeorCateringChange}
-                       handleCurrentItemTitleChange = {this.handleCurrentItemTitleChange} 
-                       handleCurrentItemPriceChange = {this.handleCurrentItemPriceChange}
-                       handleCurrentItemCategoryChange = {this.handleCurrentItemCategoryChange}
-                       handleCurrentItemDescChange = {this.handleCurrentItemDescChange}
-                       currentItem = {this.state.currentItem}
-                       deleteCCMenuItem = {this.deleteCCMenuItem}/> 
+                       ? <UpdateCafeForm {...this.props} 
+                      {...this.state}
+                      updateCCMenuItem = {this.props.updateCCMenuItem}
+                      handleCurrentItemDescChange={this.props.handleCurrentItemDescChange}
+                      handleCurrentItemTitleChange ={this.props.handleCurrentItemTitleChange}
+                      handleCurrentItemPriceChange ={this.props.handleCurrentItemPriceChange}
+                      /> 
                        : <div></div>
                     }
                       {this.state.menuOperator === "cake"
@@ -344,14 +324,33 @@ class ManagerView extends Component {
                       <div></div>
                     }
                     
+                    {this.state.menuOperator === "cater"
+                    ? <UpdateCaterForm {...this.props} 
+                      {...this.state}
+                      changeForms={this.changeForms}
+                      updateCCMenuItem = {this.updateCCMenuItem}
+                      handleCurrentItemDescChange={this.props.handleCurrentItemDescChange}
+                      handleCurrentItemTitleChange ={this.props.handleCurrentItemTitleChange}
+                      handleCurrentItemPriceChange ={this.props.handleCurrentItemPriceChange}
+                      /> 
+                       : <div></div>
+                    }
+                    
                     {this.state.menuOperator === "addNewCafe"
-                    ? <AddNewForm 
+                    ? <AddNewCafe 
                     loadCafeMenuItems = { this.loadCafeMenuItems }
                     changeForms = { this.changeForms }
                   />
                   : <div></div>
                     }
                     
+                     {this.state.menuOperator === "addNewCater"
+                    ? <AddNewCater 
+                    loadCafeMenuItems = { this.loadCafeMenuItems }
+                    changeForms = { this.changeForms }
+                  />
+                  : <div></div>
+                    }
                       {this.state.menuOperator === "addNewCake"
                     ? <AddNewCake 
                     loadCakeMenuItems = { this.loadCafeMenuItems }

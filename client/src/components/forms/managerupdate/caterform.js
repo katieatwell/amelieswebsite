@@ -3,26 +3,26 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import QuillEditor from "./quilleditor";
 import "./style.css";
 
-export default class UpdateCafeForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cafe: true,
-      value: "",
-      currentCat: this.props.currentItem[0].category
-    };
-  }
+export default class UpdateCaterForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cater: true,
+            value: "",
+            currentCat: this.props.currentItem[0].category
+        };
+    }
 
-  selectCategory(event) {
-    this.setState({
-      value: event.target.value,
-    });
-  }
-  render() {
-    const currentItem = this.props.currentItem[0];
-    const cafeCat = Object.keys(this.props.cafeMenuCat);
-    return (
-      <Form>
+    selectCategory(event) {
+        this.setState({
+            value: event.target.value,
+        });
+    }
+    render() {
+        const currentItem = this.props.currentItem[0];
+        const caterCat = Object.keys(this.props.caterMenuCat);
+        return (
+            <Form>
       
         <FormGroup>
         
@@ -63,13 +63,13 @@ export default class UpdateCafeForm extends Component {
           
           <div>
          
-          <Label for="text">Cafe Menu Categories</Label>
-          {cafeCat.length ? (
+          <Label for="text">Catering Menu Categories</Label>
+          {caterCat.length ? (
            <Input type="select" name="category" id="itemCategory"
             value={this.state.value}
              onChange={(event) => this.selectCategory(event)}>
              <option selected>{currentItem.category}</option>
-            {cafeCat.map(item => (
+            {caterCat.map(item => (
             <option value={item}
             >{item}</option>
              ))}
@@ -91,6 +91,6 @@ export default class UpdateCafeForm extends Component {
           </div>
   
       </Form>
-    );
-  }
+        );
+    }
 }

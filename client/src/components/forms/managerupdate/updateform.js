@@ -3,15 +3,23 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import QuillEditor from "./quilleditor";
 import "./style.css";
 
-export default class UpdateForm extends Component {
+export default class UpdateCafeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cafe: true
+      cafe: true,
+      cat: ""
     };
+  }
+
+  selectCategory(event) {
+    this.setState({
+      cat: event.target.value,
+    });
   }
   render() {
     const currentItem = this.props.currentItem[0];
+    const cafeCat = Object.keys(this.props.cafeMenuCat);
     return (
       <Form>
       
@@ -33,7 +41,7 @@ export default class UpdateForm extends Component {
           <QuillEditor
           value={currentItem.desc} 
           key={currentItem.id}
-          updateState={this.props.handleCurrentItemDescChange}
+          updateCafeState={this.props.handleCurrentItemDescChange}
           useCafe={this.state.cafe}/>
           </div>
        
@@ -53,25 +61,23 @@ export default class UpdateForm extends Component {
         <FormGroup>
           
           <div>
-          <Label for="text">Item Category</Label>
-            <Input type="text" name="category" id="itemCategory"
-            value={currentItem.category}
-            onChange={this.props.handleCurrentItemCategoryChange}/>
-          </div>
-      
-        </FormGroup>
-        
-        <FormGroup>
-    
-          <div>
-          <Label for="text">Item Menu</Label>
-            <Input type="text" name="cafeorcatering" id="itemCategory"
-            value={currentItem.cafeorcatering}
-            onChange={this.props.handleCurrentItemCafeorCateringChange}/>
-          </div>
-      
-        </FormGroup>
          
+          <Label for="text">Cafe Menu Categories</Label>
+          {cafeCat.length ? (
+           <Input type="select" name="category" id="itemCategory"
+            value={this.state.cat}
+             onChange={(event) => this.selectCategory(event)}>
+            {cafeCat.map(item => (
+            <option value={item}
+            >{item}</option>
+             ))}
+             </Input>
+           ) : ( <h5> Nothing </h5> 
+           )}
+          </div>
+          
+      
+        </FormGroup>
          
           <div>
             <Button outline color="secondary" value={currentItem.id} onClick={()=>this.props.deleteCCMenuItem(currentItem.id)}>Delete</Button>
@@ -79,7 +85,7 @@ export default class UpdateForm extends Component {
         
    
           <div>
-            <Button outline color="secondary" value={currentItem.id} onClick={this.props.updateCCMenuItem}>Update</Button>
+            <Button outline color="secondary" value={currentItem.id} onClick={(event) => this.props.updateCCMenuItem(event, this.state.cat)}>Update</Button>
           </div>
   
       </Form>

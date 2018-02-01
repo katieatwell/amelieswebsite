@@ -46,7 +46,6 @@ class Blog extends Component {
                     <PanelTitle>
                         Amélie's Blog
                     </PanelTitle>
-                    
                     <PanelBody>
                         
                             {this.state.blogs.map(blog => (

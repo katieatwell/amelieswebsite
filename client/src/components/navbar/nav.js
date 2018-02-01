@@ -33,12 +33,12 @@ export default class NavBar extends React.Component {
     return (
       <div>
         <div className="wrap">
-              <Navbar color="faded" light expand="md" id="NavBar" justified>
+              <Navbar color="black" light expand="md" id="NavBar">
                 <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar >
                         <a href="/"><img src="/display_images/logo-new.png" alt="logo" className="logo" /></a>
                             <div className="navWrapper"> 
-                              <Nav navbar className="mx-auto">
+                              <Nav navbar className="mx-auto" justified>
                                 <UncontrolledDropdown nav inNavbar>
                                   <DropdownToggle nav >
                                     ABOUT US

@@ -40,9 +40,10 @@ export default class AddNewCater extends Component {
                     price: "",
                     id: "",
                     category: "",
+                    cat: "",
                     cafeOrcatering: "catering",
                     value: ""
-                }, this.props.loadCafeMenuItems()))
+                }, this.props.loadCateringMenuItems()))
             .catch(err => console.log(err));
     }
 
@@ -85,7 +86,7 @@ export default class AddNewCater extends Component {
             >{item}</option>
              ))}
              </Input>
-           ) : ( <h5> Nothing </h5> 
+           ) : ( <h5>This too shall load</h5> 
            )}
           </div>
         </FormGroup>

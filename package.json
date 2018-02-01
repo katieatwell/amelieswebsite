@@ -33,7 +33,7 @@
     "passport-jwt": "^3.0.1",
     "react-native-cheerio": "^1.0.0-rc.4",
     "react-player": "^1.1.1",
-    "react-render-html": "^0.6.0",
+    "react-render-html": "^0.6.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",

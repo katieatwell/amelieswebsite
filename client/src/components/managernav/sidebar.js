@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem, Collapse, Card } from "reactstrap";
 import "./style.css";
+
 export default class ManagerSidebar extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            collapse: [false, false, false, false, false, false, false],
+            collapse: [false, false, false],
             cakeForm: "cake",
             cafeForm: "cafe",
             addNewCafe: "addNewCafe",
-            addNewCake: "addNewCake"
+            addNewCake: "addNewCake",
+            addNewCater: "addNewCater",
+            caterForm: "cater"
         };
         this.id = "";
     }
@@ -160,7 +163,7 @@ export default class ManagerSidebar extends Component {
             </Collapse>
         </ListGroupItem>
         
-        <ListGroupItem id="3" className="cateringItem" action onClick={() => {this.toggle(2); this.props.loadCateringMenuItems(); this.props.changeForms(this.state.cafeForm)}}>
+        <ListGroupItem id="3" className="cateringItem" action onClick={() => {this.toggle(2); this.props.loadCateringMenuItems(); this.props.changeForms(this.state.caterForm)}}>
             Catering Menu
             <Collapse isOpen={this.state.collapse[2]}>
             <Card>
@@ -309,7 +312,10 @@ export default class ManagerSidebar extends Component {
         </ListGroupItem>
         
         <ListGroupItem action onClick={()=>this.props.changeForms(this.state.addNewCafe)}>
-        Add New Cafe/Catering Item
+        Add New Cafe Menu Item
+        </ListGroupItem>
+        <ListGroupItem action onClick={()=>this.props.changeForms(this.state.addNewCater)}>
+        Add New Catering Menu Item
         </ListGroupItem>
         <ListGroupItem action onClick={()=> this.props.changeForms(this.state.addNewCake)}>
         Add New Composed Cake
@@ -317,6 +323,6 @@ export default class ManagerSidebar extends Component {
     </ListGroup>
 </div>
 
-        )
+        );
     }
 }

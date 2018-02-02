@@ -375,7 +375,8 @@ class ManagerView extends Component {
                     </Col>
                   
                 </Row>
-                </PanelBody>
+                </div>
+              </PanelBody>
                 </MainPanel>
              </Wrapper>) :
             (

@@ -67,7 +67,8 @@
 .menuItemPrice {
     font-size: larger;
     margin-bottom: 0px;
-
+    font-family: 'Handlee', cursive;
+    color: #f7f2b0;
 }
 
 .menuItemDescript {

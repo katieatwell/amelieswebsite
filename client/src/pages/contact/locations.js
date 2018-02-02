@@ -106,8 +106,8 @@ class Locations extends Component {
                               Charlotte, NC 28205</p>
                           </Col>
       
-                          <Col xs="12" sm="12" md="6">
-                              <img src="./location_images/noda.jpg" alt="placeholder" width="100%" height="70%"/>
+                          <Col xs="12" sm="12" md="6" className="imgCol">
+                              <img src="./location_images/ameliesNODA.jpeg" alt="placeholder" width="100%" height="80%"/>
                           </Col>                    
                       </Row>
                   </TabPane>
@@ -134,7 +134,7 @@ class Locations extends Component {
                               Located in the Backlot at Park Road Shopping Center</p>
                           </Col>
 
-                          <Col xs="12" sm="12" md="6">
+                          <Col xs="12" sm="12" md="6" className="imgCol">
                               <img src="./location_images/parkrd.jpg" alt="parkrd" width="100%"/>
                           </Col>   
                       </Row>
@@ -163,8 +163,8 @@ class Locations extends Component {
                               Rock Hill, SC 29730</p>
                           </Col>
       
-                          <Col xs="12" sm="12" md="6">
-                              <img src="./location_images/rockhill.jpg" alt="rockhill" width="100%" height="70%"/>
+                          <Col xs="12" sm="12" md="6" className="imgCol">
+                              <img src="./location_images/case.jpg" alt="rockhill" width="100%" height="70%"/>
                           </Col>                    
                       </Row>
                   </TabPane>
@@ -192,8 +192,8 @@ class Locations extends Component {
                               Accessible entrance on the corner of Martin Luther King Jr. Blvd./ College St.</p>
                           </Col>
                           
-                          <Col xs="12" sm="12" md="6">
-                              <img src="./location_images/uptown.jpg" alt="uptown" width="80%" height="70%"/>
+                          <Col xs="12" sm="12" md="6" className="imgCol">
+                              <img src="./location_images/uptownAmelies.jpg" alt="uptown" width="100%" height="70%"/>
                           </Col>   
                       </Row>
                   </TabPane>
@@ -219,8 +219,8 @@ class Locations extends Component {
                               Charlotte NC 28226</p>
                           </Col>
       
-                          <Col xs="12" sm="12" md="6">
-                              <img src="./location_images/carmelcommons.jpg" alt="carmelcommons" width="80%" height="70%"/>
+                          <Col xs="12" sm="12" md="6" className="imgCol">
+                              <img src="./location_images/macaroon.png" alt="carmelcommons" width="100%" height="70%"/>
                           </Col>                    
                       </Row>
                   </TabPane>
@@ -246,8 +246,8 @@ class Locations extends Component {
                               Atlanta, GA 30318</p>
                           </Col>
                           
-                          <Col xs="12" sm="12" md="6">
-                              <img src="./location_images/atlanta.jpg" alt="atlanta" width="100%" height="70%"/>
+                          <Col xs="12" sm="12" md="6" className="imgCol">
+                              <img src="./location_images/AmeliesATL.jpg" alt="atlanta" width="90%" height="70%"/>
                           </Col>  
                       </Row>
                   </TabPane>

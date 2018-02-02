@@ -275,8 +275,8 @@ class ManagerView extends Component {
                     </div>
                     </Col>
                  </Row>
+                 <div className="wrapper">
                  <Row>
-                  
                     <Col lg="4">
                         <ManagerSidebar value = {this.state.value}
                         populateFormCCMenu = {this.populateFormCCMenu} 

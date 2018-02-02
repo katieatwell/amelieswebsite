@@ -253,7 +253,7 @@ class ManagerView extends Component {
         }
         else {
             console.log("NO TOKEN!!!")
-            return this.authed = true;
+            return this.authed = false;
         }
     }
     authed = true;

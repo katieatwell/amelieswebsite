@@ -1,7 +1,8 @@
 .subTitle {
+    padding-top: 15px;
     text-align: center;
     color: black;
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Comfortaa', cursive;
     font-weight: lighter;
     font-size: 40px;
 }
@@ -9,13 +10,12 @@
 .instructions {
     text-align: center;
     color: black;
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Comfortaa', cursive;
     font-weight: lighter;
     font-size: 20px;
 }
 
 .wrapper {
-    border-style: solid;
     border-width: 2px;
     padding: 20px;
     margin: 10px;

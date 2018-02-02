@@ -220,7 +220,7 @@ class Locations extends Component {
                           </Col>
       
                           <Col xs="12" sm="12" md="6" className="imgCol">
-                              <img src="./location_images/macaroon.png" alt="carmelcommons" width="100%" height="70%"/>
+                              <img src="./location_images/macaroon.png" alt="carmelcommons" width="100%" height="330px"/>
                           </Col>                    
                       </Row>
                   </TabPane>

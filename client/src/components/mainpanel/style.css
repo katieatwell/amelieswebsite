@@ -1,7 +1,5 @@
 #MainPanel {
-    border: 2px solid #f5ef90;
-    margin: 25px 20px 30px 20px;
-    padding: 40px;
+    margin: 25px 50px 30px 50px;
     background-image: url("./sos.png");
 }
 
@@ -10,9 +8,10 @@
     background-image: url("./menu-frame.png");
     background-repeat: no-repeat;
     width: 100%;
-    height: 63vw;
+    height: 65vw;
     background-size: 100%;
     position: relative;
+    margin-bottom: 40px
 }
 
 @media screen and (max-width: 800px) {

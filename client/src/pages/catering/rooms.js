@@ -4,7 +4,9 @@ import MainPanel from "../../components/mainpanel/mainpanel";
 import PanelTitle from "../../components/paragraphdiv/ptitle";
 import PanelBody from "../../components/paragraphdiv/ptextbox";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import classnames from "classnames";
+import PropTypes from 'prop-types';
 import "./style.css";
 
 
@@ -14,7 +16,7 @@ class Locations extends Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            activeTab: '1'
+            activeTab: '1',
         };
     }
 
@@ -25,6 +27,7 @@ class Locations extends Component {
             });
         }
     }
+
 
     render() {
         return (

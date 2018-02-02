@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import QuillEditor from "./quilleditor.js";
 import "./style.css";
 import API from "../../../utils/API";
 
@@ -65,8 +66,12 @@ export default class AddNewCater extends Component {
         </FormGroup>
         
         <FormGroup>
+        <div>
           <Label for="name">Item Description</Label>
-          <Input type="text" name="desc" id="itemDescription" value={this.state.desc} onChange={this.handleAddInputChange}/>
+          <QuillEditor
+          value={this.state.desc} 
+          addCafeBox={this.handleAddInputChange}/>
+          </div>
         </FormGroup>
         
         <FormGroup>

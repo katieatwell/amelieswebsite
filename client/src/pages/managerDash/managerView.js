@@ -263,6 +263,7 @@ class ManagerView extends Component {
             this.authed ?
             (<Wrapper>
                 <MainPanel>
+                
                 <Row>
                     <Col lg="12">
                    <div><h3 className="subTitle">Add or Update Menu Items</h3></div>
@@ -274,8 +275,8 @@ class ManagerView extends Component {
                     </div>
                     </Col>
                  </Row>
+                 <div className="wrapper">
                  <Row>
-                  
                     <Col lg="4">
                         <ManagerSidebar value = {this.state.value}
                         populateFormCCMenu = {this.populateFormCCMenu} 
@@ -374,6 +375,7 @@ class ManagerView extends Component {
                     </Col>
                   
                 </Row>
+                </div>
                 </MainPanel>
              </Wrapper>) :
             (

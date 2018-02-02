@@ -52,7 +52,9 @@
 
 .menuWrapper {
     padding-top: 20px;
-    width: 90%;
+    width: 100%;
+    margin-left: -35px;
+
 }
 
 .menuItemTitle {
@@ -67,7 +69,8 @@
 .menuItemPrice {
     font-size: larger;
     margin-bottom: 0px;
-
+    font-family: 'Handlee', cursive;
+    color: #f7f2b0;
 }
 
 .menuItemDescript {

@@ -3,7 +3,7 @@ import Wrapper from "../../components/wrapper";
 import MainPanel from "../../components/mainpanel/mainpanel";
 import UpdateForm from "../../components/forms/managerupdate/updateform";
 import AddNewForm from "../../components/forms/managerupdate/addnew";
-import PanelTitle from "../../components/paragraphdiv/ptitle";
+import PanelBody from "../../components/paragraphdiv/ptextbox";
 import UpdateCafeForm from "../../components/forms/managerupdate/updateform";
 import UpdateCaterForm from "../../components/forms/managerupdate/caterform";
 import AddNewCafe from "../../components/forms/managerupdate/addnew";
@@ -263,7 +263,7 @@ class ManagerView extends Component {
             this.authed ?
             (<Wrapper>
                 <MainPanel>
-                
+                <PanelBody>
                 <Row>
                     <Col lg="12">
                    <div><h3 className="subTitle">Add or Update Menu Items</h3></div>
@@ -375,7 +375,7 @@ class ManagerView extends Component {
                     </Col>
                   
                 </Row>
-                </div>
+                </PanelBody>
                 </MainPanel>
              </Wrapper>) :
             (

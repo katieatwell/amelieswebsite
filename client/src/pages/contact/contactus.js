@@ -18,6 +18,7 @@ class ContactUs extends Component {
                     
                     <PanelBody>
                         <ContactForm />
+                        <br/><br/>
                     </PanelBody>
                 </MainPanel>
             </Wrapper>

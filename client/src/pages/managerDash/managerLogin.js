@@ -18,6 +18,7 @@ class ManagerLogin extends Component {
                     
                     <PanelBody>
                         <ManagerLoginForm />
+                        <br/><br/>
                     </PanelBody>
                 </MainPanel>
             </Wrapper>
